@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/tailwind.css')}}">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='../static/css/tailwind.css')}}"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <title>Main - SX_7</title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='../static/favicon.ico')}}">
-</head>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static',filename='../static/favicon.ico')}}"
+    />
+  </head>
 
-<body>
-    <h1 class="bg-blue-700" x-data="{ message: 'Good morning! 🌅' }" x-text="message"></h1>
-</body>
-
+  <body>
+    <h1
+      class="bg-blue-700"
+      x-data="{ message: 'Good morning! 🌅' }"
+      x-text="message"
+    ></h1>
+  </body>
 </html>

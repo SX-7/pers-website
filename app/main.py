@@ -2,9 +2,10 @@ import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
-if bool(os.environ.get("DEVELOPMENT_ENV",False)):
-    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 #Dev-only
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
+if bool(os.environ.get("DEVELOPMENT_ENV", False)):
+    app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0  # Dev-only
+    app.config["TEMPLATES_AUTO_RELOAD"] = True
+
 
 @app.route("/")
 def hello():
