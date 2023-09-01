@@ -1,6 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 h1 {
     border: 2px #eee solid;
-    color: brown;
+    color: white;
     text-align: center;
     padding: 10px;
 }

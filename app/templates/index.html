@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/tailwind.css')}}">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Webpage!!!</title>
 </head>
 
 <body>
-    <h1>WELCOME to my SITE!!</h1>
+    <h1 class="bg-green-500" x-data="{ message: 'Good morning! 🌅' }" x-text="message"></h1>
 </body>
 
 </html>
