@@ -538,9 +538,9 @@ video {
   position: static;
 }
 
-.bg-green-500 {
+.bg-blue-700 {
   --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 h1 {
