@@ -8,7 +8,7 @@ npm install
 echo ''
 echo 'Seting up config files and env vars...'
 echo ''
-echo 'plugins' > .prettierrc
+echo 'plugins:' > .prettierrc
 echo '  - "prettier-plugin-tailwindcss"' >> .prettierrc
 cp .gitignore .prettierignore
 export DEVELOPMENT_ENV="True"
