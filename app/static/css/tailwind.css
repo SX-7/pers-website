@@ -538,9 +538,22 @@ video {
   position: static;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 h1 {
