@@ -163,6 +163,5 @@ cython_debug/
 
 # html dev relevant
 node_modules
-package-lock.json
 .prettierignore
 .prettierrc
