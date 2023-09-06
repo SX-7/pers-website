@@ -4,6 +4,7 @@ on:
       - main
     paths:
       - 'app/**'
+  workflow_dispatch:
 
 env:
   PROJECT_ID: ${{ secrets.GCL_PROJECT }}
