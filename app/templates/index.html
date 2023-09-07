@@ -23,34 +23,22 @@
       <div class="flex flex-col gap-4 p-4">
         <button
           class="sticky top-4 z-10 rounded-md bg-danube-500 p-2 py-8 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
-          onclick="document.documentElement.scrollTop=0; document.body.scrollTop=0"        
-          >
+          onclick="document.documentElement.scrollTop=0; document.body.scrollTop=0"
+        >
           Page Title/Info
         </button>
-        <button
-          x-data="{height:$el.getBoundingClientRect().top}"
-          x-on:scroll.window="height = $el.getBoundingClientRect().top"
-          x-bind:class="height<64?'invisible':''"
-          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+        <template
+          x-data="{texts:['Lorem','ipsum','dolor','sit','amet','consectetur','adipisicing','elit']}"
+          x-for="test_text in texts"
         >
-          Main Page
-        </button>
-        <button
-          x-data="{height:$el.getBoundingClientRect().top}"
-          x-on:scroll.window="height = $el.getBoundingClientRect().top"
-          x-bind:class="height>64?'':'invisible'"
-          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
-        >
-          Links
-        </button>
-        <button
-          x-data="{height:$el.getBoundingClientRect().top}"
-          x-on:scroll.window="height = $el.getBoundingClientRect().top"
-          x-bind:class="height>64?'':'invisible'"
-          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
-        >
-          Whatnot
-        </button>
+          <button
+            x-data="{height:$el.getBoundingClientRect().top}"
+            x-on:scroll.window="height = $el.getBoundingClientRect().top"
+            x-bind:class="height<64?'invisible':''"
+            x-text="test_text"
+            class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          ></button>
+        </template>
       </div>
       <div class="flex flex-col gap-4 p-2 text-danube-50">
         <div class="font-black">Main Content title</div>
