@@ -22,29 +22,75 @@
     <div class="flex flex-row">
       <div class="flex flex-col gap-4 p-4">
         <button
-          class="bg-danube-500 hover:bg-danube-600 active:bg-danube-700 shadow-rangoon_green-800 hover:shadow-rangoon_green-700 active:shadow-rangoon_green-600 sticky top-0 rounded-md p-2 text-slate-950 subpixel-antialiased shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:translate-y-0 active:scale-95 active:shadow-md"
-        >
+          class="sticky top-4 z-10 rounded-md bg-danube-500 p-2 py-8 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          onclick="document.documentElement.scrollTop=0; document.body.scrollTop=0"        
+          >
           Page Title/Info
         </button>
         <button
-          class="bg-danube-500 hover:bg-danube-600 active:bg-danube-700 shadow-rangoon_green-800 hover:shadow-rangoon_green-700 active:shadow-rangoon_green-600 rounded-md p-2 text-slate-950 subpixel-antialiased shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:translate-y-0 active:scale-95 active:shadow-md"
+          x-data="{height:$el.getBoundingClientRect().top}"
+          x-on:scroll.window="height = $el.getBoundingClientRect().top"
+          x-bind:class="height<64?'invisible':''"
+          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
         >
           Main Page
         </button>
         <button
-          class="bg-danube-500 hover:bg-danube-600 active:bg-danube-700 shadow-rangoon_green-800 hover:shadow-rangoon_green-700 active:shadow-rangoon_green-600 rounded-md p-2 text-slate-950 subpixel-antialiased shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:translate-y-0 active:scale-95 active:shadow-md"
+          x-data="{height:$el.getBoundingClientRect().top}"
+          x-on:scroll.window="height = $el.getBoundingClientRect().top"
+          x-bind:class="height>64?'':'invisible'"
+          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
         >
           Links
         </button>
         <button
-          class="bg-danube-500 hover:bg-danube-600 active:bg-danube-700 shadow-rangoon_green-800 hover:shadow-rangoon_green-700 active:shadow-rangoon_green-600 rounded-md p-2 text-slate-950 subpixel-antialiased shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:translate-y-0 active:scale-95 active:shadow-md"
+          x-data="{height:$el.getBoundingClientRect().top}"
+          x-on:scroll.window="height = $el.getBoundingClientRect().top"
+          x-bind:class="height>64?'':'invisible'"
+          class="scale-90 rounded-md bg-danube-500 p-2 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-95 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
         >
           Whatnot
         </button>
       </div>
-      <div class="text-danube-50 flex flex-col gap-4 p-2">
+      <div class="flex flex-col gap-4 p-2 text-danube-50">
         <div class="font-black">Main Content title</div>
         <div>Content</div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
+          totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
+          debitis ea obcaecati assumenda itaque nisi mollitia eos, ratione,
+          dolor ipsa voluptatibus?
+        </div>
         <div>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, libero
           totam. Laborum, deserunt. Molestiae, quae vero. Numquam repellat
