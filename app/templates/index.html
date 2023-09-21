@@ -25,12 +25,14 @@
           <div class="sticky left-0 top-0 h-16 w-full bg-slate-950"></div>
         </div>
         <button
-          class="sticky top-4 z-10 rounded-md bg-gradient-to-b bg-danube-500 p-2 py-8 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          class="sticky top-4 z-10 overflow-hidden rounded-md bg-danube-500 bg-gradient-to-b p-2 py-8 text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
           onclick="document.documentElement.scrollTop=0; document.body.scrollTop=0"
           x-on:scroll.window="some_data = getScrollPercent()*$el.getBoundingClientRect()['height']"
           x-bind:style="`background-position-y: -${some_data}px; background-size: 100% 200%`"
         >
-        Page Title/Info
+        Page Title/Info  
+        <div class="absolute -z-10 h-10 bg-white object-fill left-0 top-0 w-full"></div>
+          
         </button>
         <template
           x-data="{texts:['Lorem','ipsum','dolor','sit','amet','consectetur','adipisicing','elit']}"
@@ -215,10 +217,10 @@
 <script>
   //https://stackoverflow.com/questions/2387136/cross-browser-method-to-determine-vertical-scroll-percentage-in-javascript
   function getScrollPercent() {
-    var h = document.documentElement, 
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight';
-    return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight);
+    var h = document.documentElement,
+      b = document.body,
+      st = "scrollTop",
+      sh = "scrollHeight";
+    return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
   }
 </script>
