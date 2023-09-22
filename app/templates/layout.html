@@ -27,7 +27,7 @@
         <div
           class="sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-2 py-8 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
           @click="if(cover_offset>=$el.getBoundingClientRect()['height']){location.href='/';}else{document.documentElement.scrollTop=0; document.body.scrollTop=0;}"
-          x-on:scroll.window="cover_offset = Math.max((1-getScrollPercent()*1.5),0)*$el.getBoundingClientRect()['height']"
+          x-on:scroll.window="cover_offset = Math.max((1-getScrollPercent()),0)*$el.getBoundingClientRect()['height']"
           x-effect="top_limit = $el.getBoundingClientRect()['bottom']"
         >
           <div
