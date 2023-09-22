@@ -20,7 +20,10 @@
 
   <body class="h-screen bg-slate-950">
     <div class="flex flex-row">
-      <div class="min-w-1/12 flex flex-col gap-4 p-4" x-data="{ cover_offset: 1000 }">
+      <div
+        class="min-w-1/12 flex flex-col gap-2 p-4"
+        x-data="{ cover_offset: 1000 }"
+      >
         <div class="sticky -top-4 z-10 h-0">
           <div class="sticky left-0 top-0 h-16 w-full bg-slate-950"></div>
         </div>
@@ -31,11 +34,11 @@
         >
           Page Title/Info
           <div
-            class="font-sans flex flex-col absolute left-0 h-full w-full bg-opium-600 object-fill content-center justify-center text-4xl uppercase font-black text-danube-50"
+            class="absolute left-0 flex h-full w-full flex-col content-center justify-center hover:bg-opium-700 active:bg-opium-800 bg-opium-600 object-fill font-sans text-4xl font-black uppercase text-danube-50"
             x-bind:style="`top: ${cover_offset}px;`"
           >
-          ↑
-        </div>
+            ↑
+          </div>
         </button>
         <template
           x-data="{texts:['Lorem','ipsum','dolor','sit','amet','consectetur','adipisicing','elit']}"
