@@ -21,9 +21,11 @@
   <body class="h-screen bg-slate-950">
     <div class="flex flex-row">
       <div
-        class="min-w-1/12 flex flex-col gap-2 p-4 from-opium-500 to-50% bg-gradient-to-br"
-        x-data="{ cover_offset: 1000, top_limit: 0 }"
+        class="min-w-1/12 flex flex-col gap-2 p-4"
+        x-data="{ cover_offset: 1000, button_hide_treshold: 0, sidebar_width: $el.getBoundingClientRect()['width'] }"
+        x-effect="sidebar_width = $el.getBoundingClientRect()['width']"
       >
+        <div class="top-0 left-0 from-opium-900 to-50% bg-gradient-to-br fixed h-full" x-bind:style="`width: ${sidebar_width}px;`"></div>
         <div
           class="sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-2 py-8 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
           @click="if(cover_offset>=$el.getBoundingClientRect()['height']){location.href='/';}else{document.documentElement.scrollTop=0; document.body.scrollTop=0;}"
@@ -52,7 +54,7 @@
             class="scale-90 select-none rounded-md bg-danube-500 p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
             @click="location.href=direction_data['path']"
             @scroll.window="curr_bottom = $el.getBoundingClientRect()['bottom']"
-            x-bind:class="curr_bottom>top_limit ? '' : 'invisible'"
+            x-bind:class="curr_bottom>button_hide_treshold ? '' : 'invisible'"
           ></div>
         </template>
       </div>

@@ -542,6 +542,10 @@ video {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -564,6 +568,10 @@ video {
 
 .top-4 {
   top: 1rem;
+}
+
+.top-2 {
+  top: 0.5rem;
 }
 
 .z-10 {
@@ -608,6 +616,14 @@ video {
 
 .w-1\/12 {
   width: 8.333333%;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-2 {
+  width: 0.5rem;
 }
 
 .scale-90 {
@@ -731,12 +747,28 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-opium-700 {
+  --tw-gradient-from: #866565 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(134 101 101 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-opium-900 {
+  --tw-gradient-from: #574444 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(87 68 68 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-80\% {
   --tw-gradient-to-position: 80%;
 }
 
 .to-50\% {
   --tw-gradient-to-position: 50%;
+}
+
+.to-20\% {
+  --tw-gradient-to-position: 20%;
 }
 
 .object-fill {
