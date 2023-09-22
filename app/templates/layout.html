@@ -21,16 +21,14 @@
   <body class="h-screen bg-slate-950">
     <div class="flex flex-row">
       <div
-        class="min-w-1/12 flex flex-col gap-2 p-4"
-        x-data="{ cover_offset: 1000 }"
+        class="min-w-1/12 flex flex-col gap-2 p-4 from-opium-500 to-50% bg-gradient-to-br"
+        x-data="{ cover_offset: 1000, top_limit: 0 }"
       >
-        <div class="sticky -top-4 z-10 h-0">
-          <div class="sticky left-0 top-0 h-16 w-full bg-slate-950"></div>
-        </div>
         <div
-          class="sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 bg-gradient-to-b p-2 py-8 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          class="sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-2 py-8 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
           @click="if(cover_offset>=$el.getBoundingClientRect()['height']){location.href='/';}else{document.documentElement.scrollTop=0; document.body.scrollTop=0;}"
           x-on:scroll.window="cover_offset = Math.max((1-getScrollPercent()*1.5),0)*$el.getBoundingClientRect()['height']"
+          x-effect="top_limit = $el.getBoundingClientRect()['bottom']"
         >
           <div
             class="flex h-full w-full select-none flex-col content-center justify-center"
@@ -49,9 +47,12 @@
           x-for="direction_data in texts"
         >
           <div
+            x-data="{curr_bottom: $el.getBoundingClientRect()['bottom']}"
             x-text="direction_data['name']"
             class="scale-90 select-none rounded-md bg-danube-500 p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
             @click="location.href=direction_data['path']"
+            @scroll.window="curr_bottom = $el.getBoundingClientRect()['bottom']"
+            x-bind:class="curr_bottom>top_limit ? '' : 'invisible'"
           ></div>
         </template>
       </div>
