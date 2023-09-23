@@ -47,16 +47,16 @@
             ↑
           </div>
         </div>
-        {% for direction_data in [{'id': 1, 'name': 'Links', 'path': '/links'},{'id': 2,
-        'name': 'Projects', 'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
-        '/socials'}] %}
+        {% for direction_data in [{'id': 1, 'name': 'Links', 'path':
+        '/links'},{'id': 2, 'name': 'Projects', 'path': '/projects'},{'id': 3,
+        'name': 'Socials', 'path': '/socials'}] %}
 
         <div
           x-data="{curr_bottom: $el.getBoundingClientRect()['bottom']}"
-          class="scale-90 select-none rounded-md p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          class="{{ 'bg-opium-400 hover:bg-opium-500 active:bg-opium-600' if direction_data['id']==highlight_id else 'bg-danube-500 hover:bg-danube-600 active:bg-danube-700' }} scale-90 select-none rounded-md p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100  hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:shadow-md active:shadow-rangoon_green-600"
           @click="location.href='{{direction_data['path']}}'"
           @scroll.window="curr_bottom = $el.getBoundingClientRect()['bottom']"
-          x-bind:class="[curr_bottom<button_hide_treshold ? 'invisible' : 'visible', {{direction_data['id']}}=={{highlight_id}} ? 'bg-opium-400' : 'bg-danube-500']"
+          x-bind:class="[curr_bottom<button_hide_treshold ? 'invisible' : 'visible']"
         >
           {{ direction_data['name'] }}
         </div>
