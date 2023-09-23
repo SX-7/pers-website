@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -655,6 +659,41 @@ video {
 .bg-slate-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(2 6 23 / var(--tw-bg-opacity));
+}
+
+.bg-opium-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(169 139 142 / var(--tw-bg-opacity));
+}
+
+.bg-danube-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(84 131 188 / var(--tw-bg-opacity));
+}
+
+.bg-rangoon_green-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 102 67 / var(--tw-bg-opacity));
+}
+
+.bg-opium-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 101 101 / var(--tw-bg-opacity));
+}
+
+.bg-opium-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(87 68 68 / var(--tw-bg-opacity));
+}
+
+.bg-opium-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(216 201 203 / var(--tw-bg-opacity));
+}
+
+.bg-opium-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 167 170 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-br {
