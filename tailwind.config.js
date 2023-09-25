@@ -6,6 +6,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      fontFamily: {
+        "noto-sans": "Noto Sans",
+      },
       backgroundSize: {
         "size-200": "200% 200%",
       },

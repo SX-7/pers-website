@@ -16,6 +16,12 @@
       type="image/x-icon"
       href="{{ url_for('static',filename='../static/favicon.ico')}}"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="h-screen bg-slate-950">
@@ -30,13 +36,13 @@
           x-bind:style="`width: ${sidebar_width}px;`"
         ></div>
         <div
-          class="sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-2 py-8 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
+          class="size-4xl sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-4 py-8 text-center font-sans text-4xl font-semibold text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
           @click="if(cover_offset>=$el.getBoundingClientRect()['height']){location.href='/';}else{document.documentElement.scrollTop=0; document.body.scrollTop=0;}"
           x-on:scroll.window="cover_offset = Math.max((1-getScrollPercent()*1.2),0)*$el.getBoundingClientRect()['height']"
           x-effect="button_hide_treshold = $el.getBoundingClientRect()['bottom']"
         >
           <div
-            class="flex h-full w-full select-none flex-col content-center justify-center"
+            class="font-noto-sans flex h-full w-full select-none flex-col content-center justify-center"
           >
             Home
           </div>
@@ -53,7 +59,7 @@
 
         <div
           x-data="{curr_bottom: $el.getBoundingClientRect()['bottom']}"
-          class="{{ 'bg-opium-400 hover:bg-opium-500 active:bg-opium-600' if direction_data['id']==highlight_id else 'bg-danube-500 hover:bg-danube-600 active:bg-danube-700' }} scale-90 select-none rounded-md p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100  hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:shadow-md active:shadow-rangoon_green-600"
+          class="{{ 'bg-opium-400 hover:bg-opium-500 active:bg-opium-600' if direction_data['id']==highlight_id else 'bg-danube-500 hover:bg-danube-600 active:bg-danube-700' }} scale-90 text-2xl font-semibold font-noto-sans select-none rounded-md p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100  hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:shadow-md active:shadow-rangoon_green-600"
           @click="location.href='{{direction_data['path']}}'"
           @scroll.window="curr_bottom = $el.getBoundingClientRect()['bottom']"
           x-bind:class="[curr_bottom<button_hide_treshold ? 'invisible' : 'visible']"
