@@ -6,6 +6,16 @@ module.exports = {
   },
   theme: {
     extend: {
+      backgroundSize: {
+        "size-200": "200% 200%",
+      },
+      backgroundPosition: {
+        "pos-0": "0% 0%",
+        "pos-25": "25% 25%",
+        "pos-50": "50% 50%",
+        "pos-75": "75% 75%",
+        "pos-100": "100% 100%",
+      },
       colors: {
         danube: {
           50: "#f3f7fb",
