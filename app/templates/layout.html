@@ -26,7 +26,7 @@
 
   <body class="bg-slate-950" x-data="{navbarHeight: 0}">
     <div
-      class="fixed z-10 top-0 flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+      class="fixed top-0 z-10 flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
       x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
     >
       <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
@@ -43,8 +43,22 @@
       </div>
       {% endfor %}
     </div>
-    <div class="absolute top-0 w-full" x-bind:style="`padding-top: ${navbarHeight}px; height: 100vh`">
-      {% block content %} {% endblock %}
+    <div
+      x-data="{footerHeight: 0}"
+      class="absolute top-0 flex w-full flex-col"
+      x-bind:style="`padding-top: ${navbarHeight}px; height: 100vh`"
+    >
+      <div class="flex-grow">{% block content %} {% endblock %}</div>
+      <div
+        x-effect="footerHeight=$el.getBoundingClientRect()['height']"
+        class="text-gray-700 transition ease-in-out duration-1000 hover:text-gray-300 bottom-0 flex justify-center gap-8 p-2 items-center flex-row from-slate-950 to-slate-900 bg-gradient-to-t"
+      >
+        <div class="">Made by SX_7</div>
+        /
+        <div>Cookies excluded</div>
+        /
+        <div>Remember to drink water :)</div>
+      </div>
     </div>
   </body>
 </html>
