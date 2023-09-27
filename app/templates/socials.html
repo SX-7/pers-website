@@ -1,7 +1,9 @@
 {% extends "layout.html" %} {% block content %}
 <div class="flex h-full flex-row items-center justify-center">
   <div
-    {# I legit have no clue why this is the number that works #}
+    {#
+    I_legit_have_no_clue_why_this_is_the_number_that_works
+    #}
     x-data="{elementCount: 5, elementSize: 155}"
     x-bind:style="`width: ${Math.ceil(Math.sqrt(elementCount))*(elementSize)}px; height: ${Math.ceil(Math.sqrt(elementCount))*(elementSize)}px`"
     class="flex flex-row flex-wrap place-content-center items-center justify-center gap-4 text-danube-50"
