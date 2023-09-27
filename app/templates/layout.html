@@ -24,29 +24,27 @@
     />
   </head>
 
-  <body class="h-screen bg-slate-950">
-    <div class="flex flex-col" x-data="{navbarHeight: 0}">
-      <div
-        class="fixed top-0 flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
-        x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
-      >
-        <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
-        {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
-        1, 'name': 'Links', 'path': '/links'},{'id': 2, 'name': 'Projects',
-        'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
-        '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
+  <body class="bg-slate-950" x-data="{navbarHeight: 0}">
+    <div
+      class="fixed z-10 top-0 flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+      x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
+    >
+      <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
+      {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
+      1, 'name': 'Links', 'path': '/links'},{'id': 2, 'name': 'Projects',
+      'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
+      '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
 
-        <div
-          class="cursor-pointer text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
-          @click="location.href='{{direction_data['path']}}'"
-        >
-          {{ direction_data['name'] }}
-        </div>
-        {% endfor %}
+      <div
+        class="cursor-pointer text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
+        @click="location.href='{{direction_data['path']}}'"
+      >
+        {{ direction_data['name'] }}
       </div>
-      <div x-bind:style="`margin-top: ${navbarHeight}px;`">
-        {% block content %} {% endblock %}
-      </div>
+      {% endfor %}
+    </div>
+    <div class="absolute top-0 w-full" x-bind:style="`padding-top: ${navbarHeight}px; height: 100vh`">
+      {% block content %} {% endblock %}
     </div>
   </body>
 </html>
