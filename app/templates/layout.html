@@ -27,7 +27,7 @@
   <body class="h-screen bg-slate-950">
     <div class="flex flex-col" x-data="{navbarHeight: 0}">
       <div
-        class="fixed flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+        class="fixed top-0 flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
         x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
       >
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
@@ -37,7 +37,7 @@
         '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
 
         <div
-          class="text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
+          class="cursor-pointer text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
           @click="location.href='{{direction_data['path']}}'"
         >
           {{ direction_data['name'] }}
