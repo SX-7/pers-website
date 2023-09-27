@@ -25,51 +25,28 @@
   </head>
 
   <body class="h-screen bg-slate-950">
-    <div class="flex flex-row">
+    <div class="flex flex-col" x-data="{navbarHeight: 0}">
       <div
-        class="min-w-1/12 flex flex-col gap-2 p-4"
-        x-data="{ cover_offset: 1000, button_hide_treshold: 0, sidebar_width: $el.getBoundingClientRect()['width'] }"
-        x-effect="sidebar_width = $el.getBoundingClientRect()['width']"
+        class="fixed flex w-full flex-row items-center justify-center gap-2 bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+        x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
       >
-        <div
-          class="fixed left-0 top-0 h-full bg-gradient-to-br from-opium-900 to-50%"
-          x-bind:style="`width: ${sidebar_width}px;`"
-        ></div>
-        <div
-          class="size-4xl sticky top-4 z-10 aspect-video cursor-pointer overflow-hidden rounded-md bg-danube-500 p-4 py-8 text-center font-sans text-4xl font-semibold text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-danube-600 hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-90 active:bg-danube-700 active:shadow-md active:shadow-rangoon_green-600"
-          @click="if(cover_offset>=$el.getBoundingClientRect()['height']){location.href='/';}else{document.documentElement.scrollTop=0; document.body.scrollTop=0;}"
-          x-on:scroll.window="cover_offset = Math.max((1-getScrollPercent()*1.2),0)*$el.getBoundingClientRect()['height']"
-          x-effect="button_hide_treshold = $el.getBoundingClientRect()['bottom']"
-        >
-          <div
-            class="flex h-full w-full select-none flex-col content-center justify-center font-noto-sans"
-          >
-            Home
-          </div>
-          <div
-            class="absolute left-0 flex h-full w-full select-none flex-col content-center justify-center bg-opium-600 object-fill font-sans text-4xl font-black uppercase text-danube-50 subpixel-antialiased hover:bg-opium-700 active:bg-opium-800"
-            x-bind:style="`top: ${cover_offset}px;`"
-          >
-            ↑
-          </div>
-        </div>
-        {% for direction_data in [{'id': 1, 'name': 'Links', 'path':
-        '/links'},{'id': 2, 'name': 'Projects', 'path': '/projects'},{'id': 3,
-        'name': 'Socials', 'path': '/socials'},{'id': 4, 'name': 'Quartz',
-        'path': '/quartz'}] %}
+        <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
+        {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
+        1, 'name': 'Links', 'path': '/links'},{'id': 2, 'name': 'Projects',
+        'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
+        '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
 
         <div
-          x-data="{curr_bottom: $el.getBoundingClientRect()['bottom']}"
-          class="{{ 'bg-opium-400 hover:bg-opium-500 active:bg-opium-600' if direction_data['id']==highlight_id else 'bg-danube-500 hover:bg-danube-600 active:bg-danube-700' }} scale-90 text-2xl font-semibold font-noto-sans select-none rounded-md p-2 text-center text-slate-950 subpixel-antialiased shadow-md shadow-rangoon_green-800 transition ease-in-out hover:-translate-y-1 hover:scale-100  hover:shadow-lg hover:shadow-rangoon_green-700 active:translate-y-0 active:scale-[.85] active:shadow-md active:shadow-rangoon_green-600"
+          class="text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
           @click="location.href='{{direction_data['path']}}'"
-          @scroll.window="curr_bottom = $el.getBoundingClientRect()['bottom']"
-          x-bind:class="[curr_bottom<button_hide_treshold ? 'invisible' : 'visible']"
         >
           {{ direction_data['name'] }}
         </div>
         {% endfor %}
       </div>
-      {% block content %} {% endblock %}
+      <div x-bind:style="`margin-top: ${navbarHeight}px;`">
+        {% block content %} {% endblock %}
+      </div>
     </div>
   </body>
 </html>
