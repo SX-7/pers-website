@@ -42,7 +42,7 @@
           x-effect="button_hide_treshold = $el.getBoundingClientRect()['bottom']"
         >
           <div
-            class="font-noto-sans flex h-full w-full select-none flex-col content-center justify-center"
+            class="flex h-full w-full select-none flex-col content-center justify-center font-noto-sans"
           >
             Home
           </div>
@@ -55,7 +55,8 @@
         </div>
         {% for direction_data in [{'id': 1, 'name': 'Links', 'path':
         '/links'},{'id': 2, 'name': 'Projects', 'path': '/projects'},{'id': 3,
-        'name': 'Socials', 'path': '/socials'}] %}
+        'name': 'Socials', 'path': '/socials'},{'id': 4, 'name': 'Quartz',
+        'path': '/quartz'}] %}
 
         <div
           x-data="{curr_bottom: $el.getBoundingClientRect()['bottom']}"

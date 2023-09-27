@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 if bool(os.environ.get("DEVELOPMENT_ENV", False)):
@@ -25,6 +25,10 @@ def projects():
 def socials():
     current_page = "Socials"
     return render_template("socials.html", page=current_page, highlight_id = 3)
+
+@app.route('/quartz')
+def quartz():
+    return redirect("https://quartz.sx7.dev")
 
 
 if __name__ == "__main__":
