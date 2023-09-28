@@ -54,7 +54,7 @@
       class="absolute top-0 flex w-full flex-col"
       x-bind:style="`padding-top: ${navbarHeight}px; height: 100vh`"
     >
-      <div class="flex-grow">{% block content %} {% endblock %}</div>
+      <div class="h-full shrink flex-grow">{% block content %} {% endblock %}</div>
       <div
         x-effect="footerHeight=$el.getBoundingClientRect()['height']"
         class="bottom-0 flex flex-row items-center justify-center gap-8 rounded-t bg-gradient-to-t from-slate-950 to-slate-900 p-2 text-gray-700 transition duration-1000 ease-in-out hover:text-gray-300"
