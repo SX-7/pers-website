@@ -30,7 +30,6 @@
     <div
       class="fixed top-0 z-10 flex w-full flex-row items-center justify-center gap-2 rounded-b bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
       x-init="navbarHeight = $el.getBoundingClientRect()['height']"
-      x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
     >
       <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
       {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
@@ -48,7 +47,7 @@
     </div>
     <div
       x-data="{footerHeight: 0}"
-      class="absolute top-0 flex w-full h-screen flex-col"
+      class="absolute top-0 flex w-full h-screen flex-col pt-14"
       x-bind:style="`padding-top: ${navbarHeight}px`"
     >
       <div class="h-full w-full">{% block content %} {% endblock %}</div>
@@ -67,14 +66,6 @@
 </html>
 
 <script>
-  //https://stackoverflow.com/questions/2387136/cross-browser-method-to-determine-vertical-scroll-percentage-in-javascript
-  function getScrollPercent() {
-    var h = document.documentElement,
-      b = document.body,
-      st = "scrollTop",
-      sh = "scrollHeight";
-    return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
-  }
   //https://stackoverflow.com/questions/1720320/how-to-dynamically-create-css-class-in-javascript-and-apply
   function createCSSSelector(selector, style) {
     if (!document.styleSheets) return;
