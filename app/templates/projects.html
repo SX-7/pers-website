@@ -1,13 +1,33 @@
 {% extends "layout.html" %} {% block content %}
-<div class="flex w-full flex-col gap-4 p-4 text-danube-50">
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
+<div class="flex w-full flex-col gap-8 p-8 text-danube-50">
+  {% for element_data in [{'id':1,'title':'Project1','body':'Description<br />mulitline
+  one even<br />ye<br />now I understand why graphical design is a job lol
+  :pain:'}] %}
+
+  <div
+    class="flex w-full flex-col"
+    x-data="{maxContentHeight: 0, currContentHeight: 0, isOpen: false}"
+    x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
+  >
+    <div class="myclass rounded-lg bg-danube-500 p-2" @click="isOpen = !isOpen">
+      {{element_data['title']}}
+    </div>
     <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
+      x-init="createCSSSelector('.button{{element_data['id']}}cssclass','height:'+$el.getBoundingClientRect()['height']+'px')"
+      class="mx-4 flex flex-col justify-end overflow-hidden rounded-b-md bg-slate-900 ring-2 ring-inset ring-danube-700"
+      x-show="isOpen"
+      x-transition:enter="transition-all ease-in-out duration-500"
+      x-transition:enter-start="h-0"
+      x-transition:enter-end="button{{element_data['id']}}cssclass"
+      x-transition:leave="transition-all ease-in-out duration-500"
+      x-transition:leave-start="button{{element_data['id']}}cssclass"
+      x-transition:leave-end="h-0"
     >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
+      <div>
+        <div class="p-2">{{element_data['body']|safe}}</div>
+      </div>
     </div>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
