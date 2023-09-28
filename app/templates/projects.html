@@ -2,13 +2,22 @@
 <div class="flex w-full flex-col gap-8 p-8 text-danube-50">
   <div
     class="flex w-full flex-col"
-    x-data="{maxContentHeight: 0, currContentHeight: 20, isOpen: false}"
+    x-data="{maxContentHeight: 0, currContentHeight: 0, isOpen: false}"
+    x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
   >
-    <div class="rounded-lg bg-danube-500 p-2"
-    @click="isOpen = !isOpen">Title</div>
+    <div class="myclass rounded-lg bg-danube-500 p-2" @click="isOpen = !isOpen">
+      Title
+    </div>
     <div
-      class="mx-4 flex flex-col justify-end overflow-hidden ring-danube-700 rounded-b-md bg-slate-900 ring-2 ring-inset"
-      :style="`height: ${currContentHeight}px`"
+      x-init="createCSSSelector('.button1cssclass','height:'+$el.getBoundingClientRect()['height']+'px')"
+      class="mx-4 flex flex-col justify-end overflow-hidden rounded-b-md bg-slate-900 ring-2 ring-inset ring-danube-700"
+      x-show="isOpen"
+      x-transition:enter="transition-all ease-in-out duration-500"
+      x-transition:enter-start="h-0"
+      x-transition:enter-end="button1cssclass"
+      x-transition:leave="transition-all ease-in-out duration-500"
+      x-transition:leave-start="button1cssclass"
+      x-transition:leave-end="h-0"
     >
       <div>
         <div class="p-2">
