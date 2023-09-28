@@ -1,95 +1,21 @@
 {% extends "layout.html" %} {% block content %}
 <div class="flex w-full flex-col gap-8 p-8 text-danube-50">
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
+  <div
+    class="flex w-full flex-col"
+    x-data="{maxContentHeight: 0, currContentHeight: 20, isOpen: false}"
+  >
+    <div class="rounded-lg bg-danube-500 p-2"
+    @click="isOpen = !isOpen">Title</div>
     <div
-      class="flex justify-end overflow-hidden flex-col mx-4 h-20 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
+      class="mx-4 flex flex-col justify-end overflow-hidden ring-danube-700 rounded-b-md bg-slate-900 ring-2 ring-inset"
+      :style="`height: ${currContentHeight}px`"
     >
       <div>
-        Description<br />mulitline one even<br />ye<br />now I understand why
-        graphical design is a job lol :pain:
+        <div class="p-2">
+          Description<br />mulitline one even<br />ye<br />now I understand why
+          graphical design is a job lol :pain:
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
-    </div>
-  </div>
-  <div class="flex w-full flex-col">
-    <div class="rounded-lg bg-danube-500 p-2">Title</div>
-    <div
-      class="mx-4 rounded-b-md border-x-2 border-b-2 border-x-slate-600 border-b-slate-600 bg-slate-900 p-2"
-    >
-      Description<br />mulitline one even<br />ye<br />now I understand why
-      graphical design is a job lol :pain:
     </div>
   </div>
 </div>
