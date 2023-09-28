@@ -800,6 +800,14 @@ video {
   padding: 2rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .text-center {
   text-align: center;
 }

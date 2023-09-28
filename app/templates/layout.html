@@ -29,6 +29,7 @@
   <body class="bg-slate-950" x-data="{navbarHeight: 0}">
     <div
       class="fixed top-0 z-10 flex w-full flex-row items-center justify-center gap-2 rounded-b bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+      x-init="navbarHeight = $el.getBoundingClientRect()['height']"
       x-effect="navbarHeight = $el.getBoundingClientRect()['height']"
     >
       <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
@@ -47,8 +48,8 @@
     </div>
     <div
       x-data="{footerHeight: 0}"
-      class="absolute top-0 flex w-full flex-col"
-      x-bind:style="`padding-top: ${navbarHeight}px; height: 100vh`"
+      class="absolute top-0 flex w-full h-screen flex-col"
+      x-bind:style="`padding-top: ${navbarHeight}px`"
     >
       <div class="h-full w-full">{% block content %} {% endblock %}</div>
       <div
