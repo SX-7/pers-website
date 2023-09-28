@@ -695,14 +695,24 @@ video {
   border-color: rgb(243 247 251 / var(--tw-border-opacity));
 }
 
-.bg-danube-500 {
+.bg-danube-800 {
   --tw-bg-opacity: 1;
-  background-color: rgb(117 163 206 / var(--tw-bg-opacity));
+  background-color: rgb(65 92 140 / var(--tw-bg-opacity));
 }
 
 .bg-danube-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(38 49 69 / var(--tw-bg-opacity));
+}
+
+.bg-fuchsia-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 70 239 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-slate-900 {
@@ -713,16 +723,6 @@ video {
 .bg-slate-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(2 6 23 / var(--tw-bg-opacity));
-}
-
-.bg-danube-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 112 171 / var(--tw-bg-opacity));
-}
-
-.bg-danube-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(65 92 140 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -802,22 +802,6 @@ video {
   padding: 2rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pt-8 {
-  padding-top: 2rem;
-}
-
-.pt-16 {
-  padding-top: 4rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
-}
-
 .pt-14 {
   padding-top: 3.5rem;
 }
@@ -861,24 +845,13 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.shadow-rangoon_green-700 {
+  --tw-shadow-color: #555036;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .shadow-rangoon_green-800 {
   --tw-shadow-color: #45432f;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-rangoon_green-500 {
-  --tw-shadow-color: #8b8357;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-rangoon_green-700 {
-  --tw-shadow-color: #555036;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -890,16 +863,6 @@ video {
 
 .ring-inset {
   --tw-ring-inset: inset;
-}
-
-.ring-danube-700 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(74 112 171 / var(--tw-ring-opacity));
-}
-
-.ring-danube-900 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(56 78 112 / var(--tw-ring-opacity));
 }
 
 .ring-danube-800 {
