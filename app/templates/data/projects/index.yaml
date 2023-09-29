@@ -1,13 +1,12 @@
 - id: 1
-  title: Python 3D engine
-  file_name: pyxel-3d-engine.html
-- id: 2
-  title: Portable Speechbubble Maker
+  title: Terminal speechbubble maker
   file_name: bubbling-fountain.html
-- id: 3
-  title: This website!
-  file_name: pers-website.html
-- id: 4
+- id: 2
   title: Wykopinion.com
   file_name: www-proj-res.html
-  
+- id: 3
+  title: Python 3D engine
+  file_name: pyxel-3d-engine.html
+- id: 4
+  title: This website!
+  file_name: pers-website.html
