@@ -9,7 +9,7 @@
     x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
   >
     <div
-      class="select-none rounded-lg bg-danube-800 z-10 shadow-md shadow-rangoon_green-700 p-2"
+      class="select-none text-center rounded-lg bg-danube-800 z-10 shadow-md shadow-rangoon_green-700 p-2"
       @click="isOpen = !isOpen"
     >
       {{element_data['title']}}
@@ -22,7 +22,7 @@
       x-cloak
     >
       <div>
-        <div class="p-2">{% include 'data/projects/'+element_data["file_name"] %}</div>
+        <div class="p-4">{% include 'data/projects/'+element_data["file_name"] %}</div>
       </div>
     </div>
   </div>

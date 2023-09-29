@@ -575,6 +575,10 @@ video {
   display: flex;
 }
 
+.list-item {
+  display: list-item;
+}
+
 .h-36 {
   height: 9rem;
 }
@@ -586,6 +590,10 @@ video {
 .h-max {
   height: -moz-max-content;
   height: max-content;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-screen {
@@ -801,12 +809,28 @@ video {
   padding: 2rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
 .text-center {
   text-align: center;
 }
 
 .indent-4 {
   text-indent: 1rem;
+}
+
+.indent-8 {
+  text-indent: 2rem;
 }
 
 .font-noto-sans {
@@ -859,6 +883,21 @@ video {
 .text-opium-200 {
   --tw-text-opacity: 1;
   color: rgb(233 225 227 / var(--tw-text-opacity));
+}
+
+.text-opium-800 {
+  --tw-text-opacity: 1;
+  color: rgb(102 78 78 / var(--tw-text-opacity));
+}
+
+.text-opium-300 {
+  --tw-text-opacity: 1;
+  color: rgb(216 201 203 / var(--tw-text-opacity));
+}
+
+.text-opium-500 {
+  --tw-text-opacity: 1;
+  color: rgb(169 139 142 / var(--tw-text-opacity));
 }
 
 .subpixel-antialiased {
@@ -940,5 +979,20 @@ video {
   .hover\:text-gray-300:hover {
     --tw-text-opacity: 1;
     color: rgb(209 213 219 / var(--tw-text-opacity));
+  }
+
+  .hover\:text-opium-200:hover {
+    --tw-text-opacity: 1;
+    color: rgb(233 225 227 / var(--tw-text-opacity));
+  }
+
+  .hover\:text-opium-500:hover {
+    --tw-text-opacity: 1;
+    color: rgb(169 139 142 / var(--tw-text-opacity));
+  }
+
+  .hover\:text-opium-50:hover {
+    --tw-text-opacity: 1;
+    color: rgb(248 247 248 / var(--tw-text-opacity));
   }
 }

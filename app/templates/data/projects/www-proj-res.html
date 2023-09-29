@@ -1,33 +1,58 @@
 <div>
-  Some context: In Poland, there's a social media website called Wykop. It's
-  similar to 4chan - excluding (in)famous /b/ or /pol/ - and it also has a
-  pretty similar reach locally. It also has a microblogging section. <br />
-  I don't use the website personally, but our professor suggested that we should
-  perhaps try and create some sort of sentiment analyzer. So, that's what we
-  did. Or rather, I did, since the rest of my team worked on the frontend.<br />The
-  pipeline went more or less like that:
-  <h3>- Spoof a new token</h3>
-  This actually happens only once a day. Obtaining a token with official API had
-  some weird quirks, and even though we had been granted official access to it,
-  we went this route instead. Also we had this part working already well before
-  the official access, so it was too bothersome to switch.
-  <h3>- Get new data for selected tags</h3>
-  We decided to request new data every 15 minutes or so. While that feels
-  redundant, it did allow me to simplify many parts of the code. Most
-  importantly, if the website was down for some time, or a new tag was added,
-  that'd allow us to fasttrack the analysis. And, as we didn't go with faster
-  times, we also had no risk of being shutdown from DoS-ing Wykop's API.
-  <h3>- Process the data</h3>
-  Translate, put results into Google's sentiment AI, put results into Datastore.
-  That was pretty simple, except for the part where it cost us $200 in a single
-  day... mostly due to costs of translation. Turns out text translation is
-  pretty costly after going above the free translations count. Luckily, the free
-  gift credit that Google gives out was able to withstand these costs.
-  <br />
-  And after all that, whenever someone visits the website, they can look at a
-  nice graph. To be absolutely honest, I think it's a terrible source of any
-  information. I wouldn't recommend it as a tool. But, it was a great
-  experience. Working to make it, well, work. Finishing parsing data very close
-  to deadline. Hapiness from being done with it, but also a feeling of "I
-  could've made it better". In the end, it's done.
+  <div class="italic text-opium-800 hover:text-opium-500 transition ease-in-out p-2 text-center">
+    Some context: In Poland, there's a social media website called Wykop. It's
+    similar to 4chan - excluding (in)famous /b/ or /pol/ - and it has a
+    pretty similar reach locally. It also has a microblogging section. I never
+    used the website.
+  </div>
+  <div>
+    Wykop's sentiment analyzer. Originally, we had no idea what we should choose
+    as a project, but our professor suggested that we should perhaps try and
+    create some sort of sentiment analyzer, possibly for Wykop. So, that's what
+    we did. I worked on the backend, and the rest of my team worked on the
+    frontend.
+  </div>
+  <div>
+    <div class="p-2">The pipeline went more or less like that:</div>
+    <div class="pt-2">
+      <div>😎 Spoof a new token</div>
+      <div class="indent-8 pt-1">
+        This happens once a day. Obtaining a token with official
+        API had some weird quirks, and even though we had been granted official
+        access to it, we went this route instead. Also we had this part working
+        already well before the official access, so it was too bothersome to
+        switch.
+      </div>
+    </div>
+    <div class="pt-2">
+      <div>⬇️ Get new data for selected tags</div>
+      <div class="indent-8 pt-1">
+        We decided to request new data every 15 minutes or so. While that feels
+        redundant, it did allow me to simplify many parts of the code. Most
+        importantly, if the website was down for some time, or a new tag was
+        added, that'd let us fasttrack the analysis. And, as we didn't go
+        with faster times, we also had no risk of being shutdown from DoS-ing
+        Wykop's API.
+      </div>
+    </div>
+    <div class="pt-2">
+      <div>🔄 Process the data</div>
+      <div class="indent-8 pt-1">
+        Translate, then put results into Google's sentiment AI, then put results into
+        Datastore. That was pretty simple, except for the part where it cost us
+        $200 in a single day... mostly due to costs of translation. Turns out
+        text translation is pretty costly after going above the free
+        translations count. Luckily, the free gift credit that Google gives out
+        was able to withstand these costs.
+      </div>
+    </div>
+  </div>
+  <div class="pt-4">
+    And after all that, whenever someone visits the website, they can look at a
+    nice graph. To be absolutely honest, I think it's a terrible source of any
+    information. I wouldn't recommend it as a tool. But, it was a great
+    experience. Working to make it, well, sorta work. Finishing parsing data
+    very close to deadline. Hapiness from being done with it, but also a feeling
+    of "I could've made it better". In the end, it's done.
+  </div>
 </div>
