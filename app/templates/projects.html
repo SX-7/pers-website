@@ -18,12 +18,8 @@
       x-init="createCSSSelector('.button{{element_data['id']}}cssclass','height:'+$el.getBoundingClientRect()['height']+'px')"
       class="mx-4 flex flex-col justify-end overflow-hidden rounded-b-md bg-slate-900 ring-2 ring-inset ring-danube-800"
       x-show="isOpen"
-      x-transition:enter="transition-all ease-in-out duration-500"
-      x-transition:enter-start="h-0"
-      x-transition:enter-end="button{{element_data['id']}}cssclass"
-      x-transition:leave="transition-all ease-in-out duration-500"
-      x-transition:leave-start="button{{element_data['id']}}cssclass"
-      x-transition:leave-end="h-0"
+      x-collapse.duration.500ms
+      x-cloak
     >
       <div>
         <div class="p-2">{% include 'data/projects/'+element_data["file_name"] %}</div>
