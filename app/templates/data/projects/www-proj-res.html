@@ -48,35 +48,13 @@
   <div>
     <div class="py-2">The pipeline went more or less like that:</div>
     <div>
-      <div class="font-bold">😎 Spoof a new token</div>
-      <div class="pt-1">
-        👉 This happens once a day. Obtaining a token with official API had some
-        weird quirks, and even though we had been granted official access to it,
-        we went this route instead. Also we had this part working already well
-        before the official access, so it was too bothersome to switch.
-      </div>
+      <div class="font-bold">👉 Spoof a new token</div>
     </div>
     <div class="pt-2">
-      <div class="font-bold">⬇️ Get new data for selected tags</div>
-      <div class="pt-1">
-        👉 We decided to request new data every 15 minutes or so. While that
-        feels redundant, it did allow me to simplify many parts of the code.
-        Most importantly, if the website was down for some time, or a new tag
-        was added, that'd let us fasttrack the analysis. And, as we didn't go
-        with faster times, we also had no risk of being shutdown from DoS-ing
-        Wykop's API.
-      </div>
+      <div class="font-bold">👉 Get new data for selected tags</div>
     </div>
     <div class="pt-2">
-      <div class="font-bold">🔄 Process the data</div>
-      <div class="pt-1">
-        👉 Translate, then put results into Google's sentiment AI, then put
-        results into Datastore. That was pretty simple, except for the part
-        where it cost us $200 in a single day... mostly due to costs of
-        translation. Turns out text translation is pretty costly after going
-        above the free translations count. Luckily, the free gift credit that
-        Google gives out was able to withstand these costs.
-      </div>
+      <div class="font-bold">👉 Process the data</div>
     </div>
   </div>
   <div class="w-full flex flex-col justify-center items-center">
