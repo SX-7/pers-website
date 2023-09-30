@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block content %}
 <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
-<div class="flex w-full flex-col gap-8 p-8 text-opium-200">
+<div class="flex w-full grow flex-col gap-8 p-8 text-opium-200">
   {% for element_data in projects %}
 
   <div
@@ -9,7 +9,7 @@
     x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
   >
     <div
-      class="select-none text-center rounded-lg bg-danube-800 z-10 shadow-md shadow-rangoon_green-700 p-2"
+      class="z-10 select-none rounded-lg bg-danube-800 p-2 text-center shadow-md shadow-rangoon_green-700"
       @click="isOpen = !isOpen"
     >
       {{element_data['title']}}
@@ -22,7 +22,9 @@
       x-cloak
     >
       <div>
-        <div class="p-4">{% include 'data/projects/'+element_data["file_name"] %}</div>
+        <div class="p-4">
+          {% include 'data/projects/'+element_data["file_name"] %}
+        </div>
       </div>
     </div>
   </div>
