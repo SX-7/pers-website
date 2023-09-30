@@ -51,10 +51,11 @@
         {% endfor %}
         <div
           x-data=""
-          class="italic cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-red-800 text-white"
+          class="text-md flex cursor-pointer select-none flex-row items-center justify-center p-2 text-center italic text-white subpixel-antialiased hover:text-red-800"
           @click="location.href='/quartz'"
         >
-          Quartz
+          <div class="hidden sm:block" ><img width="20" src="static/quartz.png" alt="" /></div>
+          <div class="sm:px-2">Quartz</div>
         </div>
       </div>
       {% block content %} {% endblock %}
