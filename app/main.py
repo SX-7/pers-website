@@ -2,11 +2,13 @@ import os
 from flask import Flask, render_template, redirect
 import yaml
 
+file_prefix=""
 app = Flask(__name__)
 if bool(os.environ.get("DEVELOPMENT_ENV", False)):
     app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0  # Dev-only
     app.config["TEMPLATES_AUTO_RELOAD"] = True
-with open('app/templates/data/projects/index.yaml', 'r') as file:
+    file_prefix="app/"
+with open(file_prefix+'templates/data/projects/index.yaml', 'r') as file:
     project_file_data = yaml.safe_load(file)
 
 @app.route("/")
