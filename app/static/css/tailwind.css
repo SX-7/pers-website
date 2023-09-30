@@ -717,10 +717,6 @@ video {
   overflow: hidden;
 }
 
-.overflow-clip {
-  overflow: clip;
-}
-
 .scroll-smooth {
   scroll-behavior: smooth;
 }
@@ -761,9 +757,9 @@ video {
   border-color: rgb(243 247 251 / var(--tw-border-opacity));
 }
 
-.bg-danube-800 {
+.bg-danube-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(65 92 140 / var(--tw-bg-opacity));
+  background-color: rgb(56 78 112 / var(--tw-bg-opacity));
 }
 
 .bg-danube-950 {
@@ -940,6 +936,10 @@ video {
   color: rgb(167 157 116 / var(--tw-text-opacity));
 }
 
+.text-opacity-100 {
+  --tw-text-opacity: 1;
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -949,9 +949,27 @@ video {
   -moz-osx-font-smoothing: auto;
 }
 
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -975,9 +993,9 @@ video {
   --tw-ring-inset: inset;
 }
 
-.ring-danube-800 {
+.ring-danube-950 {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(65 92 140 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(38 49 69 / var(--tw-ring-opacity));
 }
 
 .transition {
@@ -1008,6 +1026,10 @@ video {
 
 [x-cloak] {
   display: none !important;
+}
+
+body {
+  background-image: url("../topography.svg");
 }
 
 @media (hover: hover) and (pointer: fine) {
