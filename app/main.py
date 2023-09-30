@@ -12,7 +12,7 @@ with open(file_prefix+'templates/data/projects/index.yaml', 'r') as file:
     project_file_data = yaml.safe_load(file)
 with open(file_prefix+'static/links/index.yaml', 'r') as file:
     links_data = yaml.safe_load(file)
-
+    
 @app.route("/")
 def home():
     current_page = "Home"
