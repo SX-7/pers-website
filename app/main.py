@@ -10,6 +10,8 @@ if bool(os.environ.get("DEVELOPMENT_ENV", False)):
     file_prefix="app/"
 with open(file_prefix+'templates/data/projects/index.yaml', 'r') as file:
     project_file_data = yaml.safe_load(file)
+with open(file_prefix+'static/links/index.yaml', 'r') as file:
+    links_data = yaml.safe_load(file)
 
 @app.route("/")
 def home():
@@ -20,7 +22,7 @@ def home():
 @app.route("/links")
 def links():
     current_page = "Links"
-    return render_template("links.html", page=current_page, id=1)
+    return render_template("links.html", page=current_page, id=1, links=links_data)
 
 
 @app.route("/projects")
