@@ -11,3 +11,5 @@ Currently hosted at [sx7.dev](https://sx7.dev) with GCL App Engine, planning to 
 - [Tailwind](https://tailwindcss.com)
 
 Choices mostly dictated by improving coding experience without sacrificing any flexibility, while keeping it relatively newcomer-friendly vanilia.
+
+This project uses "Topography" from [Heropatters](https://heropatterns.com/), under [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
