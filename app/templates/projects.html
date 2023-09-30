@@ -1,9 +1,7 @@
 {% extends "layout.html" %} {% block content %}
 <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
-<div class="flex w-full flex-col gap-8 p-8 text-danube-50">
-  {% for element_data in [{'id':1,'title':'Project1','body':'Description<br />mulitline
-  one even<br />ye<br />now I understand why graphical design is a job lol
-  :pain:'}] %}
+<div class="flex w-full grow flex-col gap-8 p-8 text-opium-200">
+  {% for element_data in projects %}
 
   <div
     class="flex w-full flex-col"
@@ -11,7 +9,7 @@
     x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
   >
     <div
-      class="select-none rounded-lg bg-danube-800 z-10 shadow-md shadow-rangoon_green-700 p-2"
+      class="z-10 select-none rounded-lg bg-danube-800 p-2 text-center shadow-md shadow-rangoon_green-700"
       @click="isOpen = !isOpen"
     >
       {{element_data['title']}}
@@ -20,15 +18,13 @@
       x-init="createCSSSelector('.button{{element_data['id']}}cssclass','height:'+$el.getBoundingClientRect()['height']+'px')"
       class="mx-4 flex flex-col justify-end overflow-hidden rounded-b-md bg-slate-900 ring-2 ring-inset ring-danube-800"
       x-show="isOpen"
-      x-transition:enter="transition-all ease-in-out duration-500"
-      x-transition:enter-start="h-0"
-      x-transition:enter-end="button{{element_data['id']}}cssclass"
-      x-transition:leave="transition-all ease-in-out duration-500"
-      x-transition:leave-start="button{{element_data['id']}}cssclass"
-      x-transition:leave-end="h-0"
+      x-collapse.duration.500ms
+      x-cloak
     >
       <div>
-        <div class="p-2">{{element_data['body']|safe}}</div>
+        <div class="p-4">
+          {% include 'data/projects/'+element_data["file_name"] %}
+        </div>
       </div>
     </div>
   </div>

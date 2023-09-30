@@ -7,6 +7,11 @@
       rel="stylesheet"
       href="{{ url_for('static',filename='../static/css/tailwind.css')}}"
     />
+    <!-- Alpine Plugins -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
@@ -26,33 +31,28 @@
     />
   </head>
 
-  <body class="bg-slate-950" x-data="{navbarHeight: 0}">
-    <div
-      class="fixed top-0 z-10 flex w-full flex-row items-center justify-center gap-2 rounded-b bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
-      x-init="navbarHeight = $el.getBoundingClientRect()['height']"
-    >
-      <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
-      {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
-      1, 'name': 'Links', 'path': '/links'},{'id': 2, 'name': 'Projects',
-      'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
-      '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
-
+  <body class="bg-slate-950 font-noto-sans">
+    <div class="flex min-h-screen flex-col">
       <div
-        class="cursor-pointer text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
-        @click="location.href='{{direction_data['path']}}'"
+        class="sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
       >
-        {{ direction_data['name'] }}
+        <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
+        {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
+        1, 'name': 'Links', 'path': '/links'},{'id': 2, 'name': 'Projects',
+        'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
+        '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md font-noto-sans select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
+          @click="location.href='{{direction_data['path']}}'"
+        >
+          {{ direction_data['name'] }}
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-    <div
-      x-data="{footerHeight: 0}"
-      class="absolute top-0 flex h-screen w-full flex-col pt-14"
-      x-bind:style="`padding-top: ${navbarHeight}px`"
-    >
-      <div class="h-full w-full">{% block content %} {% endblock %}</div>
+      {% block content %} {% endblock %}
       <div
-        x-effect="footerHeight=$el.getBoundingClientRect()['height']"
         class="bottom-0 flex w-full flex-row items-center justify-center gap-8 rounded-t bg-gradient-to-t from-slate-950 to-slate-900 p-2 text-gray-700 transition duration-1000 ease-in-out hover:text-gray-300"
       >
         <div>Made by SX_7</div>

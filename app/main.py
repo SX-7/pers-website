@@ -1,11 +1,13 @@
 import os
 from flask import Flask, render_template, redirect
+import yaml
 
 app = Flask(__name__)
 if bool(os.environ.get("DEVELOPMENT_ENV", False)):
     app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0  # Dev-only
     app.config["TEMPLATES_AUTO_RELOAD"] = True
-
+with open('app/templates/data/projects/index.yaml', 'r') as file:
+    project_file_data = yaml.safe_load(file)
 
 @app.route("/")
 def home():
@@ -22,7 +24,7 @@ def links():
 @app.route("/projects")
 def projects():
     current_page = "Projects"
-    return render_template("projects.html", page=current_page, id=2)
+    return render_template("projects.html", page=current_page, id=2, projects=project_file_data)
 
 
 @app.route("/socials")
