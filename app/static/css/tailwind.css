@@ -717,6 +717,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-clip {
+  overflow: clip;
+}
+
 .scroll-smooth {
   scroll-behavior: smooth;
 }
