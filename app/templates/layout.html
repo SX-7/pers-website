@@ -39,8 +39,7 @@
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
         {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
         1, 'name': 'Cool Stuff', 'path': '/links'},{'id': 2, 'name': 'Projects',
-        'path': '/projects'},{'id': 3, 'name': 'Socials', 'path':
-        '/socials'},{'id': 4, 'name': 'Quartz', 'path': '/quartz'}] %}
+        'path': '/projects'},{'id': 3, 'name': 'Socials', 'path': '/socials'}]%}
 
         <div
           x-data=""
@@ -50,6 +49,13 @@
           {{ direction_data['name'] }}
         </div>
         {% endfor %}
+        <div
+          x-data=""
+          class="italic cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-red-800 text-white"
+          @click="location.href='/quartz'"
+        >
+          Quartz
+        </div>
       </div>
       {% block content %} {% endblock %}
       <div
