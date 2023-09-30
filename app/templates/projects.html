@@ -15,7 +15,6 @@
       {{element_data['title']}}
     </div>
     <div
-      x-init="createCSSSelector('.button{{element_data['id']}}cssclass','height:'+$el.getBoundingClientRect()['height']+'px')"
       class="mx-4 flex flex-col justify-end overflow-hidden rounded-b-md bg-slate-900 ring-2 ring-inset ring-danube-950"
       x-show="isOpen"
       x-collapse.duration.500ms
