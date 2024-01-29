@@ -1,3 +1,5 @@
 runtime: python311
 service: default
 entrypoint: gunicorn -w 2 --bind :$PORT main:app
+automatic_scaling:
+  max_instances: 2
