@@ -31,16 +31,5 @@ def projects():
     return render_template("projects.html", page=current_page, id=2, projects=project_file_data)
 
 
-@app.route("/socials")
-def socials():
-    current_page = "Socials"
-    return render_template("socials.html", page=current_page, id=3)
-
-
-@app.route("/quartz")
-def quartz():
-    return redirect("https://quartz.sx7.dev")
-
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
