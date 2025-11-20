@@ -2,7 +2,7 @@
   "name": "pers-website Dev Container",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "dev",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces",
   "runServices": ["web", "tailwind"],
   "shutdownAction": "stopCompose",
   "features": {
