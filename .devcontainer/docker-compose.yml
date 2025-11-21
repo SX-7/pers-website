@@ -12,16 +12,26 @@ services:
     image: mcr.microsoft.com/devcontainers/python:3.11
     volumes:
       - ../..:/workspaces:cached
-    command: sleep infinity
+    working_dir: /workspaces
+    command: python -m venv .venv && source .venv/bin/activate && pip install -r app/requirements.txt --require-virtualenv --disable-pip-version-check && export DEVELOPMENT_ENV="True" && flask --app app/main.py run --reload
     ports:
       - "5000:5000"
     depends_on:
       - dev
+      - tailwind:
+          condition: service_healthy
 
   tailwind:
     image: node:20-bullseye
     volumes:
       - ../..:/workspaces:cached
-    command: sleep infinity
+    working_dir: /workspaces
+    command: npm install && echo 'plugins:' > .prettierrc && echo '  - "prettier-plugin-tailwindcss"' >> .prettierrc && cp .gitignore .prettierignore && export DEVELOPMENT_ENV="True" && npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch
     depends_on:
       - dev
+    healthcheck:
+      test: ["CMD", "ls", "app/static/css/tailwind.css"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
