@@ -6,11 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../..:/workspaces:cached
-    ports:
-      - "5000:5000"
     command: sleep infinity
-    environment:
-      - PYTHONUNBUFFERED=1
 
   web:
     image: mcr.microsoft.com/devcontainers/python:3.11
