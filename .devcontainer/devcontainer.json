@@ -21,5 +21,6 @@
 	},
 	"postCreateCommand": "pip install -r requirements.txt || true",
 	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	}
 }
