@@ -5,7 +5,7 @@
 		"docker-compose.yml"
 	],
 	"service": "dev",
-	"workspaceFolder": "/workspaces",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"shutdownAction": "stopCompose",
 	"customizations": {
 		"vscode": {
