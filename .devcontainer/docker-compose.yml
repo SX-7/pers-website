@@ -17,9 +17,10 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - dev
-      - tailwind:
-          condition: service_healthy
+      dev:
+        condition: service_started
+      tailwind:
+        condition: service_healthy
 
   tailwind:
     image: node:20-bullseye
