@@ -26,13 +26,13 @@ services:
     volumes:
       - ../..:/workspaces:cached
     working_dir: /workspaces/${repobasepath}
-    #command: npm install && echo 'plugins:' > .prettierrc && echo '  - "prettier-plugin-tailwindcss"' >> .prettierrc && cp .gitignore .prettierignore && export DEVELOPMENT_ENV="True" && npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch
+    command: npm install && echo 'plugins:' > .prettierrc && echo '  - "prettier-plugin-tailwindcss"' >> .prettierrc && cp .gitignore .prettierignore && export DEVELOPMENT_ENV="True" && npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch
     command: sleep infinity
     depends_on:
       - dev
-    #healthcheck:
-    #  test: ["CMD", "ls", "app/static/css/tailwind.css"]
-    #  interval: 30s
-    #  timeout: 10s
-    #  retries: 5
-    #  start_period: 30s
+    healthcheck:
+      test: ["CMD", "ls", "app/static/css/tailwind.css"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
