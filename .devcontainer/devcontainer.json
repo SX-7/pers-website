@@ -5,7 +5,7 @@
 		"docker-compose.yml"
 	],
 	"service": "dev",
-	"workspaceFolder": "/workspaces/{$localWorkspaceFolderBasename}",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"shutdownAction": "stopCompose",
 	"initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
 	"customizations": {
