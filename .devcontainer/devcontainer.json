@@ -1,13 +1,8 @@
-
 {
-	"name": "pers-website (docker-compose)",
-	"dockerComposeFile": [
-		"docker-compose.yml"
-	],
-	"service": "dev",
+	"name": "pers-website",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"shutdownAction": "stopCompose",
 	"initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
+	"postCreateCommand": "docker-compose -f /workspaces/${localWorkspaceFolderBasename}/.devcontainer/docker-compose.yml up",
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -21,6 +16,6 @@
 		}
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+		"ghcr.io/devcontainers/features/docker-in-docker": {}
 	}
 }
