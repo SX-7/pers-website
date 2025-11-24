@@ -39,8 +39,8 @@ services:
           cp .gitignore .prettierignore
           export DEVELOPMENT_ENV='True'
           npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch
-    depends_on: 
-      - dev
+    #depends_on: 
+    #  - dev
     healthcheck:
       test: ["CMD", "ls", "app/static/css/tailwind.css"]
       interval: 30s
