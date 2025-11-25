@@ -2,7 +2,7 @@
 	"name": "pers-website",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
-	"postStartCommand": "until [ '$(ls /var/run/docker.sock)' ]; do sleep 2 done; docker-compose -f .devcontainer/docker-compose.yml up -d",
+	"postStartCommand": "until [ '$(ls /var/run/docker.sock)' ]; do sleep 2; done; docker-compose -f .devcontainer/docker-compose.yml up -d",
 	"customizations": {
 		"vscode": {
 			"settings": {
