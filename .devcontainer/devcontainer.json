@@ -11,7 +11,8 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-azuretools.vscode-containers"
+				"ms-azuretools.vscode-containers",
+				"esbenp.prettier-vscode"
 			]
 		}
 	},
