@@ -8,7 +8,7 @@ App will be exposed on port 5000 by default.
 
 ## Notes
 
-- `postCreateCommand` may fail with an error like `dial unix [...]/docker-containerd.sock: connect: connection refused`, if that happens then either restart entire codespace, or `killall -9 dockerd; sudo dockerd &` (or anything that'll restart `dockerd` service)
+- `postCreateCommand` may fail with an error like `dial unix [...]/docker-containerd.sock: connect: timeout`, if that happens then run `/usr/local/share/docker-init.sh` and rerun the `docker-compose` command. It does so automatically once, but it may fail since codespaces are not reliable.
 
 - The above command is being ran by default, if you have some slow system it might fail due to race conditions, in which case run the commands seperately manually, or add `sleep` to command chain.
 
