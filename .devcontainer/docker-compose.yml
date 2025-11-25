@@ -36,8 +36,6 @@ services:
           while [ $? ]; do npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css; sleep 10; done
     healthcheck:
       test: ["CMD", "ls", "app/static/css/tailwind.css"]
-      interval: 10s
+      interval: 5s
       timeout: 2s
       retries: 5
-      start-period: 30s
-      start-interval: 2s
