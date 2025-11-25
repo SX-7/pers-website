@@ -1,8 +1,7 @@
 {
 	"name": "pers-website",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
-	"postStartCommand": "until [ '$(ls /var/run/docker.sock)' ]; do sleep 2; done; sleep 2; docker-compose -f .devcontainer/docker-compose.yml up -d || /usr/local/share/docker-init.sh && docker-compose -f .devcontainer/docker-compose.yml up -d",
+	//"postStartCommand": "./dev_setup.sh",
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -11,12 +10,8 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-azuretools.vscode-containers",
 				"esbenp.prettier-vscode"
 			]
 		}
-	},
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker": {}
 	}
 }
