@@ -16,4 +16,4 @@ export DEVELOPMENT_ENV="True"
 echo 'Starting flask and tailwind...'
 echo -e 'Flask will need to be shut down manually, run "\033[4;31mkillall -9 python\033[0m" after CTRL+C!'
 echo ''
-(flask --app app/main.py run --reload --debug & npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch &)
+{ flask --app app/main.py run --reload & npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch; }
