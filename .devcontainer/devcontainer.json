@@ -2,7 +2,7 @@
 	"name": "pers-website",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
-	"postCreateCommand": "docker-compose -f .devcontainer/docker-compose.yml up -d",
+	"postCreateCommand": "killall -9 dockerd; sudo dockerd & docker-compose -f .devcontainer/docker-compose.yml up -d",
 	"customizations": {
 		"vscode": {
 			"settings": {
