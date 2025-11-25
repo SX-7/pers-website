@@ -1,7 +1,7 @@
 {
 	"name": "pers-website",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	//"postStartCommand": "./dev_setup.sh",
+	"postStartCommand": "./dev_setup.sh",
 	"customizations": {
 		"vscode": {
 			"settings": {
