@@ -1,20 +1,19 @@
 #!/bin/bash
-echo 'Activate venvs, install dev deps'
-echo ''
+
+echo 'Activate venv, install dev deps'
 python -m venv .venv
 source .venv/bin/activate
-pip install -r app/requirements.txt --require-virtualenv --disable-pip-version-check
-npm install
+pip install -r app/requirements.txt --require-virtualenv --disable-pip-version-check --progress-bar on --quiet
+npm install --no-fund --no-audit
 echo ''
+
 echo 'Seting up config files and env vars...'
-echo ''
 echo 'plugins:' > .prettierrc
 echo '  - "prettier-plugin-tailwindcss"' >> .prettierrc
 cp .gitignore .prettierignore
 export DEVELOPMENT_ENV="True"
-echo ""
-echo "Remember to also run:"
-echo "npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch"
-echo "for hot reload of css, and use prettier for code legibility"
-echo ""
-flask --app app/main.py run --reload
+
+echo 'Starting flask and tailwind...'
+echo -e 'Flask will need to be shut down manually, run "\033[4;31mkillall -9 python\033[0m" after CTRL+C!'
+echo ''
+{ flask --app app/main.py run --reload & npx tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --watch; }
