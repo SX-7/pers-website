@@ -1,4 +1,40 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --color-danube-50: #f3f7fb;
+  --color-danube-100: #e3eef6;
+  --color-danube-200: #cee2ef;
+  --color-danube-300: #accee4;
+  --color-danube-400: #85b4d5;
+  --color-danube-500: #75a3ce;
+  --color-danube-600: #5483bc;
+  --color-danube-700: #4a70ab;
+  --color-danube-800: #415c8c;
+  --color-danube-900: #384e70;
+  --color-danube-950: #263145;
+  --color-opium-50: #f8f7f8;
+  --color-opium-100: #f3f0f1;
+  --color-opium-200: #e9e1e3;
+  --color-opium-300: #d8c9cb;
+  --color-opium-400: #bfa7aa;
+  --color-opium-500: #a98b8e;
+  --color-opium-600: #917172;
+  --color-opium-700: #866565;
+  --color-opium-800: #664e4e;
+  --color-opium-900: #574444;
+  --color-opium-950: #322525;
+  --color-rangoon-green-50: #f6f4ef;
+  --color-rangoon-green-100: #eae7dd;
+  --color-rangoon-green-200: #d8d2be;
+  --color-rangoon-green-300: #bfb797;
+  --color-rangoon-green-400: #a79d74;
+  --color-rangoon-green-500: #8b8357;
+  --color-rangoon-green-600: #6d6643;
+  --color-rangoon-green-700: #555036;
+  --color-rangoon-green-800: #45432f;
+  --color-rangoon-green-900: #3c3a2b;
+  --color-rangoon-green-950: #232216;
+}
 
 [x-cloak] {
   display: none !important;
