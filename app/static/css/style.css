@@ -39,7 +39,3 @@
 [x-cloak] {
   display: none !important;
 }
-body {
-  background-image: url("../topography.svg");
-  font-family: "Noto Sans", sans-serif;
-}

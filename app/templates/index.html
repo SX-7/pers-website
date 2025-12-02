@@ -1,29 +1,8 @@
 {% extends "layout.html" %} {% block content %}
 <div
-  x-data="{interval: 50}"
   class="flex grow flex-col items-center text-center text-lg justify-center gap-4 p-4 text-danube-200"
 >
-  <script>
-    function appearText(target, message, index, interval) {
-      if (index < message.length && index>=0) {
-        target.append(message[index++]);
-        setTimeout(function () {
-          appearText(target, message, index, interval);
-        }, interval);
-      }
-      else if (index<0) {
-        index++
-        setTimeout(function () {
-          appearText(target, message, index, interval);
-        }, interval);
-      }
-    }
-  </script>
-  <div x-init="appearText($el,'Hello, and welcome to my website!',0,interval)"></div>
-  <div x-init="appearText($el,'I\'m currently an IT student, and this website is a small side project of mine',-100,interval)"></div>
-  <div x-init="appearText($el,'This is not a portfolio, but more of a content container',-200,interval)"></div>
-  <div x-init="appearText($el,'So, consider this site to be on the utility side of website spectrum',-300,interval)"></div>
-  <div x-init="appearText($el,'In any case, have a nice day!',-400,interval)"></div>
-  <div class="italic text-opium-600" x-init="appearText($el,'Also, if you find any issues, feel free to tell me. I don\'t have 10 devices to test this website on :P',-320,interval*1.5)"></div>
+  <a>Hello, and welcome to my website!</a>
+  <a>This is just a content hub.</a>
 </div>
 {% endblock %}

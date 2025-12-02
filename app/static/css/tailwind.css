@@ -11,6 +11,7 @@
     --color-slate-950: oklch(12.9% 0.042 264.695);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-white: #fff;
     --spacing: 0.25rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
@@ -32,7 +33,6 @@
     --color-opium-200: #e9e1e3;
     --color-opium-400: #bfa7aa;
     --color-opium-500: #a98b8e;
-    --color-opium-600: #917172;
     --color-opium-900: #574444;
     --color-opium-950: #322525;
   }
@@ -255,6 +255,9 @@
   .inline {
     display: inline;
   }
+  .table {
+    display: table;
+  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -276,8 +279,14 @@
   .w-full {
     width: 100%;
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .scale-100 {
     --tw-scale-x: 100%;
@@ -287,6 +296,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .list-inside {
     list-style-position: inside;
@@ -357,6 +369,25 @@
     border-bottom-right-radius: var(--radius-md);
     border-bottom-left-radius: var(--radius-md);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .bg-\[\.\.\/\] {
+    background-color: ../;
+  }
+  .bg-\[\.\.\/sta\] {
+    background-color: ../sta;
+  }
+  .bg-\[\.\.\/static\/\] {
+    background-color: ../static/;
+  }
+  .bg-\[\.\.\/static\/topography\.svg\] {
+    background-color: ../static/topography.svg;
+  }
+  .bg-\[url\(\)\.\.\/static\/topography\.svg\] {
+    background-color: url()../static/topography.svg;
+  }
   .bg-danube-900 {
     background-color: var(--color-danube-900);
   }
@@ -376,6 +407,15 @@
     }
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
+  .bg-\[url\(\.\.\/static\/topography\.svg\)\] {
+    background-image: url(../static/topography.svg);
+  }
+  .bg-\[url\(\.\.\/topography\.svg\)\] {
+    background-image: url(../topography.svg);
+  }
+  .bg-\[url\(static\/topography\.svg\)\] {
+    background-image: url(static/topography.svg);
+  }
   .from-slate-950 {
     --tw-gradient-from: var(--color-slate-950);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -383,6 +423,27 @@
   .to-slate-900 {
     --tw-gradient-to: var(--color-slate-900);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .fill-white {
+    fill: var(--color-white);
+  }
+  .stroke-white {
+    stroke: var(--color-white);
+  }
+  .stroke-3 {
+    stroke-width: 3;
+  }
+  .stroke-4 {
+    stroke-width: 4;
+  }
+  .stroke-10 {
+    stroke-width: 10;
+  }
+  .stroke-\[10\] {
+    stroke-width: 10;
+  }
+  .stroke-\[100\] {
+    stroke-width: 100;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -437,9 +498,6 @@
   .text-opium-500 {
     color: var(--color-opium-500);
   }
-  .text-opium-600 {
-    color: var(--color-opium-600);
-  }
   .italic {
     font-style: italic;
   }
@@ -464,8 +522,15 @@
   .ring-danube-950 {
     --tw-ring-color: var(--color-danube-950);
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .saturate-0 {
     --tw-saturate: saturate(0%);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .transition {
@@ -585,10 +650,6 @@
 [x-cloak] {
   display: none !important;
 }
-body {
-  background-image: url("../topography.svg");
-  font-family: "Noto Sans", sans-serif;
-}
 @property --tw-scale-x {
   syntax: "*";
   inherits: false;
@@ -603,6 +664,11 @@ body {
   syntax: "*";
   inherits: false;
   initial-value: 1;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-gradient-position {
   syntax: "*";
@@ -715,6 +781,11 @@ body {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -782,6 +853,7 @@ body {
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
+      --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
@@ -806,6 +878,7 @@ body {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
