@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="static/css/tailwind.css"
+    />
+    <!-- Alpine Plugins -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Alpine -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <title>Links - SX_7</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="static/favicon.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-slate-950 bg-[url(../topography.svg)] bg-size-[2000px] font-sans">
+    <div class="flex min-h-screen flex-col">
+      <div
+        class="bg-danube-950 shadow-rangoon_green-800 sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b p-2 shadow-md"
+      >
+        <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
+        
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-danube-200"
+          @click="location.href='/'"
+        >
+          Home
+        </div>
+        
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-opium-400"
+          @click="location.href='/links'"
+        >
+          Cool Stuff
+        </div>
+        
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-danube-200"
+          @click="location.href='/projects'"
+        >
+          Projects
+        </div>
+        
+      </div>
+      
+<div class="flex grow flex-col gap-4 p-4 text-danube-200">
+  <div
+    class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+  >
+    
+    <a href="https://modarchive.org/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/modarchive.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">The Mod Archive</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Great tunes!
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://steamdb.info/sales/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/steamdb.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">SteamDB</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Remember to check during sales
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://www.warmplace.ru/soft/sunvox/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/sunvox.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">SunVox</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Nice, portable tracker. Useful for modarchive
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://obsidian.md/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/obsidian.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Obsidian</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Best note-taking app
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://cobalt.tools/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/cobalt.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">cobalt.tools</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Great all-in-one downloader
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://itch.io/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/itch.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">itch.io</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Many cool prototypes and niche games
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://gameprogrammingpatterns.com/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/gameprogrammingpatterns.webp"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Game Programming Patterns</div>
+          <div class="text-center italic text-rangoon_green-400">
+            I ought to read it... later... maybe...
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/stackoverflow.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Basic MathJax tutorial+reference</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Very helpful for Obsidian/Anki
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://apps.ankiweb.net/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/anki.webp"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Anki</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Basically flashcards, really useful
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://fedoraproject.org/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/fedora.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Fedora</div>
+          <div class="text-center italic text-rangoon_green-400">
+            So far, my favourite OS
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://endeavouros.com/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/endeavouros.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">EndeavourOS</div>
+          <div class="text-center italic text-rangoon_green-400">
+            And my second favourite OS
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/catppuccin/catppuccin" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/catpuccin.webp"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Catppuccin themes</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Nice, soothing themes for many apps
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/mxgmn/WaveFunctionCollapse" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/github.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Wave Function Collapse</div>
+          <div class="text-center italic text-rangoon_green-400">
+            An interesting procedural generation algorithm!
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://easings.net/" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/easings.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Easing Functions Cheat Sheet</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Plainly useful for perfecting animations
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/ibraheemdev/modern-unix" target="_blank">
+      <div
+        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
+      >
+        <img
+          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
+          src="static/links/github.png"
+          alt=""
+        />
+        <div class="flex grow flex-col content-center justify-center p-2">
+          <div class="text-center">Modern Unix repo</div>
+          <div class="text-center italic text-rangoon_green-400">
+            Listing of many useful tools
+          </div>
+        </div>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+      <div
+        class="
+        group bottom-0 flex w-screen flex-row items-center justify-center gap-2 place-self-center
+        rounded-t-md
+        bg-linear-to-t from-slate-950 to-slate-800 p-2 text-gray-700 
+        outline-0 outline-slate-800 select-none md:w-min md:outline-4 hover:md:outline-slate-700 transition-colors duration-1000 ease-in-out"
+      >
+        <div
+          class="text-nowrap transition duration-1000 ease-in-out group-hover:text-gray-300"
+        >
+          Made by
+        </div>
+        <div class="relative h-4 w-8">
+          <div
+            class="absolute -inset-4 place-self-center opacity-0 transition duration-1000 ease-in-out group-hover:opacity-100"
+          >
+            <img
+              style="image-rendering: crisp-edges"
+              src="../static/favicon.ico"
+            />
+          </div>
+          <div
+            class="absolute -inset-4 place-self-center opacity-100 transition duration-1000 ease-in-out group-hover:opacity-0"
+          >
+            SX_7
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

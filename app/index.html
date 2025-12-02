@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static',filename='../static/css/tailwind.css')}}"
+      href="static/css/tailwind.css"
     />
     <!-- Alpine Plugins -->
     <script
@@ -17,11 +17,11 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <title>{{page}} - SX_7</title>
+    <title>Home - SX_7</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ url_for('static',filename='../static/favicon.ico')}}"
+      href="static/favicon.ico"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,20 +37,43 @@
         class="bg-danube-950 shadow-rangoon_green-800 sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b p-2 shadow-md"
       >
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
-        {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
-        1, 'name': 'Cool Stuff', 'path': '/links'},{'id': 2, 'name': 'Projects',
-        'path': '/projects'}]%}
+        
 
         <div
           x-data=""
-          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
-          @click="location.href='{{direction_data['path']}}'"
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-opium-400"
+          @click="location.href='/'"
         >
-          {{ direction_data['name'] }}
+          Home
         </div>
-        {% endfor %}
+        
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-danube-200"
+          @click="location.href='/links'"
+        >
+          Cool Stuff
+        </div>
+        
+
+        <div
+          x-data=""
+          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 text-danube-200"
+          @click="location.href='/projects'"
+        >
+          Projects
+        </div>
+        
       </div>
-      {% block content %} {% endblock %}
+      
+<div
+  class="flex grow flex-col items-center text-center text-lg justify-center gap-4 p-4 text-danube-200"
+>
+  <a>Hello, and welcome to my website!</a>
+  <a>This is just a content hub.</a>
+</div>
+
       <div
         class="
         group bottom-0 flex w-screen flex-row items-center justify-center gap-2 place-self-center
