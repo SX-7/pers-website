@@ -31,10 +31,10 @@
     />
   </head>
 
-  <body class="bg-slate-950 font-sans">
+  <body class="bg-slate-950 bg-[url(../topography.svg)] bg-size-[2000px] font-sans">
     <div class="flex min-h-screen flex-col">
       <div
-        class="sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b bg-danube-950 p-2 shadow-md shadow-rangoon_green-800"
+        class="bg-danube-950 shadow-rangoon_green-800 sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b p-2 shadow-md"
       >
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
         {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
@@ -52,13 +52,32 @@
       </div>
       {% block content %} {% endblock %}
       <div
-        class="bottom-0 flex w-full flex-row items-center justify-center gap-8 rounded-t bg-linear-to-t from-slate-950 to-slate-900 p-2 text-gray-700 transition duration-1000 ease-in-out hover:text-gray-300"
+        class="
+        group bottom-0 flex w-screen flex-row items-center justify-center gap-2 place-self-center
+        rounded-t-md
+        bg-linear-to-t from-slate-950 to-slate-800 p-2 text-gray-700 
+        outline-0 outline-slate-800 select-none md:w-min md:outline-4 hover:md:outline-slate-700 transition-colors duration-1000 ease-in-out"
       >
-        <div>Made by SX_7</div>
-        /
-        <div>Cookies excluded</div>
-        /
-        <div>Remember to hydrate :)</div>
+        <div
+          class="text-nowrap transition duration-1000 ease-in-out group-hover:text-gray-300"
+        >
+          Made by
+        </div>
+        <div class="relative h-4 w-8">
+          <div
+            class="absolute -inset-4 place-self-center opacity-0 transition duration-1000 ease-in-out group-hover:opacity-100"
+          >
+            <img
+              style="image-rendering: crisp-edges"
+              src="../static/favicon.ico"
+            />
+          </div>
+          <div
+            class="absolute -inset-4 place-self-center opacity-100 transition duration-1000 ease-in-out group-hover:opacity-0"
+          >
+            SX_7
+          </div>
+        </div>
       </div>
     </div>
   </body>
