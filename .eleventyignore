@@ -1,0 +1,2 @@
+# Ignore the source CSS file so it doesn't get copied
+app/static/css/style.css

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static',filename='../static/css/tailwind.css')}}"
+      href="{{ '/static/css/tailwind.css' | url }}"
     />
     <!-- Alpine Plugins -->
     <script
@@ -17,11 +17,11 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <title>{{page}} - SX_7</title>
+    <title>{{active_page}} - SX_7</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ url_for('static',filename='../static/favicon.ico')}}"
+      href="{{ '../static/favicon.ico' | url }}"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

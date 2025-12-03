@@ -1,60 +1,60 @@
 - title: The Mod Archive
   desc: Great tunes!
   link: "https://modarchive.org/"
-  img: static/links/modarchive.png
+  img: /static/links/modarchive.png
 - title: SteamDB
   desc: Remember to check during sales
   link: "https://steamdb.info/sales/"
-  img: static/links/steamdb.png
+  img: /static/links/steamdb.png
 - title: SunVox
   desc: Nice, portable tracker. Useful for modarchive
   link: "https://www.warmplace.ru/soft/sunvox/"
-  img: static/links/sunvox.png
+  img: /static/links/sunvox.png
 - title: Obsidian
   desc: Best note-taking app
   link: 'https://obsidian.md/'
-  img: static/links/obsidian.png
+  img: /static/links/obsidian.png
 - title: cobalt.tools
   desc: Great all-in-one downloader
   link: "https://cobalt.tools/"
-  img: static/links/cobalt.png
+  img: /static/links/cobalt.png
 - title: itch.io
   desc: Many cool prototypes and niche games
   link: 'https://itch.io/'
-  img: static/links/itch.png
+  img: /static/links/itch.png
 - title: Game Programming Patterns
   desc: I ought to read it... later... maybe...
   link: 'https://gameprogrammingpatterns.com/'
-  img: static/links/gameprogrammingpatterns.webp
+  img: /static/links/gameprogrammingpatterns.webp
 - title: Basic MathJax tutorial+reference
   desc: Very helpful for Obsidian/Anki
   link: 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
-  img: static/links/stackoverflow.png
+  img: /static/links/stackoverflow.png
 - title: Anki
   desc: Basically flashcards, really useful
   link: 'https://apps.ankiweb.net/'
-  img: static/links/anki.webp
+  img: /static/links/anki.webp
 - title: Fedora
   desc: So far, my favourite OS
   link: 'https://fedoraproject.org/'
-  img: static/links/fedora.png
+  img: /static/links/fedora.png
 - title: EndeavourOS
   desc: And my second favourite OS
   link: 'https://endeavouros.com/'
-  img: static/links/endeavouros.png
+  img: /static/links/endeavouros.png
 - title: Catppuccin themes
   desc: Nice, soothing themes for many apps
   link: 'https://github.com/catppuccin/catppuccin'
-  img: static/links/catpuccin.webp
+  img: /static/links/catpuccin.webp
 - title: Wave Function Collapse
   desc: An interesting procedural generation algorithm!
   link: 'https://github.com/mxgmn/WaveFunctionCollapse'
-  img: static/links/github.png
+  img: /static/links/github.png
 - title: Easing Functions Cheat Sheet
   desc: Plainly useful for perfecting animations
   link: https://easings.net/
-  img: static/links/easings.png
+  img: /static/links/easings.png
 - title: Modern Unix repo
   desc: Listing of many useful tools
   link: 'https://github.com/ibraheemdev/modern-unix'
-  img: static/links/github.png
+  img: /static/links/github.png

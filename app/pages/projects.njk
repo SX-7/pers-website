@@ -1,4 +1,8 @@
-{% extends "layout.html" %} {% block content %}
+---
+active_page: Projects
+id: 2
+---
+{% extends "../elements/layout.njk" %} {% block content %}
 <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
 <div class="flex w-full grow flex-col gap-8 p-8 text-opium-200">
   {% for element_data in projects %}
@@ -22,7 +26,7 @@
     >
       <div>
         <div class="p-4">
-          {% include 'data/projects/'+element_data["file_name"] %}
+          {% include '../elements/projects/'+element_data["file_name"] %}
         </div>
       </div>
     </div>

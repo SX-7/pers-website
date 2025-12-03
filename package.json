@@ -14,9 +14,17 @@
   },
   "homepage": "https://github.com/SX-7/pers-website#readme",
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
     "@tailwindcss/cli": "^4.1.17",
+    "js-yaml": "^4.1.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.17"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css",
+    "build:html": "eleventy",
+    "build": "npm run build:css && npm run build:html",
+    "start": "eleventy --serve"
   }
 }

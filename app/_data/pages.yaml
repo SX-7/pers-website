@@ -1,0 +1,9 @@
+- id: 1
+  title: Home
+  file_name: index.njk
+- id: 2
+  title: Links
+  file_name: links.njk
+- id: 3
+  title: Projects
+  file_name: projects.njk
