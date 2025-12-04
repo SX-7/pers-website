@@ -43,6 +43,8 @@ jobs:
       # 2. Build HTML (Eleventy)
       - name: Build HTML with Eleventy
         run: npx @11ty/eleventy
+        env:
+          NODE_ENV: production
 
       # --- AUTH & DEPOY ---
 

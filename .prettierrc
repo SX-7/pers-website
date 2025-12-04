@@ -1,0 +1,11 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "objectWrap": "preserve",
+  "quoteProps": "consistent",
+  "singleAttributePerLine": true,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./app/static/css/tailwind.css"
+}

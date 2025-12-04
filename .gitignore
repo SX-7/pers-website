@@ -163,6 +163,4 @@ cython_debug/
 
 # html dev relevant
 node_modules
-.prettierignore
-.prettierrc
 _site

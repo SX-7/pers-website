@@ -1,26 +1,20 @@
 {
-	"name": "pers-website",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	//"postStartCommand": "./dev_setup.sh", // for some reason it fails to run properly, putting this away cuz w/e man.
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"terminal.integrated.shell.linux": "/bin/bash",
-				"python-envs.defaultEnvManager": "ms-python.python:venv",
-				"python.analysis.autoImportCompletions": true,
-				"python.analysis.typeCheckingMode": "strict",
-				"python.languageServer": "Pylance",
-				"python.analysis.languageServerMode": "full",
-				"python.analysis.diagnosticMode": "workspace",
-				"python.analysis.exclude": [
-					".vscode-remote/*",
-					".venv/*"
-				]
-			},
-			"extensions": [
-				"prettier.prettier-vscode",
-				"eseom.nunjucks-template"
-			]
-		}
-	}
+  "name": "pers-website",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  //"postStartCommand": "./dev_setup.sh", // for some reason it fails to run properly, putting this away cuz w/e man.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python-envs.defaultEnvManager": "ms-python.python:venv",
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.typeCheckingMode": "strict",
+        "python.languageServer": "Pylance",
+        "python.analysis.languageServerMode": "full",
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.exclude": [".vscode-remote/*", ".venv/*"]
+      },
+      "extensions": ["prettier.prettier-vscode", "eseom.nunjucks-template"]
+    }
+  }
 }

@@ -1,6 +1,6 @@
 # Dev Container Setup
 
-This is basically *just* for GitHub codespaces, and isn't tested anywhere else.
+This is basically _just_ for GitHub codespaces, and isn't tested anywhere else.
 
 If you want to develop locally, it's recommended to use `dev_setup.sh` in most cases instead, unless you do not want to have python/node installed.
 
