@@ -2,30 +2,25 @@
 active_page: Links
 id: 1
 ---
-{% extends "../elements/layout.njk" %} {% block content %}
-<div class="flex grow flex-col gap-4 p-4 text-danube-200">
-  <div
-    class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
-  >
-    {% for current_element in links %}
-    <a href="{{current_element['link']}}" target="_blank">
-      <div
-        class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition duration-500 ease-in-out hover:bg-opium-900"
-      >
-        <img
-          class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150"
-          src="{{current_element['img']}}"
-          alt=""
-        />
-        <div class="flex grow flex-col content-center justify-center p-2">
-          <div class="text-center">{{current_element['title']}}</div>
-          <div class="text-center italic text-rangoon_green-400">
-            {{current_element['desc']}}
+
+{% extends "../elements/layout.njk" %}
+{% block content %}
+  <div class="flex grow flex-col gap-4 p-4 text-danube-200">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+      {% for current_element in links %}
+        <a href="{{ current_element['link'] }}" target="_blank">
+          <div class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition
+              duration-500 ease-in-out hover:bg-opium-900">
+            <img class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150" src="{{ current_element['img'] }}" alt=""/>
+            <div class="flex grow flex-col content-center justify-center p-2">
+              <div class="text-center">{{ current_element['title'] }}</div>
+              <div class="text-center italic text-rangoon_green-400">
+                {{ current_element['desc'] }}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
+        </a>
+      {% endfor %}
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -1,80 +1,52 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link
-      rel="stylesheet"
-      href="{{ '/static/css/tailwind.css' | url }}"
-    />
+    rel="stylesheet" href="{{ '/static/css/tailwind.css' | url }}"/>
     <!-- Alpine Plugins -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
-    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <!-- Alpine -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <title>{{active_page}} - SX_7</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ '../static/favicon.ico' | url }}"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>{{ active_page }} - SX_7</title>
+    <link rel="icon" type="image/x-icon" href="{{ '../static/favicon.ico' | url }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
   </head>
-
   <body class="bg-slate-950 bg-[url(../topography.svg)] bg-size-[2000px] font-sans">
     <div class="flex min-h-screen flex-col">
       <div
-        class="bg-danube-950 shadow-rangoon_green-800 sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2 rounded-b p-2 shadow-md"
-      >
+        class="bg-danube-950 shadow-rangoon_green-800 sticky top-0 z-50 flex w-full flex-row items-center justify-center gap-2
+          rounded-b p-2 shadow-md">
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
         {% for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
         1, 'name': 'Cool Stuff', 'path': '/links'},{'id': 2, 'name': 'Projects',
-        'path': '/projects'}]%}
-
-        <div
-          x-data=""
-          class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }}"
-          @click="location.href='{{direction_data['path']}}'"
-        >
-          {{ direction_data['name'] }}
-        </div>
+        'path': '/projects'}] %}
+          <div
+            x-data=""
+            class="cursor-pointer text-md select-none p-2 text-center subpixel-antialiased hover:text-danube-600 {{ 'text-opium-400'
+              if direction_data['id']==id else 'text-danube-200' }}"
+            @click="location.href='{{ direction_data['path'] }}'">
+            {{ direction_data['name'] }}
+          </div>
         {% endfor %}
       </div>
-      {% block content %} {% endblock %}
-      <div
-        class="
-        group bottom-0 flex w-screen flex-row items-center justify-center gap-2 place-self-center
-        rounded-t-md
-        bg-linear-to-t from-slate-950 to-slate-800 p-2 text-gray-700 
-        outline-0 outline-slate-800 select-none md:w-min md:outline-4 hover:md:outline-slate-700 transition-colors duration-1000 ease-in-out"
-      >
-        <div
-          class="text-nowrap transition duration-1000 ease-in-out group-hover:text-gray-300"
-        >
+      {% block content %}{% endblock %}
+      <div class=" group bottom-0 flex w-screen flex-row items-center justify-center gap-2 place-self-center rounded-t-md
+          bg-linear-to-t from-slate-950 to-slate-800 p-2 text-gray-700 outline-0 outline-slate-800 select-none md:w-min
+          md:outline-4 hover:md:outline-slate-700 transition-colors duration-1000 ease-in-out">
+        <div class="text-nowrap transition duration-1000 ease-in-out group-hover:text-gray-300">
           Made by
         </div>
         <div class="relative h-4 w-8">
-          <div
-            class="absolute -inset-4 place-self-center opacity-0 transition duration-1000 ease-in-out group-hover:opacity-100"
-          >
-            <img
-              style="image-rendering: crisp-edges"
-              src="../static/favicon.ico"
-            />
+          <div class="absolute -inset-4 place-self-center opacity-0 transition duration-1000 ease-in-out group-hover:opacity-100">
+            <img style="image-rendering: crisp-edges" src="../static/favicon.ico"/>
           </div>
-          <div
-            class="absolute -inset-4 place-self-center opacity-100 transition duration-1000 ease-in-out group-hover:opacity-0"
-          >
+          <div class="absolute -inset-4 place-self-center opacity-100 transition duration-1000 ease-in-out group-hover:opacity-0">
             SX_7
           </div>
         </div>

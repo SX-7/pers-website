@@ -18,12 +18,8 @@
 				]
 			},
 			"extensions": [
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"esbenp.prettier-vscode",
-				"ms-python.black-formatter",
-				"ms-python.pylint",
-				"bradlc.vscode-tailwindcss"
+				"prettier.prettier-vscode",
+				"eseom.nunjucks-template"
 			]
 		}
 	}
