@@ -61,6 +61,12 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
+      - name: Build minified css
+        run: npx tailwindcss -i app/static/css/style.css -o app/static/css/tailwind.css --minify
+      - name: Build 11ty Site
+        run: npx @11ty/eleventy
+        env:
+          NODE_ENV: production
       - name: Authenticate with Google Cloud
         id: "auth"
         uses: "google-github-actions/auth@v1"
