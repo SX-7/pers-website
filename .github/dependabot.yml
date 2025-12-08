@@ -11,5 +11,6 @@ updates:
       interval: "weekly"
     assignees: 
       - "SX-7"
-    prefix: "[DEPBOT]"
-    prefix-development: "[DEPBOT-DEV]"
+    commit-message:
+      prefix: "[DEPBOT]"
+      prefix-development: "[DEPBOT-DEV]"
