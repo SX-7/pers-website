@@ -74,7 +74,6 @@ jobs:
           firebase \
             hosting:channel:deploy ${{ github.SHA }} \
             --project ${{ env.PROJECT_ID }} \
-            --message "Deployed from GitHub Actions: ${{ github.SHA }}, PR ${{ github.GITHUB_HEAD_REF }}" \
             --expires 24h
       - name: Test Deployment
         run: env
