@@ -1,4 +1,4 @@
-name: PR Quality Check
+name: On PR workflow
 
 on:
   pull_request:
@@ -8,7 +8,6 @@ jobs:
   quality-check:
     name: Lint, Build & Validate
     runs-on: ubuntu-latest
-    
     steps:
       # 1. Get the code
       - name: Checkout Code
@@ -42,3 +41,31 @@ jobs:
       # 8. Validate HTML Output
       - name: Validate Generated HTML
         run: npx html-validate "_site/**/*.html"
+  
+  spawn-preview:
+    name: Create a temporary preview page
+    runs-on: ubuntu-latest
+    needs: quality-check
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Authenticate with Google Cloud
+        id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          token_format: "access_token"
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.SERVICE_ACCOUNT }}"
+          expires: 7d
+          projectId: "${{ env.PROJECT_ID }}"
