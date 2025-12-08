@@ -1,17 +1,14 @@
 ---
 active_page: Projects
 id: 2
+description: Listing of programming projects of the website author, alongside with short descriptions and links
 ---
 
 {% extends "../elements/layout.njk" %}
 {% block content %}
-  <meta
-    name="description"
-    content="Listing of programming projects of the website author, alongside with short descriptions and links"
-  />
   <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
   <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
-    {% for element_data in projects %}
+    {%- for element_data in projects %}
       <div
         class="flex w-full flex-col"
         x-data="{maxContentHeight: 0, currContentHeight: 0, isOpen: false}"
@@ -36,6 +33,6 @@ id: 2
           </div>
         </div>
       </div>
-    {% endfor %}
+    {%- endfor %}
   </div>
-{% endblock %}
+{%- endblock %}

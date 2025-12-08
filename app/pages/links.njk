@@ -1,19 +1,16 @@
 ---
 active_page: Links
 id: 1
+description: Collection of links to websites recommended by the website author
 ---
 
 {% extends "../elements/layout.njk" %}
 {% block content %}
-  <meta
-    name="description"
-    content="Collection of links to websites recommended by the website author"
-  />
   <div class="gap-4 p-4 text-danube-200 flex grow flex-col">
     <div
       class="gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid grid-cols-1"
     >
-      {% for current_element in links %}
+      {%- for current_element in links %}
         <a
           href="{{ current_element['link'] }}"
           target="_blank"
@@ -25,7 +22,7 @@ id: 1
               class="ease-in-out float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 group-hover:scale-110 group-hover:saturate-150"
               src="{{ current_element['img'] }}"
               alt=""
-            />
+            >
             <div class="p-2 flex grow flex-col content-center justify-center">
               <div class="text-center">{{ current_element['title'] }}</div>
               <div class="text-rangoon_green-400 text-center italic">
@@ -34,7 +31,7 @@ id: 1
             </div>
           </div>
         </a>
-      {% endfor %}
+      {%- endfor %}
     </div>
   </div>
-{% endblock %}
+{%- endblock %}

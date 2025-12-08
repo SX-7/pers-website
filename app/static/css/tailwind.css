@@ -662,6 +662,9 @@
 [x-cloak] {
   display: none !important;
 }
+crisp-image {
+  image-rendering: crisp-edges;
+}
 @property --tw-scale-x {
   syntax: "*";
   inherits: false;
