@@ -78,8 +78,10 @@ jobs:
         run: |
           npm install -g firebase-tools
           firebase \
-            hosting:channel:deploy ${{ github.SHA }} \
+            hosting:channel:deploy ${{ github.event.number }} \
             --project ${{ env.PROJECT_ID }} \
-            --expires 24h
+            --expires 24h \
+            --only hosting \
+            > test.txt
       - name: Test Deployment
-        run: env
+        run: cat test.txt
