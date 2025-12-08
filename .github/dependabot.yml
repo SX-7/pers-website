@@ -9,7 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-assignees: 
-  - "SX-7"
-prefix: "[DEPBOT]"
-prefix-development: "[DEPBOT-DEV]"
+    assignees: 
+      - "SX-7"
+    prefix: "[DEPBOT]"
+    prefix-development: "[DEPBOT-DEV]"
