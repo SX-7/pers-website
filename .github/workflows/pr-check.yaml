@@ -85,6 +85,14 @@ jobs:
             | grep -o "https://${{ env.PROJECT_ID }}--${{ github.event.number }}-.*\.web\.app" \
             | sed "s/^/WEB_APP_URL=/" \
             | cat >> "$GITHUB_OUTPUT"
+  send-comment:
+    name: Create an output comment
+    runs-on: ubuntu-latest
+    needs: spawn-preview
+    permissions:
+      issues: "read"
+      pull-requests: "write"
+    steps:
       - name: Find Comment - if exists
         uses: peter-evans/find-comment@v3
         id: fc
