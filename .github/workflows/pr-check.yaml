@@ -77,10 +77,6 @@ jobs:
       - name: Create a preview version
         run: |
           npm install -g firebase-tools
-          firebase \
-            hosting:channel:deploy ${{ github.event.number }} \
-            --project ${{ env.PROJECT_ID }} \
-            --expires 24h \
-            --only hosting > test.txt
+          firebase hosting:channel:deploy ${{ github.event.number }} --project ${{ env.PROJECT_ID }} --expires 24h --only hosting | grep web > test.txt
       - name: Test Deployment
         run: cat test.txt
