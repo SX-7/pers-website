@@ -5,16 +5,30 @@ id: 1
 
 {% extends "../elements/layout.njk" %}
 {% block content %}
-  <div class="flex grow flex-col gap-4 p-4 text-danube-200">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+  <meta
+    name="description"
+    content="Collection of links to websites recommended by the website author"
+  />
+  <div class="gap-4 p-4 text-danube-200 flex grow flex-col">
+    <div
+      class="gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid grid-cols-1"
+    >
       {% for current_element in links %}
-        <a href="{{ current_element['link'] }}" target="_blank">
-          <div class="group flex h-20 flex-row overflow-hidden rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 transition
-              duration-500 ease-in-out hover:bg-opium-900">
-            <img class="float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 ease-in-out group-hover:scale-110 group-hover:saturate-150" src="{{ current_element['img'] }}" alt=""/>
-            <div class="flex grow flex-col content-center justify-center p-2">
+        <a
+          href="{{ current_element['link'] }}"
+          target="_blank"
+        >
+          <div
+            class="group h-20 rounded-md bg-danube-900 shadow-md shadow-rangoon_green-500 ease-in-out hover:bg-opium-900 flex flex-row overflow-hidden transition duration-500"
+          >
+            <img
+              class="ease-in-out float-left aspect-square h-auto scale-100 saturate-0 transition duration-500 group-hover:scale-110 group-hover:saturate-150"
+              src="{{ current_element['img'] }}"
+              alt=""
+            />
+            <div class="p-2 flex grow flex-col content-center justify-center">
               <div class="text-center">{{ current_element['title'] }}</div>
-              <div class="text-center italic text-rangoon_green-400">
+              <div class="text-rangoon_green-400 text-center italic">
                 {{ current_element['desc'] }}
               </div>
             </div>

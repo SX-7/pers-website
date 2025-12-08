@@ -6,6 +6,9 @@
   "objectWrap": "preserve",
   "quoteProps": "consistent",
   "singleAttributePerLine": true,
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./app/static/css/tailwind.css"
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-jinja-template"],
+  "tailwindStylesheet": "./app/static/css/tailwind.css",
+  "overrides": [
+    { "files": ["*.njk"], "options": { "parser": "jinja-template" } }
+  ]
 }

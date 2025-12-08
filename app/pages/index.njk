@@ -5,7 +5,13 @@ id: 0
 
 {% extends "../elements/layout.njk" %}
 {% block content %}
-  <div class="flex grow flex-col items-center text-center text-lg justify-center gap-4 p-4 text-danube-200">
+  <meta
+    name="description"
+    content="Nigh-blank homepage with a greeting"
+  />
+  <div
+    class="text-lg gap-4 p-4 text-danube-200 flex grow flex-col items-center justify-center text-center"
+  >
     <a>Hello, and welcome to my website!</a>
     <a>This is just a content hub.</a>
   </div>

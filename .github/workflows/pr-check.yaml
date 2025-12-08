@@ -1,0 +1,44 @@
+name: PR Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-check:
+    name: Lint, Build & Validate
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Get the code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Prettier
+      - name: Check Formatting (Prettier)
+        run: npx prettier --check "**/*.{js,css,njk,html,md,json}"
+
+      # 5. Lint JavaScript
+      - name: Lint JS (ESLint)
+        run: npx eslint . 
+
+      # 6. Verify Nunjucks & 11ty Build
+      - name: Build 11ty Site
+        run: npx @11ty/eleventy
+        env:
+          NODE_ENV: production
+
+      # 8. Validate HTML Output
+      - name: Validate Generated HTML
+        run: npx html-validate "_site/**/*.html"
