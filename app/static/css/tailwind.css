@@ -471,6 +471,9 @@
   .italic {
     font-style: italic;
   }
+  .line-through {
+    text-decoration-line: line-through;
+  }
   .underline {
     text-decoration-line: underline;
   }
@@ -661,6 +664,9 @@
 }
 [x-cloak] {
   display: none !important;
+}
+crisp-image {
+  image-rendering: crisp-edges;
 }
 @property --tw-scale-x {
   syntax: "*";
