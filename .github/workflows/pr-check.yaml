@@ -81,7 +81,6 @@ jobs:
             hosting:channel:deploy ${{ github.event.number }} \
             --project ${{ env.PROJECT_ID }} \
             --expires 24h \
-            --only hosting \
-            > test.txt
+            --only hosting > test.txt
       - name: Test Deployment
         run: cat test.txt
