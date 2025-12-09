@@ -50,7 +50,7 @@ jobs:
       contents: "read"
       id-token: "write" # Required for Workload Identity Federation
     env:
-      PROJECT_ID: ${{ secrets.GCL_PROJECT }}
+      PROJECT_ID: ${{ variables.GCL_PROJECT }}
     outputs:
       WEB_APP_URL: ${{ steps.create-preview.outputs.WEB_APP_URL }}
     steps:
