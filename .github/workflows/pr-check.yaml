@@ -123,4 +123,4 @@ jobs:
           urls: ${{ needs.spawn-preview.outputs.WEB_APP_URL }}
           runs: 3
           uploadArtifacts: true
-          budgetPath: ./budget.json
+          budgetPath: .github/workflows/budget.json
