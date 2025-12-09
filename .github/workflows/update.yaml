@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: ${{ secrets.GCL_PROJECT }}
+  PROJECT_ID: ${{ vars.GCL_PROJECT }}
 
 jobs:
   build_and_deploy:
