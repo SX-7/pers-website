@@ -124,5 +124,5 @@ jobs:
           runs: 3
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
-      - run: ls .
+      - run: ls .lighthouseci
         if: ${{ always() }}
