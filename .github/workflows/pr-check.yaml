@@ -125,6 +125,7 @@ jobs:
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
       - name: Get latest test run webpage
+        if: ${{ !cancelled }}
         run: ls -tom .lighthouseci/*.html | grep -oP "\S*(?=,)" | head -n 1 | sed "s/^/TEST_RUN_FILE=/" >> "$GITHUB_ENV"
       - name: Upload the last run
         if: ${{ !cancelled }}
