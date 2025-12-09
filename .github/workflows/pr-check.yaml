@@ -124,3 +124,4 @@ jobs:
           runs: 3
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
+      - run: ls .
