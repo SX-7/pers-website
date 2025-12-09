@@ -165,7 +165,7 @@ jobs:
       - name: Build minified css
         run: npx tailwindcss -i app/static/css/style.css -o app/static/css/tailwind.css --minify
       - name: Build 11ty Site
-        run: npx @11ty/eleventy --serve
+        run: npx @11ty/eleventy --serve &
         env:
           NODE_ENV: production
       - name: Run link-check
