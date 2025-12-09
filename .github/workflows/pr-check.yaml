@@ -124,17 +124,6 @@ jobs:
           runs: 3
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
-      - name: Get latest test run webpage
-        if: ${{ !cancelled() }}
-        run: ls -tom .lighthouseci/*.html | grep -oP "\S*(?=,)" | head -n 1 | sed "s/^/TEST_RUN_FILE=/" >> "$GITHUB_ENV"
-      - name: Upload the last run
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v5
-        with:
-          name: results.html
-          path: ${{ env.TEST_RUN_FILE }}
-          retention-days: 7
-          compression-level: 0
   post-lighthouse:
     name: Create comment with link to lighthouse score page
     runs-on: ubuntu-latest
@@ -144,10 +133,6 @@ jobs:
       issues: "read"
       pull-requests: "write"
     steps:
-      - name: Get the last run results
-        uses: actions/download-artifact@v6
-        with:
-          name: results.html
       - name: Find Comment - if exists
         uses: peter-evans/find-comment@v3
         id: fc
@@ -164,3 +149,12 @@ jobs:
             LighthouseCI tests ran!
             [You can check them out from run#${{ github.run_id }} page ](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           edit-mode: replace
+  link-check:
+    name: Check the links for any dead ones
+    runs-on: ubuntu-latest
+    needs: spawn-preview
+    steps:
+      - name: Run link-check
+        uses: filiph/linkcheck@2.0.23
+        with: 
+          arguments: "${{needs.spawn-preview.outputs.WEB_APP_URL}} -e"
