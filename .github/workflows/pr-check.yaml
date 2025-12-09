@@ -51,6 +51,8 @@ jobs:
       id-token: "write" # Required for Workload Identity Federation
     env:
       PROJECT_ID: ${{ secrets.GCL_PROJECT }}
+    outputs:
+      WEB_APP_URL: ${{ steps.create-preview.outputs.WEB_APP_URL }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -107,5 +109,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Preview version created! 
-            You can check it out [here](${{ steps.create-preview.outputs.WEB_APP_URL }})
+            You can check it out [here](${{ needs.spawn-preview.outputs.WEB_APP_URL }})
           edit-mode: replace
