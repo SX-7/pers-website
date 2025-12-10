@@ -120,7 +120,10 @@ jobs:
       - name: Test Lighthouse CI score
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: ${{ needs.spawn-preview.outputs.WEB_APP_URL }}
+          urls: |
+            ${{ needs.spawn-preview.outputs.WEB_APP_URL }}
+            ${{ needs.spawn-preview.outputs.WEB_APP_URL }}/projects
+            ${{ needs.spawn-preview.outputs.WEB_APP_URL }}/links
           runs: 3
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
