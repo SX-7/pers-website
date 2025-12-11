@@ -20,20 +20,30 @@
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.17",
     "clean-css": "^5.3.3",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "html-minifier-terser": "^7.2.0",
     "html-validate": "^10.4.0",
     "js-yaml": "^4.1.1",
+    "linkinator": "^7.5.1",
     "prettier": "^3.7.4",
     "prettier-plugin-jinja-template": "^2.1.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.17"
   },
   "scripts": {
+    "start": "eleventy --serve",
     "build:css": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css",
+    "build:css:prod": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --minify",
     "build:html": "eleventy",
     "build": "npm run build:css && npm run build:html",
-    "start": "eleventy --serve"
+    "build:prod": "cross-env NODE_ENV=production npm run build:css:prod && cross-env NODE_ENV=production npm run build:html",
+    "lint:prettier": "prettier --check \"**/*.{js,css,njk,html,md,json}\"",
+    "lint:prettier:fix": "prettier --write \"**/*.{js,css,njk,html,md,json}\"",
+    "lint:js": "eslint .",
+    "lint:html": "html-validate \"_site/**/*.html\"",
+    "test:quality": "npm run lint:prettier && npm run lint:js && npm run build:prod && npm run lint:html",
+    "test:links": "linkinator ./_site --recurse --skip .github/workflows/linkcheck-ignore.txt"
   }
 }
