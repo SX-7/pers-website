@@ -36,6 +36,7 @@
     --color-opium-500: #a98b8e;
     --color-opium-900: #574444;
     --color-opium-950: #322525;
+    --font-noto: "Noto-Sans", sans-serif;
   }
 }
 @layer base {
@@ -277,6 +278,9 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
+  .h-\[16px\] {
+    height: 16px;
+  }
   .h-auto {
     height: auto;
   }
@@ -288,6 +292,9 @@
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
+  }
+  .w-\[16px\] {
+    width: 16px;
   }
   .w-full {
     width: 100%;
@@ -436,8 +443,8 @@
   .text-center {
     text-align: center;
   }
-  .font-sans {
-    font-family: var(--font-sans);
+  .font-noto {
+    font-family: var(--font-noto);
   }
   .text-lg {
     font-size: var(--text-lg);
