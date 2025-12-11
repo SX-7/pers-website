@@ -1,16 +1,35 @@
 const yaml = require("js-yaml");
+const CleanCSS = require("clean-css");
 
-module.exports = function (eleventyConfig) {
-  // Pass through static images/fonts so they get copied to _site
-  eleventyConfig.addPassthroughCopy({ "app/static": "static" });
+module.exports = (eleventyConfig) => {
+  // -----------------------------------------------------------------
+  // FILTERS
+  // -----------------------------------------------------------------
+  eleventyConfig.addFilter("cssmin", (code) => {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
+  // -----------------------------------------------------------------
+  // EXTENSIONS & PLUGINS
+  // -----------------------------------------------------------------
+  // Support YAML data files
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
+  // -----------------------------------------------------------------
+  // PASSTHROUGH COPIES
+  // -----------------------------------------------------------------
+  // Copy 'app/static' to '_site/static'
+  eleventyConfig.addPassthroughCopy({ "app/static": "static" });
+
+  // -----------------------------------------------------------------
+  // CONFIGURATION OPTIONS
+  // -----------------------------------------------------------------
   return {
     dir: {
       input: "app/pages",
-      output: "_site", // The folder Firebase will deploy
-      data: "../_data",
-      includes: "app/elements",
+      includes: "app/elements", // Note: This path is relative to the root
+      data: "../_data", // Relative to 'input' (app/pages)
+      output: "_site",
     },
   };
 };
