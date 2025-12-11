@@ -35,12 +35,17 @@ module.exports = (eleventyConfig) => {
     if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
       // html-minifier-terser is ASYNC
       let minified = await htmlmin.minify(content, {
-        useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
         collapseBooleanAttributes: true, // defer="" -> defer
+        removeScriptTypeAttributes: true, // Removes type="text/javascript"
+        removeStyleLinkTypeAttributes: true, // Removes type="text/css"
         removeRedundantAttributes: true,
         decodeEntities: true,
+        minifyCSS: true, 
+        minifyJS: true,
+        sortAttributes: true,
+        sortClassName: true
       });
 
       return minified;
