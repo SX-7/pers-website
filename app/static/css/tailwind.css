@@ -281,9 +281,6 @@
   .h-\[16px\] {
     height: 16px;
   }
-  .h-auto {
-    height: auto;
-  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -295,6 +292,9 @@
   }
   .w-\[16px\] {
     width: 16px;
+  }
+  .w-auto {
+    width: auto;
   }
   .w-full {
     width: 100%;
@@ -419,8 +419,8 @@
   .bg-size-\[2000px\] {
     background-size: 2000px;
   }
-  .object-fill {
-    object-fit: fill;
+  .object-cover {
+    object-fit: cover;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
