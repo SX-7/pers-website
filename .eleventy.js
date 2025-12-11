@@ -1,5 +1,6 @@
 const yaml = require("js-yaml");
 const CleanCSS = require("clean-css");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
@@ -20,6 +21,7 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
   eleventyConfig.addPassthroughCopy({ "app/static": "static" });
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS

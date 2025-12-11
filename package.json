@@ -15,6 +15,7 @@
   "homepage": "https://github.com/SX-7/pers-website#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4",
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.17",
