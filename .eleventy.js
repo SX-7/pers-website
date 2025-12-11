@@ -1,6 +1,7 @@
 const yaml = require("js-yaml");
 const CleanCSS = require("clean-css");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const htmlmin = require("html-minifier-terser");
 
 module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
@@ -24,6 +25,28 @@ module.exports = (eleventyConfig) => {
       const name = path.basename(src, path.extname(src));
       return `${name}-${width}w.${format}`;
     },
+    selector: "img[src]:not([src$='.ico'])",
+  });
+
+  // -----------------------------------------------------------------
+  // TRANSFORMS
+  // -----------------------------------------------------------------
+  eleventyConfig.addTransform("htmlmin", async function (content) {
+    if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
+      // html-minifier-terser is ASYNC
+      let minified = await htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true, // defer="" -> defer
+        removeRedundantAttributes: true,
+        decodeEntities: true,
+      });
+
+      return minified;
+    }
+
+    return content;
   });
 
   // -----------------------------------------------------------------
