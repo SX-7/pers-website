@@ -18,7 +18,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // outputs
     formats: ["webp"],
-    
+
     filenameFormat: function (id, src, width, format) {
       const path = require("path");
       const name = path.basename(src, path.extname(src));
