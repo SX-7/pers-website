@@ -42,10 +42,10 @@ module.exports = (eleventyConfig) => {
         removeStyleLinkTypeAttributes: true, // Removes type="text/css"
         removeRedundantAttributes: true,
         decodeEntities: true,
-        minifyCSS: true, 
+        minifyCSS: true,
         minifyJS: true,
         sortAttributes: true,
-        sortClassName: true
+        sortClassName: true,
       });
 
       return minified;
