@@ -15,13 +15,22 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Support YAML data files
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    // outputs
+    formats: ["webp"],
+    
+    filenameFormat: function (id, src, width, format) {
+      const path = require("path");
+      const name = path.basename(src, path.extname(src));
+      return `${name}-${width}w.${format}`;
+    },
+  });
 
   // -----------------------------------------------------------------
   // PASSTHROUGH COPIES
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
   eleventyConfig.addPassthroughCopy({ "app/static": "static" });
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
