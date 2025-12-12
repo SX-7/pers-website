@@ -164,3 +164,4 @@ cython_debug/
 # html dev relevant
 node_modules
 _site
+app/static/css/tailwind.css
