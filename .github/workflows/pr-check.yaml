@@ -24,23 +24,9 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # 4. Prettier
-      - name: Check Formatting (Prettier)
-        run: npx prettier --check "**/*.{js,css,njk,html,md,json}"
-
-      # 5. Lint JavaScript
-      - name: Lint JS (ESLint)
-        run: npx eslint . 
-
-      # 6. Verify Nunjucks & 11ty Build
-      - name: Build 11ty Site
-        run: npx @11ty/eleventy
-        env:
-          NODE_ENV: production
-
-      # 8. Validate HTML Output
-      - name: Validate Generated HTML
-        run: npx html-validate "_site/**/*.html"
+      # 4. Composite action, check package.json
+      - name: Check Formatting 
+        run: npm run test:quality
   
   spawn-preview:
     name: Create a temporary preview page
@@ -63,12 +49,8 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
-      - name: Build minified css
-        run: npx tailwindcss -i app/static/css/style.css -o app/static/css/tailwind.css --minify
       - name: Build 11ty Site
-        run: npx @11ty/eleventy
-        env:
-          NODE_ENV: production
+        run: npm run build:prod
       - name: Authenticate with Google Cloud
         id: "auth"
         uses: "google-github-actions/auth@v3"
@@ -87,6 +69,7 @@ jobs:
             | grep -o "https://${{ env.PROJECT_ID }}--${{ github.event.number }}-.*\.web\.app" \
             | sed "s/^/WEB_APP_URL=/" \
             | cat >> "$GITHUB_OUTPUT"
+  
   send-comment:
     name: Create an output comment
     runs-on: ubuntu-latest
@@ -111,6 +94,7 @@ jobs:
             Preview version created! 
             You can check it out [here](${{ needs.spawn-preview.outputs.WEB_APP_URL }})
           edit-mode: replace
+
   check-lighthouse:
     name: Run lighthouse CI
     runs-on: ubuntu-latest
@@ -127,11 +111,12 @@ jobs:
           runs: 3
           uploadArtifacts: true
           configPath: .github/workflows/lighthouserc.json
+  
   post-lighthouse:
     name: Create comment with link to lighthouse score page
     runs-on: ubuntu-latest
     needs: check-lighthouse
-    if: ${{ always() }} # This is mostly because we kinda have to get data out even if checks fail
+    if: ${{ !cancelled() }}
     permissions:
       issues: "read"
       pull-requests: "write"
@@ -152,6 +137,7 @@ jobs:
             LighthouseCI tests ran!
             [You can check them out from run#${{ github.run_id }} page ](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           edit-mode: replace
+  
   link-check:
     name: Check the links for any dead ones
     runs-on: ubuntu-latest
@@ -166,12 +152,10 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
-      - name: Build minified css
-        run: npx tailwindcss -i app/static/css/style.css -o app/static/css/tailwind.css --minify
       - name: Build 11ty Site
-        run: npx @11ty/eleventy --serve & sleep 5
-        env:
-          NODE_ENV: production
+        run: npm run build:prod
+      - name: Start serving and wait for initialization
+        run: npm run start & sleep 5
       - name: Run link-check
         uses: filiph/linkcheck@2.0.23
         with:

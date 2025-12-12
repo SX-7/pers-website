@@ -34,19 +34,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # --- BUILD STEPS ---
-
-      # 1. Build CSS (Tailwind)
-      - name: Build minified css
-        run: npx tailwindcss -i app/static/css/style.css -o app/static/css/tailwind.css --minify
-
-      # 2. Build HTML (Eleventy)
-      - name: Build HTML with Eleventy
-        run: npx @11ty/eleventy
-        env:
-          NODE_ENV: production
-
-      # --- AUTH & DEPOY ---
+      - name: Build
+        run: npm run build:prod
 
       - name: Authenticate with Google Cloud
         id: "auth"
@@ -62,8 +51,25 @@ jobs:
           npm install -g firebase-tools
           firebase deploy --only hosting --project ${{ env.PROJECT_ID }} --message "Deployed from GitHub Actions: ${{ github.sha }}"
 
+      - name: Purge Cloudflare Cache
+        if: success()
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN_PURGE }}" \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}' \
+          --fail
+
       - name: Test Deployment
         run: |
           echo "Deployment complete."
-          # Firebase usually gives a fixed URL like https://<project-id>.web.app
-          curl --head --fail https://${{ env.PROJECT_ID }}.web.app
+          curl --head --fail https://sx7.dev
+
+      - name: Test Lighthouse CI score
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://sx7.dev
+            https://sx7.dev/projects
+            https://sx7.dev/links
+          runs: 3

@@ -46,7 +46,7 @@
     "lint:prettier:fix": "prettier --write \"**/*.{js,css,njk,html,md,json}\"",
     "lint:js": "eslint .",
     "lint:html": "html-validate \"_site/**/*.html\"",
-    "test:quality": "npm run lint:prettier && npm run lint:js && npm run build:prod && npm run lint:html",
+    "test:quality": "npm run build:prod && npm run lint:prettier && npm run lint:js && npm run lint:html",
     "test:links": "linkinator ./_site --recurse --skip .github/workflows/linkcheck-ignore.txt",
     "prepare": "husky"
   },
@@ -55,7 +55,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "**/*.{json,css,md}": [
+    "**/*.{json,css,md,njk,html}": [
       "prettier --write"
     ]
   }

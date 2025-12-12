@@ -1,7 +1,7 @@
 {
   "name": "pers-website",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  //"postStartCommand": "./dev_setup.sh", // for some reason it fails to run properly, putting this away cuz w/e man.
+  "postStartCommand": "npm ci && npm run build",
   "customizations": {
     "vscode": {
       "settings": {
