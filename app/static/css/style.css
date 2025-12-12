@@ -34,6 +34,7 @@
   --color-rangoon-green-800: #45432f;
   --color-rangoon-green-900: #3c3a2b;
   --color-rangoon-green-950: #232216;
+  --font-noto: "Noto-Sans", sans-serif;
 }
 
 [x-cloak] {

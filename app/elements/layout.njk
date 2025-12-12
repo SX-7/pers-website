@@ -1,3 +1,4 @@
+{% set css %}{% include "../static/css/tailwind.css" %}{% endset %}
 <!DOCTYPE html>
 <html
   lang="en"
@@ -14,9 +15,32 @@
       content="{{ description }}"
     />
     <link
-      rel="stylesheet"
-      href="{{ '/static/css/tailwind.css' | url }}"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+    <!-- prettier-ignore-start -->
+    <style>
+	    {{ css | cssmin | safe }}
+    </style>
+    <!-- prettier-ignore-end -->
     <!-- Alpine Plugins -->
     <script
       defer
@@ -30,25 +54,31 @@
     <title>{{ active_page }} - SX_7</title>
     <link
       rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ '../static/favicon-x16.png' | url }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ '../static/favicon-x32.png' | url }}"
+    />
+    <link
+      rel="icon"
       type="image/x-icon"
+      sizes="48x48"
       href="{{ '../static/favicon.ico' | url }}"
     />
     <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
+      rel="shortcut icon"
+      type="image/x-icon"
+      sizes="48x48"
+      href="{{ '../static/favicon.ico' | url }}"
     />
   </head>
   <body
-    class="bg-slate-950 font-sans bg-[url(../topography.svg)] bg-size-[2000px]"
+    class="bg-slate-950 font-noto bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
     <div class="flex min-h-screen flex-col">
       <div
@@ -84,9 +114,14 @@
             class="-inset-4 ease-in-out absolute place-self-center opacity-0 transition duration-1000 group-hover:opacity-100"
           >
             <img
-              class="crisp-image"
-              src="../static/favicon.ico"
+              class="crisp-image h-[16px] w-[16px]"
+              src="{{ '../static/favicon.ico' | url }}"
+              srcset="
+                ../static/favicon-x16.png 16w,
+                ../static/favicon-x32.png 32w
+              "
               alt="Page icon"
+              eleventy:ignore
             />
           </div>
           <div

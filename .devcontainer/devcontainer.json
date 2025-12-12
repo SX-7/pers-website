@@ -14,7 +14,11 @@
         "python.analysis.diagnosticMode": "workspace",
         "python.analysis.exclude": [".vscode-remote/*", ".venv/*"]
       },
-      "extensions": ["prettier.prettier-vscode", "eseom.nunjucks-template"]
+      "extensions": [
+        "prettier.prettier-vscode",
+        "eseom.nunjucks-template",
+        "github.vscode-pull-request-github"
+      ]
     }
   }
 }
