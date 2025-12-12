@@ -1,5 +1,6 @@
 const yaml = require("js-yaml");
-const CleanCSS = require("clean-css");
+const postcss = require("postcss");
+const cssnano = require("cssnano");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const htmlmin = require("html-minifier-terser");
 
@@ -7,8 +8,11 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
-  eleventyConfig.addFilter("cssmin", (code) => {
-    return new CleanCSS({}).minify(code).styles;
+  eleventyConfig.addNunjucksAsyncFilter("cssmin", function (code, callback) {
+    postcss([cssnano])
+      .process(code, { from: undefined })
+      .then((result) => callback(null, result.css))
+      .catch((error) => callback(error, null));
   });
 
   // -----------------------------------------------------------------
@@ -42,7 +46,6 @@ module.exports = (eleventyConfig) => {
         removeStyleLinkTypeAttributes: true, // Removes type="text/css"
         removeRedundantAttributes: true,
         decodeEntities: true,
-        minifyCSS: true,
         minifyJS: true,
         sortAttributes: true,
         sortClassName: true,
