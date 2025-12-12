@@ -116,7 +116,7 @@ jobs:
     name: Create comment with link to lighthouse score page
     runs-on: ubuntu-latest
     needs: check-lighthouse
-    if: ${{ !skipped() && !cancelled() }}
+    if: ${{ !cancelled() }}
     permissions:
       issues: "read"
       pull-requests: "write"
