@@ -18,7 +18,7 @@
     "@11ty/eleventy-img": "^6.0.4",
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
-    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/cli": "^4.1.18",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "eslint": "^9.39.2",
