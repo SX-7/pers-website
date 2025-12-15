@@ -12,12 +12,29 @@
         "python.languageServer": "Pylance",
         "python.analysis.languageServerMode": "full",
         "python.analysis.diagnosticMode": "workspace",
-        "python.analysis.exclude": [".vscode-remote/*", ".venv/*"]
+        "python.analysis.exclude": [".vscode-remote/*", ".venv/*"],
+        "files.exclude": {
+          "**/.git": true,
+          "**/.svn": true,
+          "**/.hg": true,
+          "**/.DS_Store": true,
+          "**/Thumbs.db": true,
+          "**/*.crswap": true,
+          ".devcontainer": true,
+          ".github": true,
+          ".husky": true,
+          ".gitignore": true,
+          ".prettierignore": true,
+          "firebase.json": true,
+          "LICENSE": true,
+          "package-lock.json": true
+        }
       },
       "extensions": [
         "prettier.prettier-vscode",
         "eseom.nunjucks-template",
-        "github.vscode-pull-request-github"
+        "github.vscode-pull-request-github",
+        "amodio.toggle-excluded-files"
       ]
     }
   }
