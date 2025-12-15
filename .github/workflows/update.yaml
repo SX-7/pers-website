@@ -49,7 +49,11 @@ jobs:
         # Using the CLI directly is often smoother with Workload Identity than the wrapper action
         run: |
           npm install -g firebase-tools
-          firebase deploy --only hosting --project ${{ env.PROJECT_ID }} --message "Deployed from GitHub Actions: ${{ github.sha }}"
+          firebase deploy \
+          --only hosting \
+          --project ${{ env.PROJECT_ID }} \
+          --message "Deployed from GitHub Actions: ${{ github.sha }}" \
+          --config config/firebase.json
 
       - name: Purge Cloudflare Cache
         if: success()

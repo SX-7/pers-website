@@ -66,6 +66,7 @@ jobs:
             hosting:channel:deploy ${{ github.event.number }} \
             --project ${{ env.PROJECT_ID }} \
             --expires 24h \
+            --config config/firebase.json \
             | grep -o "https://${{ env.PROJECT_ID }}--${{ github.event.number }}-.*\.web\.app" \
             | sed "s/^/WEB_APP_URL=/" \
             | cat >> "$GITHUB_OUTPUT"

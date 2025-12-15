@@ -36,15 +36,15 @@
     "tailwindcss": "^4.1.18"
   },
   "scripts": {
-    "start": "eleventy --serve",
+    "start": "eleventy --serve --config=config/.eleventy.js",
     "build:css": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css",
     "build:css:prod": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --minify",
-    "build:html": "eleventy",
+    "build:html": "eleventy --config=config/.eleventy.js",
     "build": "npm run build:css && npm run build:html",
     "build:prod": "cross-env NODE_ENV=production npm run build:css:prod && cross-env NODE_ENV=production npm run build:html",
     "lint:prettier": "prettier --check \"**/*.{js,css,njk,html,md,json}\"",
     "lint:prettier:fix": "prettier --write \"**/*.{js,css,njk,html,md,json}\"",
-    "lint:js": "eslint .",
+    "lint:js": "eslint . --config config/eslint.config.mjs",
     "lint:html": "html-validate \"_site/**/*.html\"",
     "test:quality": "npm run build:prod && npm run lint:prettier && npm run lint:js && npm run lint:html",
     "test:links": "linkinator ./_site --recurse --skip .github/workflows/linkcheck-ignore.txt",
@@ -57,6 +57,35 @@
     ],
     "**/*.{json,css,md,njk,html}": [
       "prettier --write"
+    ]
+  },
+  "htmlvalidate": {
+    "extends": [
+      "html-validate:recommended"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "objectWrap": "preserve",
+    "quoteProps": "consistent",
+    "singleAttributePerLine": true,
+    "plugins": [
+      "prettier-plugin-tailwindcss",
+      "prettier-plugin-jinja-template"
+    ],
+    "tailwindStylesheet": "./app/static/css/tailwind.css",
+    "overrides": [
+      {
+        "files": [
+          "*.njk"
+        ],
+        "options": {
+          "parser": "jinja-template"
+        }
+      }
     ]
   }
 }
