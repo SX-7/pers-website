@@ -53,7 +53,6 @@ jobs:
           --only hosting \
           --project ${{ env.PROJECT_ID }} \
           --message "Deployed from GitHub Actions: ${{ github.sha }}" \
-          --config config/firebase.json
 
       - name: Purge Cloudflare Cache
         if: success()
