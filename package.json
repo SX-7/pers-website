@@ -33,7 +33,7 @@
     "prettier": "^3.7.4",
     "prettier-plugin-jinja-template": "^2.1.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   },
   "scripts": {
     "start": "eleventy --serve",
