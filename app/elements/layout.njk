@@ -1,4 +1,6 @@
 {% set css %}{% include "../static/css/tailwind.css" %}{% endset %}
+<!-- Empty page that's shared across ALL pages, with every page adding their own content -->
+<!-- Basically the more repeating stuff it takes from individual pages, the better -->
 <!DOCTYPE html>
 <html
   lang="en"
@@ -10,10 +12,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
+    <!-- Front Matter consumer -->
     <meta
       name="description"
       content="{{ description }}"
     />
+    <!-- Fast fonts blob -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -36,6 +40,7 @@
         type="text/css"
       />
     </noscript>
+    <!-- CSS blob -->
     <!-- prettier-ignore-start -->
     <style>
 	    {{ css | cssmin | safe }}
@@ -51,7 +56,9 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <!-- Front Matter consumer -->
     <title>{{ active_page }} - SX_7</title>
+    <!-- Could be optimized, but this way it's responsive and works on most -->
     <link
       rel="icon"
       type="image/png"
@@ -81,29 +88,28 @@
     class="bg-slate-950 font-noto bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
     <div class="flex min-h-screen flex-col">
+      <!-- Nav bar -->
       <div
         class="bg-danube-950 shadow-rangoon_green-800 top-0 gap-2 rounded-b p-2 shadow-md sticky z-50 flex w-full flex-row items-center justify-center"
       >
         <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
-        {%-
-          for direction_data in [{'id': 0, 'name': 'Home', 'path': '/'}, {'id':
-          1, 'name': 'Cool Stuff', 'path': '/links'},{'id': 2, 'name': 'Projects',
-          'path': '/projects'}]
-        %}
+        {%- for direction_data in pages %}
           <div
             x-data=""
             class="text-md p-2 hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }} cursor-pointer text-center subpixel-antialiased select-none"
             @click="location.href='{{ direction_data['path'] }}'"
           >
-            {{ direction_data['name'] }}
+            {{ direction_data['title'] }}
           </div>
         {%- endfor %}
       </div>
+      <!-- Content, since this is a child template and not parent one, interestingly -->
       {%- block content %}
       {% endblock %}
       <div
         class="group bottom-0 gap-2 rounded-t-md from-slate-950 to-slate-800 p-2 text-gray-700 outline-slate-800 md:w-min md:outline-4 hover:md:outline-slate-700 ease-in-out flex w-screen flex-row items-center justify-center place-self-center bg-linear-to-t outline-0 transition-colors duration-1000 select-none"
       >
+        <!-- Footer -->
         <div
           class="ease-in-out group-hover:text-gray-300 text-nowrap transition duration-1000"
         >
