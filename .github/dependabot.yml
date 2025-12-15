@@ -14,3 +14,11 @@ updates:
     commit-message:
       prefix: "[DEPBOT]"
       prefix-development: "[DEPBOT-DEV]"
+    groups:
+      alldat:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
