@@ -52,7 +52,7 @@ jobs:
           firebase deploy \
           --only hosting \
           --project ${{ env.PROJECT_ID }} \
-          --message "Deployed from GitHub Actions: ${{ github.sha }}" \
+          --message "Deployed from GitHub Actions: ${{ github.sha }}"
 
       - name: Purge Cloudflare Cache
         if: success()
