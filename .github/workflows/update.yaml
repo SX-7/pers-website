@@ -76,3 +76,5 @@ jobs:
             https://sx7.dev/projects
             https://sx7.dev/links
           runs: 3
+          configPath: .github/workflows/lighthouserc-main.json
+          uploadArtifacts: true

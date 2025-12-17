@@ -92,7 +92,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Preview version created! 
-            You can check it out [here](${{ needs.spawn-preview.outputs.WEB_APP_URL }})
+            [You can check it out here](${{ needs.spawn-preview.outputs.WEB_APP_URL }})
           edit-mode: replace
 
   check-lighthouse:
@@ -110,7 +110,7 @@ jobs:
             ${{ needs.spawn-preview.outputs.WEB_APP_URL }}/links
           runs: 3
           uploadArtifacts: true
-          configPath: .github/workflows/lighthouserc.json
+          configPath: .github/workflows/lighthouserc-pr.json
   
   post-lighthouse:
     name: Create comment with link to lighthouse score page
@@ -127,15 +127,15 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: LighthouseCI tests ran!
+          body-includes: Workflows ran!
       - name: Create comment with link to preview
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            LighthouseCI tests ran!
-            [You can check them out from run#${{ github.run_id }} page ](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            Workflows ran!
+            [You can check them out and get lighthouse ci results from run#${{ github.run_id }} page ](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           edit-mode: replace
   
   link-check:

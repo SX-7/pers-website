@@ -8,6 +8,7 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
+  // Minify css
   eleventyConfig.addNunjucksAsyncFilter("cssmin", function (code, callback) {
     postcss([cssnano])
       .process(code, { from: undefined })
@@ -20,6 +21,7 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Support YAML data files
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  // transform images to webp
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // outputs
     formats: ["webp"],
@@ -35,9 +37,9 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // TRANSFORMS
   // -----------------------------------------------------------------
+  // Minify html, not css tho, that's for filter
   eleventyConfig.addTransform("htmlmin", async function (content) {
     if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
-      // html-minifier-terser is ASYNC
       let minified = await htmlmin.minify(content, {
         removeComments: true,
         collapseWhitespace: true,
@@ -50,10 +52,8 @@ module.exports = (eleventyConfig) => {
         sortAttributes: true,
         sortClassName: true,
       });
-
       return minified;
     }
-
     return content;
   });
 

@@ -8,5 +8,5 @@ General structure:
   - `images` is for, well, images. Generally grouped by page.
   - `pages` contains the actual navigable-to pages. This is technically the input directory.
   - `static` is sorta like elements but for images. In general just css and other stuff that needs to be shipped to client as-is
-  - _In general when it comes to size of content it'll be \_data->elements->pages_
-- `.devcontainer`, `.github` and `config` have their own READMES
+  - _In general when it comes to size of content it'll be \_data<elements<pages_
+- `.devcontainer`, `.github` and `config` have their own little READMES or comments
