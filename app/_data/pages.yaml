@@ -1,12 +1,9 @@
 - id: 0
   title: Home
-  file_name: index.njk
   path: /
 - id: 1
   title: Links
-  file_name: links.njk
   path: /links
 - id: 2
   title: Projects
-  file_name: projects.njk
   path: /projects
