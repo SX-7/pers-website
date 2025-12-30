@@ -174,7 +174,7 @@ jobs:
       - name: Take Screenshots
         run: |
           mkdir screenshots
-          node config/vis-cap.js
+          node .github/workflows/vis-cap.js
       - name: Authenticate with Google Cloud
         id: "auth"
         uses: "google-github-actions/auth@v3"
@@ -183,4 +183,4 @@ jobs:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
       - name: Run reg-suit
-        run: npx reg-suit run
+        run: npx reg-suit run -c .github/workflows/regconfig.json
