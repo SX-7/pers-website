@@ -171,7 +171,7 @@ jobs:
       - name: Take Screenshots
         run: |
           mkdir screenshots
-          node visual-capture.js
+          node config/vis-cap.js
       - name: Authenticate with Google Cloud
         id: "auth"
         uses: "google-github-actions/auth@v3"
