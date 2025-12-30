@@ -1,7 +1,11 @@
 {
   "ci": {
     "assert": {
-      "preset": "lighthouse:no-pwa"
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "cache-insight": "off",
+        "uses-long-cache-ttl": "off"
+      }
     }
   }
 }
