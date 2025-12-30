@@ -87,7 +87,7 @@ jobs:
       - name: Take Screenshots
         run: |
           mkdir screenshots
-          node config/vis-cap.js
+          node .github/workflows/vis-cap.js
       - name: Authenticate with Google Cloud
         id: "auth"
         uses: "google-github-actions/auth@v3"
