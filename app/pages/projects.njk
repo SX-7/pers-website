@@ -7,7 +7,7 @@ description: Listing of programming projects of the website author, alongside wi
 {% extends "../elements/layout.njk" %}
 {% block content %}
   <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
-  <div class="gap-8 p-8 text-opium-200 w-full">
+  <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
     {%- for element_data in projects %}
       <div
         class="flex w-full flex-col"
