@@ -71,7 +71,7 @@ jobs:
       contents: "read"
       id-token: "write" # WIF
     env:
-      WEB_APP_URL: ${{vars.GCL_PROJECT}}.web.app
+      WEB_APP_URL: https://${{vars.GCL_PROJECT}}.web.app
     steps:
       - uses: actions/checkout@v6
         with:
