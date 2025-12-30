@@ -155,6 +155,8 @@ jobs:
     needs: spawn-preview
     permissions:
       pull-requests: write
+      contents: "read"
+      id-token: "write" # WIF
     env:
       WEB_APP_URL: ${{needs.spawn-preview.outputs.WEB_APP_URL}}
     steps:
