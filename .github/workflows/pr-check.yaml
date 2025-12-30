@@ -163,6 +163,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }} # attach head for reg git hash plugin
       - uses: actions/setup-node@v4
         with:
           node-version: 20
