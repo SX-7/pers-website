@@ -89,53 +89,59 @@
   >
     <div class="flex min-h-screen flex-col">
       <!-- Nav bar -->
-      <div
-        class="bg-danube-950 shadow-rangoon_green-800 top-0 gap-2 rounded-b p-2 shadow-md sticky z-50 flex w-full flex-row items-center justify-center"
-      >
-        <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
-        {%- for direction_data in pages %}
-          <div
-            x-data=""
-            class="text-md p-2 hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }} cursor-pointer text-center subpixel-antialiased select-none"
-            @click="location.href='{{ direction_data['path'] }}'"
-          >
-            {{ direction_data['title'] }}
-          </div>
-        {%- endfor %}
-      </div>
+      <nav>
+        <div
+          class="bg-danube-950 shadow-rangoon_green-800 top-0 gap-2 rounded-b p-2 shadow-md sticky z-50 flex w-full flex-row items-center justify-center"
+        >
+          <!-- https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline -->
+          {%- for direction_data in pages %}
+            <div
+              x-data=""
+              class="text-md p-2 hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }} cursor-pointer text-center subpixel-antialiased select-none"
+              @click="location.href='{{ direction_data['path'] }}'"
+            >
+              {{ direction_data['title'] }}
+            </div>
+          {%- endfor %}
+        </div>
+      </nav>
       <!-- Content, since this is a child template and not parent one, interestingly -->
-      {%- block content %}
-      {% endblock %}
+      <main>
+        {%- block content %}
+        {% endblock %}
+      </main>
       <div
         class="group bottom-0 gap-2 rounded-t-md from-slate-950 to-slate-800 p-2 text-gray-700 outline-slate-800 md:w-min md:outline-4 hover:md:outline-slate-700 ease-in-out flex w-screen flex-row items-center justify-center place-self-center bg-linear-to-t outline-0 transition-colors duration-1000 select-none"
       >
         <!-- Footer -->
-        <div
-          class="ease-in-out group-hover:text-gray-300 text-nowrap transition duration-1000"
-        >
-          Made by
-        </div>
-        <div class="h-4 w-8 relative">
+        <footer>
           <div
-            class="-inset-4 ease-in-out absolute place-self-center opacity-0 transition duration-1000 group-hover:opacity-100"
+            class="ease-in-out group-hover:text-gray-300 text-nowrap transition duration-1000"
           >
-            <img
-              class="crisp-image h-[16px] w-[16px]"
-              src="{{ '../static/favicon.ico' | url }}"
-              srcset="
-                ../static/favicon-x16.png 16w,
-                ../static/favicon-x32.png 32w
-              "
-              alt="Page icon"
-              eleventy:ignore
-            />
+            Made by
           </div>
-          <div
-            class="-inset-4 ease-in-out absolute place-self-center opacity-100 transition duration-1000 group-hover:opacity-0"
-          >
-            SX_7
+          <div class="h-4 w-8 relative">
+            <div
+              class="-inset-4 ease-in-out absolute place-self-center opacity-0 transition duration-1000 group-hover:opacity-100"
+            >
+              <img
+                class="crisp-image h-[16px] w-[16px]"
+                src="{{ '../static/favicon.ico' | url }}"
+                srcset="
+                  ../static/favicon-x16.png 16w,
+                  ../static/favicon-x32.png 32w
+                "
+                alt="Page icon"
+                eleventy:ignore
+              />
+            </div>
+            <div
+              class="-inset-4 ease-in-out absolute place-self-center opacity-100 transition duration-1000 group-hover:opacity-0"
+            >
+              SX_7
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   </body>
