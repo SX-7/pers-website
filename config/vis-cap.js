@@ -5,6 +5,7 @@ const process = require("node:process");
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
+  // Yeah you can run it locally, but ideally you're running it thru actions.
   const baseUrl = process.env.WEB_APP_URL || "http://localhost:8080";
 
   const paths = ["/", "/projects", "/links"];
