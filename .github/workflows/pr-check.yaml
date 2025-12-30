@@ -168,8 +168,6 @@ jobs:
         run: |
           npm ci
           npx playwright install --with-deps --only-shell
-      - name: Build 11ty
-        run: npm run build:prod
       - name: Take Screenshots
         run: |
           mkdir screenshots
