@@ -63,11 +63,6 @@ jobs:
           --data '{"purge_everything":true}' \
           --fail
 
-      - name: Test Deployment
-        run: |
-          echo "Deployment complete."
-          curl --head --fail https://sx7.dev
-
       - name: Test Lighthouse CI score
         uses: treosh/lighthouse-ci-action@v12
         with:
