@@ -1,5 +1,5 @@
 const { chromium } = require("playwright");
-const { process } = require("process");
+const process = require("node:process");
 
 (async () => {
   const browser = await chromium.launch();
