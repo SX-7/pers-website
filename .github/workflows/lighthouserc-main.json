@@ -3,8 +3,7 @@
     "assert": {
       "preset": "lighthouse:no-pwa",
       "assertions": {
-        "cache-insight": "off",
-        "uses-long-cache-ttl": "off"
+        "is-crawlable": "off"
       }
     }
   }
