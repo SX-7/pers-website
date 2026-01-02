@@ -90,10 +90,10 @@
   <body
     class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
-    {% include "navbar.njk" %}
+    {% include "../elements/navbar.njk" %}
     {# Content, since this is a child template and not parent one, interestingly #}
     {%- block content %}
     {% endblock %}
-    {% include "footer.njk" %}
+    {% include "../elements/footer.njk" %}
   </body>
 </html>
