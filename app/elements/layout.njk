@@ -89,14 +89,12 @@
     />
   </head>
   <body
-    class="bg-slate-950 font-noto bg-[url(../static/topography.svg)] bg-size-[2000px]"
+    class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
-    <div class="flex min-h-screen flex-col">
-      {# Content, since this is a child template and not parent one, interestingly #}
-      <main class="flex grow flex-col">
-        {%- block content %}
-        {% endblock %}
-      </main>
-    </div>
+    {# Content, since this is a child template and not parent one, interestingly #}
+    <main class="flex grow flex-col">
+      {%- block content %}
+      {% endblock %}
+    </main>
   </body>
 </html>
