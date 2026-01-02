@@ -59,29 +59,34 @@
     {# Front Matter consumer #}
     <title>{{ active_page }} - SX_7</title>
     {# Could be optimized, but this way it's responsive and works on most #}
+
     <link
       rel="icon"
       type="image/png"
-      sizes="16x16"
-      href="{{ '../static/favicon-x16.png' | url }}"
+      href="{{ '../static/favicon-96x96.png' | url }}"
+      sizes="96x96"
     />
     <link
       rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{{ '../static/favicon-x32.png' | url }}"
-    />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      sizes="48x48"
-      href="{{ '../static/favicon.ico' | url }}"
+      type="image/svg+xml"
+      href="{{ '../static/favicon.svg' | url }}"
     />
     <link
       rel="shortcut icon"
-      type="image/x-icon"
-      sizes="48x48"
       href="{{ '../static/favicon.ico' | url }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ '../static/apple-touch-icon.png' | url }}"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="MyWebSite"
+    />
+    <link
+      rel="manifest"
+      href="{{ '../static/site.webmanifest' | url }}"
     />
   </head>
   <body
