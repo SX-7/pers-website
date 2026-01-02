@@ -43,8 +43,7 @@
     {# CSS blob #}
     <!-- prettier-ignore-start -->
     <style>
-	    {{ css | cssmin | safe }}
-    </style>
+      {{css | cssmin | safe}}</style>
     <!-- prettier-ignore-end -->
     {# Alpine Plugins #}
     <script
@@ -91,10 +90,10 @@
   <body
     class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
+    {% include "navbar.njk" %}
     {# Content, since this is a child template and not parent one, interestingly #}
-    <main class="flex grow flex-col">
-      {%- block content %}
-      {% endblock %}
-    </main>
+    {%- block content %}
+    {% endblock %}
+    {% include "footer.njk" %}
   </body>
 </html>
