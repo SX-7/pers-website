@@ -88,21 +88,6 @@
     class="bg-slate-950 font-noto bg-[url(../static/topography.svg)] bg-size-[2000px]"
   >
     <div class="flex min-h-screen flex-col">
-      {# Nav bar #}
-      <nav
-        class="bg-danube-950 shadow-rangoon_green-800 top-0 gap-2 rounded-b p-2 shadow-md sticky z-50 flex w-full flex-row items-center justify-center"
-      >
-        {# https://laracasts.com/discuss/channels/javascript/alpine-js-cant-x-bind-styles-inline #}
-        {%- for direction_data in pages %}
-          <div
-            x-data=""
-            class="text-md p-2 hover:text-danube-600 {{ 'text-opium-400' if direction_data['id']==id else 'text-danube-200' }} cursor-pointer text-center subpixel-antialiased transition duration-500 select-none"
-            @click="location.href='{{ direction_data['path'] }}'"
-          >
-            {{ direction_data['title'] }}
-          </div>
-        {%- endfor %}
-      </nav>
       {# Content, since this is a child template and not parent one, interestingly #}
       <main class="flex grow flex-col">
         {%- block content %}
