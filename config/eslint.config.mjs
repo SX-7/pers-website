@@ -18,4 +18,10 @@ export default defineConfig([
     extends: ["css/recommended"],
   },
   { ignores: ["_site/*", "app/static/css/*"] }, // _site for 11ty ofc, but tailwindcss interact weird with linter
+  {
+      "files": ["app/static/**/*.js"],
+      languageOptions: {
+        sourceType: "module"
+      }
+    },
 ]);
