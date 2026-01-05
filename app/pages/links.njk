@@ -2,6 +2,9 @@
 active_page: Links
 id: 1
 description: Collection of links to websites recommended by the website author
+eleventyNavigation:
+  key: Links
+  order: 1
 ---
 
 {% extends "../elements/layout.njk" %}
@@ -10,7 +13,7 @@ description: Collection of links to websites recommended by the website author
     <div
       class="gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid grid-cols-1"
     >
-      {%- for current_element in links %}
+      {%- for current_element in links | sort(attribute='title') %}
         <a
           href="{{ current_element['link'] }}"
           target="_blank"
@@ -23,6 +26,7 @@ description: Collection of links to websites recommended by the website author
               src="{{ current_element['img'] }}"
               alt=""
               eleventy:widths="100"
+              {% if loop.first %}fetchpriority="high"{% endif %}
             />
             <div class="p-2 flex grow flex-col content-center justify-center">
               <div class="text-center">{{ current_element['title'] }}</div>
