@@ -30,7 +30,7 @@ eleventyNavigation:
           x-cloak
         >
           <div>
-            <div class="p-4">{% include element_data.content %}</div>
+            <div class="p-4">{{ element_data.content | safe }}</div>
           </div>
         </div>
       </div>
