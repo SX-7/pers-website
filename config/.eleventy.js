@@ -3,6 +3,7 @@ const postcss = require("postcss");
 const cssnano = require("cssnano");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const htmlmin = require("html-minifier-terser");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
@@ -33,6 +34,8 @@ module.exports = (eleventyConfig) => {
     },
     selector: "img[src]:not([src$='.ico'])",
   });
+  // Navigation
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // -----------------------------------------------------------------
   // TRANSFORMS
