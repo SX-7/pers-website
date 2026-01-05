@@ -37,9 +37,21 @@ eleventyNavigation:
     {%- endfor %}
   </div>
   <button
-    onclick="fetchSecretData()"
+    @click="fetchSecretData()"
     type="button"
   >
     Get Secret Data
+  </button>
+  <button
+    @click="login()"
+    type="button"
+  >
+    Login
+  </button>
+  <button
+    @click="logout()"
+    type="button"
+  >
+    Logout
   </button>
 {%- endblock %}
