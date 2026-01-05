@@ -72,8 +72,8 @@ module.exports = (eleventyConfig) => {
   return {
     dir: {
       input: "app/pages",
-      includes: "app/elements", // Note: This path is relative to the root
-      data: "../data", // Relative to 'input' (app/pages)
+      includes: "../elements",
+      data: "../data",
       output: "_site",
     },
   };
