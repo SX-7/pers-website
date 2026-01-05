@@ -26,7 +26,7 @@ eleventyNavigation:
               src="{{ current_element['img'] }}"
               alt=""
               eleventy:widths="100"
-              fetchpriority="high"
+              {% if loop.first %}fetchpriority="high"{% endif %}
             />
             <div class="p-2 flex grow flex-col content-center justify-center">
               <div class="text-center">{{ current_element['title'] }}</div>
