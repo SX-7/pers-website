@@ -18,8 +18,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GithubAuthProvider();
 
-provider.setCustomParameters({
-  allow_signup: "false",
-});
-
-export { auth };
+export { auth, provider };
