@@ -1,6 +1,8 @@
+{% from "svg-icons.njk" import cog %}
 <nav
-  class="from-danube-950 via-danube-900 to-danube-950 shadow-slate-950 rounded-b shadow-xl text-md top-0 sticky z-50 flex w-full flex-row justify-center bg-gradient-to-r select-none"
+  class="from-danube-950 via-danube-900 to-danube-950 shadow-slate-950 rounded-b shadow-xl text-md top-0 sticky z-50 flex w-full flex-row items-center justify-center bg-gradient-to-r select-none"
 >
+  <div class="flex-grow"></div>
   {# Breaks without x-data declaration #}
   {% set nav_pages = collections.all | eleventyNavigation %}
   {%- for direction_data in nav_pages %}
@@ -12,10 +14,24 @@
       {{ direction_data.title }}
     </div>
   {%- endfor %}
+  <div class="flex-grow"></div>
   <div
-    x-data
-    @click="login()"
+    x-data="{ expanded: false }"
+    @click="expanded = !expanded"
+    class="flex aspect-square flex-col self-stretch"
+    x-ref="cog"
   >
-    {% include 'svg-icons/github.njk' %}
+    {{ cog('stroke-danube-950 hover:stroke-danube-800 drop-shadow-none hover:drop-shadow-md/75 aspect-square mx-2 py-1 h-full transition duration-1000 ease-in', false) }}
+    <div>
+      <div
+        class="text-white h-fill w-fill absolute z-40"
+        x-cloak
+        x-show="expanded"
+        x-collapse
+      >
+        <div class="w-fill right-0 truncate"></div>
+        abstracts backburner can danube earlier
+      </div>
+    </div>
   </div>
 </nav>
