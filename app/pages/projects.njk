@@ -9,13 +9,11 @@ eleventyNavigation:
 
 {% extends "../elements/layout.njk" %}
 {% block content %}
-  <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
   <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
     {%- for curr_element in collections.projects %}
       <div
         class="flex w-full flex-col"
-        x-data="{maxContentHeight: 0, currContentHeight: 0, isOpen: false}"
-        x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
+        x-data="{isOpen: false}"
       >
         <div
           class="rounded-lg hover:bg-danube-500 hover:text-opium-950 ease-in-out bg-danube-900 p-2 shadow-md shadow-rangoon_green-700 z-10 text-center opacity-100 transition select-none"

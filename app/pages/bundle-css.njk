@@ -1,0 +1,8 @@
+---
+permalink: bundle.css
+---
+
+{% set css %}
+  {% include "../liquid/css/tailwind.css" %}
+{% endset %}
+{{ css | cssmin | safe }}
