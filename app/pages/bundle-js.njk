@@ -1,0 +1,8 @@
+---
+permalink: bundle.js
+---
+
+{% set js %}
+  {% include "../liquid/js/app.js" %}
+{% endset %}
+{{ js | jsmin | safe }}

@@ -19,7 +19,7 @@ export default defineConfig([
   },
   { ignores: ["_site/*", "app/static/css/*"] }, // _site for 11ty ofc, but tailwindcss interact weird with linter
   {
-      "files": ["app/static/**/*.js"],
+      "files": ["app/liquid/**/*.js"],
       languageOptions: {
         sourceType: "module"
       }
