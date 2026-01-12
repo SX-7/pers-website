@@ -59,7 +59,7 @@
     <script
       defer
       type="module"
-      src="/bundle.js"
+      src="/static/js/app.js"
     ></script>
     {# Front Matter consumer #}
     <title>{{ active_page }} - SX_7</title>
@@ -94,9 +94,9 @@
     />
   </head>
   <body
-    class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(../static/topography.svg)] bg-size-[2000px]"
+    class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(/static/topography.svg)] bg-size-[2000px]"
   >
-    {% include "../elements/navbar.njk" %}
+    {% include "navbar.njk" %}
     {# Content, since this is a child template and not parent one, interestingly #}
     {%- block content %}
     {% endblock %}

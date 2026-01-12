@@ -4,6 +4,7 @@ const cssnano = require("cssnano");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const jsmin = require("terser");
 
 module.exports = (eleventyConfig) => {
@@ -34,6 +35,8 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Support YAML data files
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+  // VITE
+  eleventyConfig.addPlugin(eleventyVitePlugin.default);
   // transform images to webp
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // outputs
@@ -46,6 +49,7 @@ module.exports = (eleventyConfig) => {
     },
     selector: "img[src]:not([src$='.ico'])",
   });
+
   // Navigation
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
@@ -76,16 +80,16 @@ module.exports = (eleventyConfig) => {
   // PASSTHROUGH COPIES
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
-  eleventyConfig.addPassthroughCopy({ "app/static": "static" });
+  eleventyConfig.addPassthroughCopy({ "src/static": "static" });
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
   // -----------------------------------------------------------------
   return {
     dir: {
-      input: "app/pages",
-      includes: "../elements",
-      data: "../data",
+      input: "src",
+      includes: "includes",
+      data: "data",
       output: "_site",
     },
   };
