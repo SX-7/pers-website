@@ -1,7 +1,7 @@
 import {
   signInWithPopup,
   signOut,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.compat.js";
 
 async function login() {
   try {
@@ -37,11 +37,11 @@ window.login = login;
 window.logout = logout;
 window.fetchSecretData = fetchSecretData;
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js";
 import {
   getAuth,
   GithubAuthProvider,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.compat.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbjMp-xYE3FniPH7Fohohc20r9o2aAqy8",
