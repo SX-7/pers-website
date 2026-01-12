@@ -37,7 +37,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
   // VITE
   eleventyConfig.addPlugin(eleventyVitePlugin.default, {
-    viteOptions: { build: { minify: "terser" } },
+    viteOptions: { build: { minify: "terser", modulePreload: "true" } },
   });
   // transform images to webp
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
