@@ -17,7 +17,7 @@ export default defineConfig([
     language: "css/css",
     extends: ["css/recommended"],
   },
-  { ignores: ["_site/*", "app/liquid/css/*"] }, // _site for 11ty ofc, but tailwindcss interact weird with linter
+  { ignores: ["_site/*", "src/includes/css/*"] }, // _site for 11ty ofc, but tailwindcss interact weird with linter
   {
       "files": ["src/static/**/*.js"],
       languageOptions: {
