@@ -1,7 +1,7 @@
 import {
   signInWithPopup,
   signOut,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.compat.js";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js";
 
 async function login() {
   try {
