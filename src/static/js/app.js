@@ -3,7 +3,8 @@ import {
   signOut,
   getAuth,
   GithubAuthProvider,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+} from "firebase/auth";
+import { initializeApp } from "firebase/app";
 
 async function login() {
   try {
@@ -38,8 +39,6 @@ async function fetchSecretData() {
 window.login = login;
 window.logout = logout;
 window.fetchSecretData = fetchSecretData;
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbjMp-xYE3FniPH7Fohohc20r9o2aAqy8",

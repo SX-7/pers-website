@@ -16,6 +16,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-navigation": "^1.0.5",
     "@11ty/eleventy-plugin-vite": "^7.0.0",
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
@@ -23,6 +24,7 @@
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "eslint": "^9.39.2",
+    "firebase-tools": "^15.2.1",
     "globals": "^17.0.0",
     "html-minifier-terser": "^7.2.0",
     "html-validate": "^10.5.0",
@@ -97,7 +99,6 @@
     ]
   },
   "dependencies": {
-    "@11ty/eleventy-navigation": "^1.0.5",
-    "firebase-tools": "^14.2.1"
+    "firebase": "^12.7.0"
   }
 }
