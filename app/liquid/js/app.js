@@ -41,7 +41,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import {
   getAuth,
   GithubAuthProvider,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.compat.js";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbjMp-xYE3FniPH7Fohohc20r9o2aAqy8",
