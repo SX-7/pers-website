@@ -39,12 +39,6 @@
         type="text/css"
       />
     </noscript>
-    {# CSS blob #}
-    <!-- prettier-ignore-start -->
-    <style type="text/css">
-    {% include 'bundle-css.njk' %}
-    </style>
-    <!-- prettier-ignore-end -->
     {# Alpine Plugins #}
     <script
       defer
@@ -90,6 +84,12 @@
       rel="manifest"
       href="/static/site.webmanifest"
     />
+    {# CSS blob #}
+    <!-- prettier-ignore-start -->
+    <style type="text/css">
+    {% include 'bundle-css.njk' %}
+    </style>
+    <!-- prettier-ignore-end -->
   </head>
   <body
     class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(/static/topography.svg)] bg-size-[2000px]"
