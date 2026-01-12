@@ -1,4 +1,4 @@
-{% macro cog(class="", append=true) %}
+{% macro cog(class="", append=true, additional="") %}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -6,6 +6,7 @@
     stroke-width="1.5"
     stroke="currentColor"
     class="{{ 'mx-2 my-4 h-6 w-6 hover:stroke-danube-600 float-right '+class if append else class }}"
+    {{ additional }}
   >
     <path
       stroke-linecap="round"
@@ -19,7 +20,7 @@
     />
   </svg>
 {% endmacro %}
-{% macro github(class="", append=true) %}
+{% macro github(class="", append=true, additional="") %}
   <svg
     viewBox="0 0 98 96"
     width="24"
@@ -27,6 +28,7 @@
     xmlns="http://www.w3.org/2000/svg"
     fill="#fff"
     class="{{ 'my-4 ml-4 mr-2 hover:fill-danube-600 float-right '+class if append else class }}"
+    {{ additional }}
   >
     <path
       fill-rule="evenodd"
@@ -42,7 +44,7 @@
     />
   </svg>
 {% endmacro %}
-{% macro webglobe(class="", append=true) %}
+{% macro webglobe(class="", append=true, additional="") %}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -50,6 +52,7 @@
     stroke-width="1.5"
     stroke="currentColor"
     class="{{ 'mx-2 my-4 h-6 w-6 hover:stroke-danube-600 float-right '+class if append else class }}"
+    {{ additional }}
   >
     <path
       stroke-linecap="round"

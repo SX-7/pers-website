@@ -41,7 +41,10 @@
     </noscript>
     {# CSS blob #}
     <!-- prettier-ignore-start -->
-    <link rel="stylesheet" href="/bundle.css">
+    <style type="text/css">
+    {% set css %} {% include 'bundle-css.njk' %} {% endset %}
+    {{ css | cssmin | safe }}
+    </style>
     <!-- prettier-ignore-end -->
     {# Alpine Plugins #}
     <script
