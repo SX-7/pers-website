@@ -49,10 +49,16 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    {# Firebase auth blob #}
+    {# Firebase auth #}
     <script
       type="module"
       src="/static/js/app.js"
+    ></script>
+    {# Alpine js-side #}
+    <script
+      defer
+      type="module"
+      src="/static/js/alpine.js"
     ></script>
     {# Front Matter consumer #}
     <title>{{ active_page }} - SX_7</title>

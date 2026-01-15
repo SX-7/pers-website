@@ -23,15 +23,36 @@
       x-ref="cog"
     >
       {{ cog('stroke-danube-800 opacity-0 drop-shadow-none aspect-square mx-2 py-1 h-full transition duration-1000 ease-in', false, "x-bind:class='{\"opacity-100 drop-shadow-md/75\" : expanded, \"opacity-0 drop-shadow-none\" : !expanded}'"|safe) }}
-      <div>
+      <div class="relative">
         <div
-          class="text-white h-fill w-fill absolute z-40"
+          class="text-white h-fill w-fill bg-danube-950 rounded-b-xl right-0 absolute z-40"
           x-cloak
           x-show="expanded"
           x-collapse
         >
-          <div class="w-fill right-0 truncate"></div>
-          abstracts backburner can danube earlier
+          <div class="w-fill right-0 p-1 flex-col">
+            <div
+              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
+              @click="fetchSecretData()"
+              x-show="$store.auth?.user"
+            >
+              DASH
+            </div>
+            <div
+              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
+              @click="login()"
+              x-show="!$store.auth?.user"
+            >
+              LOGIN
+            </div>
+            <div
+              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
+              @click="logout()"
+              x-show="$store.auth?.user"
+            >
+              LOGOUT
+            </div>
+          </div>
         </div>
       </div>
     </div>
