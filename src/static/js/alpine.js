@@ -1,5 +1,5 @@
 import Alpine from "alpinejs";
-import { firebaseAuth } from "app.js";
+import { firebaseAuth } from "./app.js";
 
 window.Alpine = Alpine;
 
