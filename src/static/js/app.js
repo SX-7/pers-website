@@ -22,12 +22,20 @@ async function getLazyFirebase() {
 
   // Dynamic imports.
   // Vite will automatically split this into a separate chunk.
-  const [{ initializeApp }, { getAuth, GithubAuthProvider }] =
-    await Promise.all([import("firebase/app"), import("firebase/auth")]);
+  const [
+    { initializeApp },
+    { getAuth, GithubAuthProvider, onAuthStateChanged },
+  ] = await Promise.all([import("firebase/app"), import("firebase/auth")]);
 
   const app = initializeApp(firebaseConfig);
   firebaseAuth = getAuth(app);
   firebaseProvider = new GithubAuthProvider();
+
+  onAuthStateChanged(firebaseAuth, (user) => {
+    if (window.Alpine) {
+      window.Alpine.store("auth").user = !!user;
+    }
+  });
 
   return { auth: firebaseAuth, provider: firebaseProvider };
 }
