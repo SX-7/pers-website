@@ -7,11 +7,9 @@
   {% set nav_pages = collections.all | eleventyNavigation %}
   {%- for direction_data in nav_pages %}
     <div
-      x-data
       class="p-4 hover:text-danube-600 {{ 'text-opium-400' if direction_data.url==page.url else 'text-danube-200' }} cursor-pointer subpixel-antialiased"
-      @click="location.href='{{ direction_data.url }}'"
     >
-      {{ direction_data.title }}
+      <a href="{{ direction_data.url }}"> {{ direction_data.title }} </a>
     </div>
   {%- endfor %}
   <div class="flex-grow"></div>
