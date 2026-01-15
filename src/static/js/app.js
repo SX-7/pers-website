@@ -92,5 +92,3 @@ async function fetchSecretData() {
 window.login = login;
 window.logout = logout;
 window.fetchSecretData = fetchSecretData;
-
-export { firebaseAuth };

@@ -9,7 +9,11 @@ eleventyNavigation:
 
 {% extends "layout.njk" %}
 {% block content %}
-  <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
+  <div
+    class="gap-8 p-8 text-opium-200 flex w-full grow flex-col"
+    v-cloak
+    :class="{ 'vue-loaded': true }"
+  >
     {%- for curr_element in collections.projects %}
       <project-card title="{{ curr_element.data.title }}">
         {{ curr_element.content | safe }}

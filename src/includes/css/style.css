@@ -37,8 +37,23 @@
   --font-noto: "Noto-Sans", sans-serif;
 }
 
-[x-cloak] {
+[v-cloak] {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vue-loaded {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 crisp-image {
