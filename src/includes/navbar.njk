@@ -32,6 +32,7 @@
         >
           <div class="w-fill right-0 p-1 flex-col">
             <div
+              x-data
               class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
               @click="fetchSecretData()"
               x-show="$store.auth?.user"
@@ -39,6 +40,7 @@
               DASH
             </div>
             <div
+              x-data
               class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
               @click="login()"
               x-show="!$store.auth?.user"
@@ -46,6 +48,7 @@
               LOGIN
             </div>
             <div
+              x-data
               class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
               @click="logout()"
               x-show="$store.auth?.user"

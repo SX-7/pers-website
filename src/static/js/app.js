@@ -33,7 +33,7 @@ async function getLazyFirebase() {
 
   onAuthStateChanged(firebaseAuth, (user) => {
     if (window.Alpine) {
-      window.Alpine.store("auth").user = !!user;
+      window.Alpine.store("auth").setUser(!!user);
     }
   });
 
