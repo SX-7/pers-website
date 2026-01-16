@@ -9,15 +9,31 @@ eleventyNavigation:
 
 {% extends "layout.njk" %}
 {% block content %}
-  <div
-    class="gap-8 p-8 text-opium-200 flex w-full grow flex-col"
-    v-cloak
-    :class="{ 'vue-loaded': true }"
-  >
+  <!-- Use this instead next time! https://alpinejs.dev/plugins/collapse -->
+  <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
     {%- for curr_element in collections.projects %}
-      <project-card title="{{ curr_element.data.title }}">
-        {{ curr_element.content | safe }}
-      </project-card>
+      <div
+        class="flex w-full flex-col"
+        x-data="{maxContentHeight: 0, currContentHeight: 0, isOpen: false}"
+        x-effect="isOpen ? currContentHeight = maxContentHeight : currContentHeight = 0"
+      >
+        <div
+          class="rounded-lg hover:bg-danube-500 hover:text-opium-950 ease-in-out bg-danube-900 p-2 shadow-md shadow-rangoon_green-700 z-10 text-center opacity-100 transition select-none"
+          @click="isOpen = !isOpen"
+        >
+          {{ curr_element.data.title }}
+        </div>
+        <div
+          class="mx-4 rounded-b-md bg-slate-900 ring-danube-950 flex flex-col justify-end overflow-hidden ring-2 ring-inset"
+          x-show="isOpen"
+          x-collapse.duration.500ms
+          x-cloak
+        >
+          <div>
+            <div class="p-4">{{ curr_element.content | safe }}</div>
+          </div>
+        </div>
+      </div>
     {%- endfor %}
   </div>
 {%- endblock %}
