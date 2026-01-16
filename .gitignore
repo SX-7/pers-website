@@ -164,5 +164,5 @@ cython_debug/
 # html dev relevant
 node_modules
 _site
-app/liquid/css/tailwind.css
+src/includes/css/tailwind.css
 .reg

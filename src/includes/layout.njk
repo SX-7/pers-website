@@ -41,9 +41,9 @@
     </noscript>
     {# CSS blob #}
     <!-- prettier-ignore-start -->
-    {% set css %}{% include "/static/css/tailwind.css" %}{% endset %}
-    <style>
-      {{css | cssmin | safe}}</style>
+    <style type="text/css">
+    {% include 'bundle-css.njk' %}
+    </style>
     <!-- prettier-ignore-end -->
     {# Alpine Plugins #}
     <script
