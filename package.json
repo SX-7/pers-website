@@ -16,12 +16,15 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "eslint": "^9.39.2",
+    "firebase-tools": "^15.2.1",
     "globals": "^17.0.0",
     "html-minifier-terser": "^7.2.0",
     "html-validate": "^10.5.0",
@@ -39,12 +42,13 @@
     "reg-notify-github-plugin": "^0.14.5",
     "reg-publish-gcs-plugin": "^0.14.4",
     "reg-suit": "^0.14.5",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "terser": "^5.44.1"
   },
   "scripts": {
     "start": "eleventy --serve --config=config/.eleventy.js",
-    "build:css": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css",
-    "build:css:prod": "tailwindcss -i ./app/static/css/style.css -o ./app/static/css/tailwind.css --minify",
+    "build:css": "tailwindcss -i ./src/includes/css/style.css -o ./src/includes/css/tailwind.css",
+    "build:css:prod": "tailwindcss -i ./src/includes/css/style.css -o ./src/includes/css/tailwind.css --minify",
     "build:html": "eleventy --config=config/.eleventy.js",
     "build": "npm run build:css && npm run build:html",
     "build:prod": "cross-env NODE_ENV=production npm run build:css:prod && cross-env NODE_ENV=production npm run build:html",
@@ -82,7 +86,7 @@
       "prettier-plugin-tailwindcss",
       "prettier-plugin-jinja-template"
     ],
-    "tailwindStylesheet": "./app/static/css/tailwind.css",
+    "tailwindStylesheet": "./src/includes/css/tailwind.css",
     "overrides": [
       {
         "files": [
@@ -94,7 +98,5 @@
       }
     ]
   },
-  "dependencies": {
-    "@11ty/eleventy-navigation": "^1.0.5"
-  }
+  "dependencies": {}
 }

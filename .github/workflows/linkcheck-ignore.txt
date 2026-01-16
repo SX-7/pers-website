@@ -3,3 +3,5 @@
 # These need to be in place for snappier experience
 fonts\.googleapis\.com$
 fonts\.gstatic\.com$
+# Blocks linkcheck, apparently
+https://steamdb.info/

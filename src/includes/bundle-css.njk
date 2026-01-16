@@ -1,0 +1,4 @@
+{% set css %}
+  {% include "css/tailwind.css" %}
+{% endset %}
+{{ css | cssmin | safe }}
