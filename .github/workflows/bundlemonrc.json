@@ -16,7 +16,7 @@
     {
       "friendlyName": "Total assets",
       "path": "assets/*",
-      "maxSize": "1m"
+      "maxSize": "1mb"
     }
   ],
   "reportOutput": ["github"]
