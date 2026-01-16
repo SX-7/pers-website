@@ -5,11 +5,13 @@
   <div class="flex-grow"></div>
   {% set nav_pages = collections.all | eleventyNavigation %}
   {%- for direction_data in nav_pages %}
-    <div
-      class="p-4 hover:text-danube-600 {{ 'text-opium-400' if direction_data.url==page.url else 'text-danube-200' }} cursor-pointer subpixel-antialiased"
-    >
-      <a href="{{ direction_data.url }}"> {{ direction_data.title }} </a>
-    </div>
+    <a href="{{ direction_data.url }}">
+      <div
+        class="p-4 hover:text-danube-600 {{ 'text-opium-400' if direction_data.url==page.url else 'text-danube-200' }} cursor-pointer subpixel-antialiased"
+      >
+        {{ direction_data.title }}
+      </div>
+    </a>
   {%- endfor %}
   <div class="flex-grow"></div>
 </nav>
