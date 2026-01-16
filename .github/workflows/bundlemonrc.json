@@ -1,0 +1,23 @@
+{
+  "baseDir": "./_site",
+  "files": [
+    {
+      "friendlyName": "Pages",
+      "path": "**/*.html",
+      "maxPercentIncrease": 10
+    },
+    {
+      "friendlyName": "Optimized images",
+      "path": "assets/*-<hash>.avif",
+      "maxSize": "20kb"
+    }
+  ],
+  "groups": [
+    {
+      "friendlyName": "Total assets",
+      "path": "assets/*",
+      "maxSize": "1mb"
+    }
+  ],
+  "reportOutput": ["github"]
+}

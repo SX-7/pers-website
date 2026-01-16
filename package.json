@@ -21,6 +21,7 @@
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
+    "bundlemon": "^3.1.0",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "eslint": "^9.39.2",
@@ -43,7 +44,8 @@
     "reg-publish-gcs-plugin": "^0.14.4",
     "reg-suit": "^0.14.5",
     "tailwindcss": "^4.1.18",
-    "terser": "^5.44.1"
+    "terser": "^5.44.1",
+    "vite-plugin-image-optimizer": "^2.0.3"
   },
   "scripts": {
     "start": "eleventy --serve --config=config/.eleventy.js",
@@ -97,6 +99,5 @@
         }
       }
     ]
-  },
-  "dependencies": {}
+  }
 }
