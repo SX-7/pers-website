@@ -6,7 +6,6 @@ const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const jsmin = require("terser");
-const vue = require("@vitejs/plugin-vue");
 
 module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
@@ -39,13 +38,7 @@ module.exports = (eleventyConfig) => {
   // VITE
   eleventyConfig.addPlugin(eleventyVitePlugin.default, {
     viteOptions: {
-      plugins: [vue()],
       build: { minify: "terser", modulePreload: "true" },
-      resolve: {
-        alias: {
-          vue: "vue/dist/vue.esm-bundler.js",
-        },
-      },
     },
   });
   // transform images to webp

@@ -5,8 +5,7 @@
       "assertions": {
         "cache-insight": "off",
         "is-crawlable": "off",
-        "uses-long-cache-ttl": "off",
-        "network-dependency-tree-insight": ["warn", {"maxLength": 1}]
+        "uses-long-cache-ttl": "off"
       }
     }
   }

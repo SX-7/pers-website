@@ -39,14 +39,21 @@
         type="text/css"
       />
     </noscript>
-    {# Firebase auth #}
+    {# CSS blob #}
+    <!-- prettier-ignore-start -->
+    {% set css %}{% include "/static/css/tailwind.css" %}{% endset %}
+    <style>
+      {{css | cssmin | safe}}</style>
+    <!-- prettier-ignore-end -->
+    {# Alpine Plugins #}
     <script
-      type="module"
-      src="/static/js/app.js"
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
     ></script>
+    {# Alpine #}
     <script
-      type="module"
-      src="/static/vue/main.js"
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     {# Front Matter consumer #}
     <title>{{ active_page }} - SX_7</title>
@@ -78,15 +85,8 @@
       rel="manifest"
       href="/static/site.webmanifest"
     />
-    {# CSS blob #}
-    <!-- prettier-ignore-start -->
-    <style type="text/css">
-    {% include 'bundle-css.njk' %}
-    </style>
-    <!-- prettier-ignore-end -->
   </head>
   <body
-    id="app"
     class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(/static/topography.svg)] bg-size-[2000px]"
   >
     {% include "navbar.njk" %}

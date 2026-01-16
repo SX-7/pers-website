@@ -35,8 +35,7 @@
         "prettier.prettier-vscode",
         "eseom.nunjucks-template",
         "github.vscode-pull-request-github",
-        "amodio.toggle-excluded-files",
-        "vue.volar"
+        "amodio.toggle-excluded-files"
       ]
     }
   }

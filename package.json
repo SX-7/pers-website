@@ -21,7 +21,6 @@
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
-    "@vitejs/plugin-vue": "^6.0.3",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "eslint": "^9.39.2",
@@ -99,8 +98,5 @@
       }
     ]
   },
-  "dependencies": {
-    "firebase": "^12.7.0",
-    "vue": "^3.5.26"
-  }
+  "dependencies": {}
 }
