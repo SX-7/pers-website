@@ -1,0 +1,13 @@
+{
+  "baseDir": "./_site",
+  "files": [
+    {
+      "path": "**/*.html"
+    },
+    {
+      "path": "assets/*-<hash>.avif",
+      "maxPercentIncrease": 10
+    }
+  ],
+  "reportOutput": ["github"]
+}

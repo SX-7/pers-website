@@ -28,6 +28,24 @@ jobs:
       - name: Check Formatting 
         run: npm run test:quality
   
+  bundlemon:
+    name: Check size
+    runs-on: ubuntu-latest
+    needs: quality-check
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Install Dependencies
+        run: npm run build:prod
+      - name: BundleMon
+        uses: lironer/bundlemon-action@v1
+        bundlemon-args: --config .github/workflows/bundlemonrc.json
+
   spawn-preview:
     name: Create a temporary preview page
     runs-on: ubuntu-latest
