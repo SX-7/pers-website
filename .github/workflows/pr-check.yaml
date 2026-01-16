@@ -44,7 +44,8 @@ jobs:
         run: npm run build:prod
       - name: BundleMon
         uses: lironer/bundlemon-action@v1
-        bundlemon-args: --config .github/workflows/bundlemonrc.json
+        with:
+          bundlemon-args: --config .github/workflows/bundlemonrc.json
 
   spawn-preview:
     name: Create a temporary preview page
