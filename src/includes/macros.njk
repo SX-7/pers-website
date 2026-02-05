@@ -1,5 +1,5 @@
 {% macro image_sizes() %}
-  (1536px < width) 1920px, (1280px < width <= 1536px) 1536px, (1024px < width <=
-  1280px) 1280px, (768px < width <= 1024px) 1024px, (640px < width <= 768px)
-  768px, (320px < width <= 640px) 640px, (width <= 320px) 320px
+  (max-width: 360px) 100vw, (max-width: 640px) 640px, (max-width: 768px) 768px,
+  (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, (max-width: 1536px)
+  1536px, 1920px
 {% endmacro %}
