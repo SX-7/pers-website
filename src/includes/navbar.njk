@@ -3,59 +3,15 @@
   class="from-danube-950 via-danube-900 to-danube-950 shadow-slate-950 rounded-b shadow-xl text-md top-0 sticky z-50 flex w-full flex-row items-center justify-center bg-gradient-to-r select-none"
 >
   <div class="flex-grow"></div>
-  {# Breaks without x-data declaration #}
   {% set nav_pages = collections.all | eleventyNavigation %}
   {%- for direction_data in nav_pages %}
-    <div
-      class="p-4 hover:text-danube-600 {{ 'text-opium-400' if direction_data.url==page.url else 'text-danube-200' }} cursor-pointer subpixel-antialiased"
-    >
-      <a href="{{ direction_data.url }}"> {{ direction_data.title }} </a>
-    </div>
+    <a href="{{ direction_data.url }}">
+      <div
+        class="p-4 hover:text-danube-600 {{ 'text-opium-400' if direction_data.url==page.url else 'text-danube-200' }} cursor-pointer subpixel-antialiased"
+      >
+        {{ direction_data.title }}
+      </div>
+    </a>
   {%- endfor %}
   <div class="flex-grow"></div>
-  <div class="right-0 absolute aspect-square h-full">
-    <div
-      x-data="{ expanded: false }"
-      @click="expanded = !expanded"
-      class="flex aspect-square flex-col self-stretch"
-      x-ref="cog"
-    >
-      {{ cog('stroke-danube-800 opacity-0 drop-shadow-none aspect-square mx-2 py-1 h-full transition duration-1000 ease-in', false, "x-bind:class='{\"opacity-100 drop-shadow-md/75\" : expanded, \"opacity-0 drop-shadow-none\" : !expanded}'"|safe) }}
-      <div class="relative">
-        <div
-          class="text-white h-fill w-fill bg-danube-950 rounded-b-xl right-0 absolute z-40"
-          x-cloak
-          x-show="expanded"
-          x-collapse
-        >
-          <div class="w-fill right-0 p-1 flex-col">
-            <div
-              x-data
-              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
-              @click="fetchSecretData()"
-              x-show="$store.auth?.user"
-            >
-              DASH
-            </div>
-            <div
-              x-data
-              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
-              @click="login()"
-              x-show="!$store.auth?.user"
-            >
-              LOGIN
-            </div>
-            <div
-              x-data
-              class="bg-danube-800 rounded-md p-1 m-1 hover:bg-danube-700 cursor-pointer text-center transition"
-              @click="logout()"
-              x-show="$store.auth?.user"
-            >
-              LOGOUT
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </nav>

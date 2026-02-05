@@ -25,8 +25,9 @@ eleventyNavigation:
               class="rounded-md w-20 float-left flex-none scale-100 object-fill saturate-0 transition duration-500 group-hover:scale-110 group-hover:saturate-150"
               src="{{ current_element['img'] }}"
               alt=""
-              eleventy:widths="100"
-              {% if loop.first %}fetchpriority="high"{% endif %}
+              {% if loop.first -%}
+                eleventy:widths="100" fetchpriority="high" loading="eager"
+              {%- endif %}
             />
             <div class="p-2 flex grow flex-col content-center justify-center">
               <div class="text-center">{{ current_element['title'] }}</div>

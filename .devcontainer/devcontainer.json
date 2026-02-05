@@ -32,7 +32,7 @@
         }
       },
       "extensions": [
-        "prettier.prettier-vscode",
+        "esbenp.prettier-vscode",
         "eseom.nunjucks-template",
         "github.vscode-pull-request-github",
         "amodio.toggle-excluded-files"

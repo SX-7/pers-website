@@ -6,6 +6,8 @@ const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const jsmin = require("terser");
+const ViteImageOptimizer =
+  require("vite-plugin-image-optimizer").ViteImageOptimizer;
 
 module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
@@ -39,12 +41,26 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyVitePlugin.default, {
     viteOptions: {
       build: { minify: "terser", modulePreload: "true" },
+      plugins: [
+        ViteImageOptimizer({
+          webp: { quality: 75 },
+          avif: { quality: 70 },
+          include: /.*\.(webp|avif|jpg|png)/i,
+        }),
+      ],
     },
   });
   // transform images to webp
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // outputs
-    formats: ["webp"],
+    formats: ["webp", "avif"],
+    widths: [320, 640, 768, 1024, 1280, 1536, 1920, "auto"],
+    htmlOptions: {
+      imgAttributes: {
+        loading: "lazy",
+        decoding: "async",
+      },
+    },
 
     filenameFormat: function (id, src, width, format) {
       const path = require("path");
