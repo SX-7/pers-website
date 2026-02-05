@@ -54,7 +54,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // outputs
     formats: ["webp", "avif"],
-    widths: [320, 640, 768, 1024, 1280, 1536, "auto"],
+    widths: [320, 640, 768, 1024, 1280, 1536, 1920, "auto"],
     htmlOptions: {
       imgAttributes: {
         loading: "lazy",
