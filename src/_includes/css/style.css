@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+crisp-image {
+  image-rendering: crisp-edges;
+}

@@ -1,43 +1,11 @@
 ---
-active_page: Links
-id: 1
-description: Collection of links to websites recommended by the website author
+title: Links
+description: Some links I like
 eleventyNavigation:
   key: Links
-  order: 1
+  parent: SX_7
+layout: layout.njk
 ---
 
-{% extends "layout.njk" %}
-{% block content %}
-  <main class="gap-4 p-4 text-danube-200">
-    <div
-      class="gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid grid-cols-1"
-    >
-      {%- for current_element in links | sort(attribute='title') %}
-        <a
-          href="{{ current_element['link'] }}"
-          target="_blank"
-        >
-          <div
-            class="group h-20 rounded-md bg-danube-900 shadow-lg shadow-rangoon-slate-900 ease-in-out hover:bg-opium-900 flex flex-row overflow-hidden transition duration-500"
-          >
-            <img
-              class="rounded-md w-20 float-left flex-none scale-100 object-fill saturate-0 transition duration-500 group-hover:scale-110 group-hover:saturate-150"
-              src="{{ current_element['img'] }}"
-              alt=""
-              {% if loop.first -%}
-                eleventy:widths="100" fetchpriority="high" loading="eager"
-              {%- endif %}
-            />
-            <div class="p-2 flex grow flex-col content-center justify-center">
-              <div class="text-center">{{ current_element['title'] }}</div>
-              <div class="text-rangoon-green-200 text-center italic">
-                {{ current_element['desc'] }}
-              </div>
-            </div>
-          </div>
-        </a>
-      {%- endfor %}
-    </div>
-  </main>
-{%- endblock %}
+<p>Hello, and welcome to my website!</p>
+<p>This is just a link hub.</p>

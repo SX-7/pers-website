@@ -1,30 +1,11 @@
 ---
-active_page: Projects
-id: 2
-description: Listing of programming projects of the website author, alongside with short descriptions and links
+title: Projects
+description: Nigh-blank homepage with projects
 eleventyNavigation:
   key: Projects
-  order: 2
+  parent: SX_7
+layout: layout.njk
 ---
 
-{% extends "layout.njk" %}
-{% block content %}
-  <div class="gap-8 p-8 text-opium-200 flex w-full grow flex-col">
-    {%- for curr_element in collections.projects %}
-      <div class="flex w-full flex-col">
-        <div
-          class="rounded-lg hover:bg-danube-500 hover:text-opium-950 ease-in-out bg-danube-900 p-2 shadow-md shadow-rangoon_green-700 z-10 text-center opacity-100 transition select-none"
-        >
-          {{ curr_element.data.title }}
-        </div>
-        <div
-          class="mx-4 rounded-b-md bg-slate-900 ring-danube-950 flex flex-col justify-end overflow-hidden ring-2 ring-inset"
-        >
-          <div>
-            <div class="p-4">{{ curr_element.content | safe }}</div>
-          </div>
-        </div>
-      </div>
-    {%- endfor %}
-  </div>
-{%- endblock %}
+<p>Hello, and welcome to my website!</p>
+<p>This is just a project hub.</p>

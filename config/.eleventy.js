@@ -100,16 +100,17 @@ module.exports = (eleventyConfig) => {
   // PASSTHROUGH COPIES
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
-  eleventyConfig.addPassthroughCopy({ "src/static": "static" });
+  eleventyConfig.addPassthroughCopy({ "src/_static": "static" });
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
   // -----------------------------------------------------------------
   return {
+    markdownTemplateEngine: "njk",
     dir: {
       input: "src",
-      includes: "includes",
-      data: "data",
+      includes: "_includes",
+      data: "_data",
       output: "_site",
     },
   };

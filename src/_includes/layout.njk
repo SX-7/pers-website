@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  class="scroll-smooth"
+  class="bg-gray-950 text-slate-100 scroll-smooth"
 >
   <head>
     <meta charset="UTF-8" />
@@ -46,7 +46,7 @@
     </style>
     <!-- prettier-ignore-end -->
     {# Front Matter consumer #}
-    <title>{{ active_page }} - SX_7</title>
+    <title>{{ title }} - SX_7</title>
     {# Could be optimized, but this way it's responsive and works on most #}
     <link
       rel="icon"
@@ -76,12 +76,9 @@
       href="/static/site.webmanifest"
     />
   </head>
-  <body
-    class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(/static/topography.svg)] bg-size-[2000px]"
-  >
+  <body class="flex min-h-screen flex-col">
     {% include "navbar.njk" %}
     {# Content, since this is a child template and not parent one, interestingly #}
-    {%- block content %}
-    {% endblock %}
+    <main class="p-4">{{ content | safe }}</main>
   </body>
 </html>

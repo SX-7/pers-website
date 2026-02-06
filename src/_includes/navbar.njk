@@ -1,0 +1,13 @@
+<nav
+  class="from-gray-900 to-gray-950 pl-4 flex w-full flex-row bg-linear-to-r select-none"
+>
+  {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+  {%- for direction_data in nav_pages %}
+    <div class="py-4">/</div>
+
+    <a href="{{ direction_data.url }}">
+      <div class="py-4 px-1">{{ direction_data.title }}</div>
+    </a>
+  {%- endfor %}
+  <div class="flex-grow"></div>
+</nav>
