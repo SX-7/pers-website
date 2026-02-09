@@ -33,7 +33,7 @@
     "js-yaml": "^4.1.1",
     "linkinator": "^7.5.3",
     "lint-staged": "^16.2.7",
-    "playwright": "^1.58.1",
+    "playwright": "^1.58.2",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-jinja-template": "^2.1.0",
