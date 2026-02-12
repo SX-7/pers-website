@@ -1,18 +1,9 @@
 {
   "name": "pers-website",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "postStartCommand": "npm ci && npm run build",
   "customizations": {
     "vscode": {
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
-        "python-envs.defaultEnvManager": "ms-python.python:venv",
-        "python.analysis.autoImportCompletions": true,
-        "python.analysis.typeCheckingMode": "strict",
-        "python.languageServer": "Pylance",
-        "python.analysis.languageServerMode": "full",
-        "python.analysis.diagnosticMode": "workspace",
-        "python.analysis.exclude": [".vscode-remote/*", ".venv/*"],
         "files.exclude": {
           "**/.git": true,
           "**/.svn": true,
