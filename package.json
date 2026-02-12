@@ -50,6 +50,7 @@
   },
   "scripts": {
     "start": "eleventy --serve --config=config/.eleventy.js",
+    "start:tailwind": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css --watch",
     "build:css": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css",
     "build:css:prod": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css --minify",
     "build:html": "eleventy --config=config/.eleventy.js",

@@ -78,7 +78,33 @@
   </head>
   <body class="flex min-h-screen flex-col">
     {% include "navbar.njk" %}
-    {# Content, since this is a child template and not parent one, interestingly #}
-    <main class="p-4">{{ content | safe }}</main>
+    <div class="flex flex-row">
+      {% set children = collections.all | eleventyNavigation(eleventyNavigation.key) %}
+      {% if not type and children.length > 0 %}
+        <div class="bg-gray-900">
+          <h3>{{ eleventyNavigation.parent or "Section" }}</h3>
+          <ul>
+            {%- for child in children -%}
+              <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% endif %}
+      <main class="p-4">
+        {{ content | safe }}
+        {% if type == "category" %}
+          <div>
+            {%- for child in children -%}
+              <a
+                href="{{ child.url }}"
+                class="card"
+              >
+                <p>{{ child.title }}</p>
+              </a>
+            {%- endfor -%}
+          </div>
+        {% endif %}
+      </main>
+    </div>
   </body>
 </html>
