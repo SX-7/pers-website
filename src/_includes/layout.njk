@@ -78,7 +78,7 @@
   </head>
   <body class="flex min-h-screen flex-col">
     {% include "navbar.njk" %}
-    <div class="flex flex-row">
+    <div class="flex grow flex-row">
       {% set children = collections.all | eleventyNavigation(eleventyNavigation.key) %}
       {% if not type and children.length > 0 %}
         <div class="bg-gray-900">
@@ -90,16 +90,23 @@
           </ul>
         </div>
       {% endif %}
-      <main class="p-4">
-        {{ content | safe }}
+      <main class="p-4 flex grow flex-col">
+        <div class="prose lg:prose-xl prose-invert prose-slate">
+          {{ content | safe }}
+        </div>
         {% if type == "category" %}
-          <div>
+          <div class="p-2 gap-4 flex flex-row flex-wrap">
             {%- for child in children -%}
               <a
                 href="{{ child.url }}"
-                class="card"
+                class="rounded-lg p-2 flex flex-row place-content-center place-items-center border-2 border-dashed text-center"
               >
-                <p>{{ child.title }}</p>
+                <img
+                  src="_images/folder.png"
+                  alt=""
+                  class="w-16"
+                />
+                <p class="p-2 lowercase">./{{ child.title }}</p>
               </a>
             {%- endfor -%}
           </div>
