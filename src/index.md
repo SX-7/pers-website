@@ -1,8 +1,6 @@
 ---
 title: SX_7
 description: Nigh-blank homepage with a greeting
-eleventyNavigation:
-  key: SX_7
 type: category
 ---
 

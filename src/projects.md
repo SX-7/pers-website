@@ -1,8 +1,6 @@
 ---
 title: Projects
+parent: SX_7
 description: Nigh-blank homepage with projects
-eleventyNavigation:
-  key: Projects
-  parent: SX_7
 type: category
 ---
