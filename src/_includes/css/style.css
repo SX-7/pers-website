@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+crisp-image {
+  image-rendering: crisp-edges;
+}

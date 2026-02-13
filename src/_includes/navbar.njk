@@ -1,0 +1,15 @@
+<nav
+  class="from-gray-900 to-gray-950 pl-4 flex w-full flex-row bg-linear-to-r select-none"
+>
+  {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+  {%- for direction_data in nav_pages %}
+    <a href="{{ direction_data.url }}">
+      <div
+        class="py-4 ease-in-out hover:text-blue-300 text-white text-lg no-underline decoration-dashed transition duration-400 hover:underline"
+      >
+        {% if loop.first %}~{% else %}/{{ direction_data.title }}{% endif %}
+      </div>
+    </a>
+  {%- endfor %}
+  <div class="flex-grow"></div>
+</nav>

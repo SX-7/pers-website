@@ -17,10 +17,12 @@
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-navigation": "^1.0.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@11ty/eleventy-plugin-vite": "^7.0.0",
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
     "bundlemon": "^3.1.0",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
@@ -33,6 +35,7 @@
     "js-yaml": "^4.1.1",
     "linkinator": "^7.5.3",
     "lint-staged": "^16.2.7",
+    "markdown-it": "^14.1.1",
     "playwright": "^1.58.1",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
@@ -43,14 +46,16 @@
     "reg-notify-github-plugin": "^0.14.5",
     "reg-publish-gcs-plugin": "^0.14.4",
     "reg-suit": "^0.14.5",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18",
     "terser": "^5.46.0",
     "vite-plugin-image-optimizer": "^2.0.3"
   },
   "scripts": {
     "start": "eleventy --serve --config=config/.eleventy.js",
-    "build:css": "tailwindcss -i ./src/includes/css/style.css -o ./src/includes/css/tailwind.css",
-    "build:css:prod": "tailwindcss -i ./src/includes/css/style.css -o ./src/includes/css/tailwind.css --minify",
+    "start:tailwind": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css --watch",
+    "build:css": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css",
+    "build:css:prod": "tailwindcss -i ./src/_includes/css/style.css -o ./src/_includes/css/tailwind.css --minify",
     "build:html": "eleventy --config=config/.eleventy.js",
     "build": "npm run build:css && npm run build:html",
     "build:prod": "cross-env NODE_ENV=production npm run build:css:prod && cross-env NODE_ENV=production npm run build:html",
@@ -88,7 +93,7 @@
       "prettier-plugin-tailwindcss",
       "prettier-plugin-jinja-template"
     ],
-    "tailwindStylesheet": "./src/includes/css/tailwind.css",
+    "tailwindStylesheet": "./src/_includes/css/tailwind.css",
     "overrides": [
       {
         "files": [

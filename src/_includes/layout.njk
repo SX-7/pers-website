@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  class="scroll-smooth"
+  class="bg-gray-950 text-slate-100 scroll-smooth"
 >
   <head>
     <meta charset="UTF-8" />
@@ -46,7 +46,7 @@
     </style>
     <!-- prettier-ignore-end -->
     {# Front Matter consumer #}
-    <title>{{ active_page }} - SX_7</title>
+    <title>{{ title }} - SX_7</title>
     {# Could be optimized, but this way it's responsive and works on most #}
     <link
       rel="icon"
@@ -76,12 +76,44 @@
       href="/static/site.webmanifest"
     />
   </head>
-  <body
-    class="bg-slate-950 font-noto flex min-h-screen flex-col bg-[url(/static/topography.svg)] bg-size-[2000px]"
-  >
+  <body class="flex min-h-screen flex-col">
     {% include "navbar.njk" %}
-    {# Content, since this is a child template and not parent one, interestingly #}
-    {%- block content %}
-    {% endblock %}
+    <div class="flex grow flex-row">
+      {% set children = collections.all | eleventyNavigation(eleventyNavigation.key) %}
+      <main class="p-4 gap-2 flex grow flex-col">
+        <div
+          class="prose lg:prose-xl prose-invert prose-slate place-self-center"
+        >
+          {{ content | safe }}
+        </div>
+        {% if type == "category" %}
+          <div
+            class="p-4 gap-4 border-slate-600 flex flex-row flex-wrap border-t-3 border-dashed"
+          >
+            {%- for child in children -%}
+              <a
+                href="{{ child.url }}"
+                class="group rounded-lg p-2 hover:border-blue-300 ease-in-out flex flex-row place-content-center place-items-center border-2 border-dashed text-center transition duration-400"
+              >
+                <img
+                  {% if child.data.type == "category" %}
+                    src="_images/folder.png"
+                  {% else %}
+                    src="_images/file.png"
+                  {% endif %}
+                  alt=""
+                  class="w-16"
+                />
+                <p
+                  class="p-2 text-lg no-underline decoration-dashed group-hover:underline"
+                >
+                  ./{{ child.title }}
+                </p>
+              </a>
+            {%- endfor -%}
+          </div>
+        {% endif %}
+      </main>
+    </div>
   </body>
 </html>
