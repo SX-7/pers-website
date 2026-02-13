@@ -56,11 +56,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix --config config/eslint.config.mjs",
-      "prettier --write"
-    ],
-    "**/*.{json,css,md,njk,html}": [
+    "**/*.{js,jsx,ts,tsx,json,css,md,njk,html}": [
       "prettier --write"
     ]
   },
