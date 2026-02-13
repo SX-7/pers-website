@@ -1,5 +1,5 @@
 <nav
-  class="from-gray-900 to-gray-950 pl-4 sticky flex w-full flex-row bg-linear-to-r select-none"
+  class="from-gray-900 to-gray-950 pl-4 top-0 sticky flex w-full flex-row bg-linear-to-r select-none"
 >
   {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
   {%- for direction_data in nav_pages %}
