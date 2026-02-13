@@ -7,6 +7,3 @@ eleventyNavigation:
 layout: layout.njk
 type: category
 ---
-
-Whatever stuff I have cooked up over the years.<br />
-Most are eh, but some are not.

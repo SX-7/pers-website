@@ -80,33 +80,35 @@
     {% include "navbar.njk" %}
     <div class="flex grow flex-row">
       {% set children = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-      {% if not type and children.length > 0 %}
-        <div class="bg-gray-900">
-          <h3>{{ eleventyNavigation.parent or "Section" }}</h3>
-          <ul>
-            {%- for child in children -%}
-              <li><a href="{{ child.url }}">{{ child.title }}</a></li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {% endif %}
-      <main class="p-4 flex grow flex-col">
-        <div class="prose lg:prose-xl prose-invert prose-slate">
+      <main class="p-4 gap-2 flex grow flex-col">
+        <div
+          class="prose lg:prose-xl prose-invert prose-slate place-self-center"
+        >
           {{ content | safe }}
         </div>
         {% if type == "category" %}
-          <div class="p-2 gap-4 flex flex-row flex-wrap">
+          <div
+            class="p-4 gap-4 border-slate-600 flex flex-row flex-wrap border-t-3 border-dashed"
+          >
             {%- for child in children -%}
               <a
                 href="{{ child.url }}"
-                class="rounded-lg p-2 flex flex-row place-content-center place-items-center border-2 border-dashed text-center"
+                class="group rounded-lg p-2 hover:border-blue-300 ease-in-out flex flex-row place-content-center place-items-center border-2 border-dashed text-center transition duration-400"
               >
                 <img
-                  src="_images/folder.png"
+                  {% if child.data.type == "category" %}
+                    src="_images/folder.png"
+                  {% else %}
+                    src="_images/file.png"
+                  {% endif %}
                   alt=""
                   class="w-16"
                 />
-                <p class="p-2 lowercase">./{{ child.title }}</p>
+                <p
+                  class="p-2 text-lg no-underline decoration-dashed group-hover:underline"
+                >
+                  ./{{ child.title }}
+                </p>
               </a>
             {%- endfor -%}
           </div>

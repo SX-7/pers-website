@@ -7,6 +7,8 @@ const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const jsmin = require("terser");
+const markdownIt = require("markdown-it");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const ViteImageOptimizer =
   require("vite-plugin-image-optimizer").ViteImageOptimizer;
 
@@ -75,6 +77,16 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addPlugin(IdAttributePlugin);
+
+  eleventyConfig.addPlugin(syntaxHighlight);
+
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true,
+  };
+
+  eleventyConfig.setLibrary("md", markdownIt(options));
 
   // -----------------------------------------------------------------
   // TRANSFORMS

@@ -7,14 +7,4 @@ eleventyNavigation:
 layout: layout.njk
 ---
 
-# Cool stuff man
-
-## But like
-
-### Who cares
-
-#### yknow?
-
-##### really
-
-###### wow
+# This website lol
