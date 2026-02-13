@@ -2,11 +2,9 @@ const yaml = require("js-yaml");
 const postcss = require("postcss");
 const cssnano = require("cssnano");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
-const { IdAttributePlugin } = require("@11ty/eleventy");
 const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
-const jsmin = require("terser");
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const ViteImageOptimizer =
@@ -22,17 +20,6 @@ module.exports = (eleventyConfig) => {
       .process(code, { from: undefined })
       .then((result) => callback(null, result.css))
       .catch((error) => callback(error, null));
-  });
-  // Minify js
-  eleventyConfig.addNunjucksFilter("jsmin", function (code) {
-    try {
-      var minified = jsmin.minify_sync(code);
-      return minified.code;
-    } catch (err) {
-      console.error("Terser error: ", err);
-      // Fail gracefully.
-      return code;
-    }
   });
 
   // -----------------------------------------------------------------
@@ -75,8 +62,6 @@ module.exports = (eleventyConfig) => {
 
   // Navigation
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
-  eleventyConfig.addPlugin(IdAttributePlugin);
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
