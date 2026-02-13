@@ -1,9 +1,9 @@
 <nav
-  class="from-gray-900 to-gray-950 pl-4 flex w-full flex-row bg-linear-to-r select-none"
+  class="from-gray-900 to-gray-950 pl-4 sticky flex w-full flex-row bg-linear-to-r select-none"
 >
   {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
   {%- for direction_data in nav_pages %}
-    <a href="{{ direction_data.url }}">
+    <a href="{% if loop.last %}#{% else %}{{ direction_data.url }}{% endif %}">
       <div
         class="py-4 ease-in-out hover:text-blue-300 text-white text-lg no-underline decoration-dashed transition duration-400 hover:underline"
       >
