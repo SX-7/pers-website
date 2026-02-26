@@ -101,6 +101,8 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
   eleventyConfig.addPassthroughCopy({ "src/_static": "static" });
+  // Expose decap
+  eleventyConfig.addPassthroughCopy({ "src/_admin": "admin" });
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
