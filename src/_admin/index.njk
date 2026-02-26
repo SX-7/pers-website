@@ -24,5 +24,42 @@ eleventyNavigation:
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // 1. Inject the CSS blob directly from your Nunjucks file
+      // We use backticks `` to allow for multi-line CSS strings safely
+      const bundledCSS = `{% include 'bundle-css.njk' %}`;
+
+      // 2. Register the raw CSS string to the preview iframe
+      CMS.registerPreviewStyle(bundledCSS, { raw: true });
+
+      // 3. Create the Template
+      // We use h() which is Decap's built-in hyperscript function
+      const PostPreview = createClass({
+        render: function () {
+          const entry = this.props.entry;
+          const body = this.props.widgetFor("body");
+
+          return h(
+            "div",
+            {
+              // Adding a dark background here is crucial because prose-invert
+              // makes text white, which is invisible on the default CMS white bg.
+              className: "bg-slate-900 min-h-screen p-8",
+            },
+            h(
+              "div",
+              {
+                className: "prose lg:prose-xl prose-invert prose-slate mx-auto",
+              },
+              body,
+            ),
+          );
+        },
+      });
+
+      // 4. Register for your specific collection (e.g., "posts" or "blog")
+      CMS.registerPreviewTemplate("posts", PostPreview);
+    </script>
   </body>
 </html>
