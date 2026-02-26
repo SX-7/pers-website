@@ -30,7 +30,13 @@ module.exports = (eleventyConfig) => {
   // VITE
   eleventyConfig.addPlugin(eleventyVitePlugin.default, {
     viteOptions: {
-      build: { minify: "terser", modulePreload: "true" },
+      build: {
+        minify: "terser",
+        modulePreload: "true",
+        rollupOptions: {
+          external: [/^\/admin\/.*/],
+        },
+      },
       plugins: [
         ViteImageOptimizer({
           webp: { quality: 75 },
@@ -78,7 +84,11 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Minify html, not css tho, that's for filter
   eleventyConfig.addTransform("htmlmin", async function (content) {
-    if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
+    if (
+      this.page.outputPath &&
+      this.page.outputPath.endsWith(".html") &&
+      !this.page.outputPath.includes("/admin/")
+    ) {
       let minified = await htmlmin.minify(content, {
         removeComments: true,
         collapseWhitespace: true,
