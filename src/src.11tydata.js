@@ -4,13 +4,12 @@ module.exports = {
       const url = data.page.url;
 
       if (url === "/" || !url) {
-        return { key: "SX_7", title: "SX_7" };
+        return { key: "~", title: "~" };
       }
 
       const segments = url.split("/").filter(Boolean);
       const key = segments[segments.length - 1];
-      const parent =
-        segments.length > 1 ? segments[segments.length - 2] : "SX_7";
+      const parent = segments.length > 1 ? segments[segments.length - 2] : "~";
 
       // Title Helper: replaces dashes/underscores with spaces and capitalizes each word
       const formattedTitle = key
