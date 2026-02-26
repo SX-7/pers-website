@@ -1,6 +1,5 @@
 ---
 title: Personal website
-parent: Projects
 description: My website! This one!
 ---
 
