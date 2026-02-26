@@ -62,3 +62,8 @@ jobs:
           -H "Content-Type: application/json" \
           --data '{"purge_everything":true}' \
           --fail
+
+      - name: BundleMon
+        uses: lironer/bundlemon-action@v1
+        with:
+          bundlemon-args: --config .github/workflows/bundlemonrc.json
