@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: SX-7/pers-website
+  branch: main
+  base_url: https://oauth-p6qua7ddhq-uc.a.run.app
+  auth_endpoint: /auth
+
+publish_mode: editorial_workflow
+
+media_folder: "src/_images"
+public_folder: "_images"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

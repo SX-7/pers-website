@@ -30,7 +30,10 @@ module.exports = (eleventyConfig) => {
   // VITE
   eleventyConfig.addPlugin(eleventyVitePlugin.default, {
     viteOptions: {
-      build: { minify: "terser", modulePreload: "true" },
+      build: {
+        minify: "terser",
+        modulePreload: "true",
+      },
       plugins: [
         ViteImageOptimizer({
           webp: { quality: 75 },
@@ -101,6 +104,8 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Copy 'app/static' to '_site/static'
   eleventyConfig.addPassthroughCopy({ "src/_static": "static" });
+  // Expose decap
+  eleventyConfig.addPassthroughCopy("src/_admin");
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
