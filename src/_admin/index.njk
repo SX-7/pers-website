@@ -1,5 +1,8 @@
 ---
 layout:
+eleventyNavigation:
+  hide: true
+eleventyExcludeFromCollections: true
 ---
 
 <!DOCTYPE html>
@@ -19,5 +22,34 @@ layout:
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      const bundledCSS = `{% include 'bundle-css.njk' %}`;
+
+      CMS.registerPreviewStyle(bundledCSS, { raw: true });
+
+      const PostPreview = createClass({
+        render: function () {
+          const entry = this.props.entry;
+          const body = this.props.widgetFor("body");
+
+          return h(
+            "div",
+            {
+              className: "bg-slate-900 min-h-screen p-8",
+            },
+            h(
+              "div",
+              {
+                className: "prose lg:prose-xl prose-invert prose-slate mx-auto",
+              },
+              body,
+            ),
+          );
+        },
+      });
+
+      CMS.registerPreviewTemplate("posts", PostPreview);
+    </script>
   </body>
 </html>

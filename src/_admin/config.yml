@@ -10,6 +10,8 @@ publish_mode: editorial_workflow
 media_folder: "src/_images"
 public_folder: "_images"
 
+site_url: https://sx7.dev
+
 collections:
   - name: "projects"
     label: "Projects"
