@@ -33,9 +33,6 @@ module.exports = (eleventyConfig) => {
       build: {
         minify: "terser",
         modulePreload: "true",
-        rollupOptions: {
-          external: [/^\/admin\/.*/],
-        },
       },
       plugins: [
         ViteImageOptimizer({
@@ -84,11 +81,7 @@ module.exports = (eleventyConfig) => {
   // -----------------------------------------------------------------
   // Minify html, not css tho, that's for filter
   eleventyConfig.addTransform("htmlmin", async function (content) {
-    if (
-      this.page.outputPath &&
-      this.page.outputPath.endsWith(".html") &&
-      !this.page.outputPath.includes("/admin/")
-    ) {
+    if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
       let minified = await htmlmin.minify(content, {
         removeComments: true,
         collapseWhitespace: true,
@@ -112,7 +105,7 @@ module.exports = (eleventyConfig) => {
   // Copy 'app/static' to '_site/static'
   eleventyConfig.addPassthroughCopy({ "src/_static": "static" });
   // Expose decap
-  eleventyConfig.addPassthroughCopy({ "src/_admin": "admin" });
+  eleventyConfig.addPassthroughCopy("src/_admin");
 
   // -----------------------------------------------------------------
   // CONFIGURATION OPTIONS
