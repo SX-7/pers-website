@@ -32,3 +32,5 @@ public abstract class FancyStuffSystem : EntitySystem
     public abstract EntityUid? FindFancyStuff(EntityUid something);
 }
 ```
+
+Pretty neat, huh?
