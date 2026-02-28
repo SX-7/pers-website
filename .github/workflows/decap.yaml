@@ -34,13 +34,7 @@ jobs:
       - name: Fix Formatting 
         run: npm run lint:prettier:fix
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -a -m "Lint with Prettier"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: ${{ github.ref }}
+          commit_message: Lint with Prettier
