@@ -29,7 +29,7 @@ eleventyExcludeFromCollections: true
       {% include 'bundle-css.njk' %}
     </script>
     <script>
-      const bundleCSS =
+      const bundledCSS =
         document.getElementById("bundle-css-source").textContent;
       CMS.registerPreviewStyle(bundledCSS, { raw: true });
 
