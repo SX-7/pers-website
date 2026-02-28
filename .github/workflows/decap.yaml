@@ -2,7 +2,7 @@ name: CMS fixing
 
 on:
   push:
-    branches: ["cms/*"]
+    branches: ["cms/**"]
 
 jobs:
   quality-fix:
