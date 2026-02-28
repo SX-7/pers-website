@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://oauth-p6qua7ddhq-uc.a.run.app
   auth_endpoint: /auth
+  squash_merges: true
 
 publish_mode: editorial_workflow
 
