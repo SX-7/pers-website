@@ -22,10 +22,15 @@ eleventyExcludeFromCollections: true
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script
+      id="bundle-css-source"
+      type="text/plain"
+    >
+      {% include 'bundle-css.njk' %}
+    </script>
     <script>
-      const bundledCSS = `{% include 'bundle-css.njk' %}`;
-
+      const bundledCSS =
+        document.getElementById("bundle-css-source").textContent;
       CMS.registerPreviewStyle(bundledCSS, { raw: true });
 
       const PostPreview = createClass({
@@ -49,7 +54,7 @@ eleventyExcludeFromCollections: true
         },
       });
 
-      CMS.registerPreviewTemplate("posts", PostPreview);
+      CMS.registerPreviewTemplate("projects", PostPreview);
     </script>
   </body>
 </html>
