@@ -28,7 +28,10 @@ jobs:
         run: npm ci
 
       # 4. Composite action, check package.json
-      - name: Check Formatting 
+      - name: Put files in
+        run: npm run build
+
+      - name: Fix Formatting 
         run: npm run lint:prettier:fix
 
       - name: Commit changes
