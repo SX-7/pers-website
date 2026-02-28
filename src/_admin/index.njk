@@ -22,7 +22,6 @@ eleventyExcludeFromCollections: true
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
       const bundledCSS = `{% include 'bundle-css.njk' %}`;
 
@@ -49,7 +48,7 @@ eleventyExcludeFromCollections: true
         },
       });
 
-      CMS.registerPreviewTemplate("posts", PostPreview);
+      CMS.registerPreviewTemplate("projects", PostPreview);
     </script>
   </body>
 </html>
