@@ -6,10 +6,6 @@ backend:
   auth_endpoint: /auth
   squash_merges: true
 
-logo:
-  src: /static/favicon.svg
-  show_in_header: true
-
 publish_mode: editorial_workflow
 
 media_folder: "src/_images"
