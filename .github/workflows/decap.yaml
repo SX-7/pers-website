@@ -15,6 +15,8 @@ jobs:
       # 1. Get the code
       - name: Checkout Code
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.APP_PAT }}
 
       # 2. Setup Node environment
       - name: Setup Node.js
@@ -38,3 +40,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Lint with Prettier
+          skip_dirty_check: false
