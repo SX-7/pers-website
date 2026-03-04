@@ -18,17 +18,18 @@ collections:
     label: "Projects"
     folder: "src/projects"
     create: true
+    nested:
+      depth: 5
     slug: "{{slug}}"
+    meta: { 
+      path: { 
+        widget: string, 
+        label: "Path", 
+        index_file: "index" 
+      } 
+    }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-  - name: "goob-station-reforged"
-    label: "Goob Station Reforged"
-    folder: "src/projects/goob-station-reforged"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: [{label: "Category", value: "category"}, {label: "Page", value: "page"}], default: ["category"] }
       - { label: "Body", name: "body", widget: "markdown" }
