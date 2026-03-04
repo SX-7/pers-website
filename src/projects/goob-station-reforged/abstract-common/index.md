@@ -4,6 +4,7 @@ description: For communication outside of goobmod, prefer abstract classes in
   common over event bus.
 type: page
 ---
+
 # Communication Between Systems
 
 For communication outside of goobmod, prefer abstract classes in common over event bus.
