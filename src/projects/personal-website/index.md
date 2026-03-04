@@ -7,6 +7,7 @@ type: page
 This website lol
 
 Checklist of things I need to do I suppose:
+
 - Add things like last edited, created, minutes to read
 - revamp navbar, it should show buttons to home, to page above, and the current title
 - alternatively the current title should be inlined for pages, and not inclined for categories? Idk
