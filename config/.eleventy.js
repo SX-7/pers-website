@@ -6,6 +6,7 @@ const htmlmin = require("html-minifier-terser");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const ViteImageOptimizer =
   require("vite-plugin-image-optimizer").ViteImageOptimizer;
@@ -68,13 +69,21 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  let options = {
+  const mdLib = markdownIt({
     html: true,
-    breaks: true,
     linkify: true,
-  };
+    breaks: true,
+    typography: true,
+  }).use(markdownItAnchor, {
+    level: 2,
+    permalink: markdownItAnchor.permalink.headerLink({
+      safariReaderFix: true,
+      class: "header-anchor",
+    }),
+  });
 
-  eleventyConfig.setLibrary("md", markdownIt(options));
+  // 2. Tell 11ty to use this library for .md files
+  eleventyConfig.setLibrary("md", mdLib);
 
   // -----------------------------------------------------------------
   // TRANSFORMS

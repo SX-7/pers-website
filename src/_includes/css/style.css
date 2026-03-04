@@ -4,3 +4,44 @@
 crisp-image {
   image-rendering: crisp-edges;
 }
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: 5rem;
+}
+
+.header-anchor {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: block;
+  z-index: 1;
+}
+
+.header-anchor::after {
+  content: "#";
+  margin-left: 0.5ch;
+
+  opacity: 0.2;
+  color: currentColor;
+
+  transition:
+    opacity 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  font-weight: normal;
+  font-family: monospace;
+  z-index: -1;
+}
+
+.header-anchor:hover::after {
+  opacity: 1;
+  color: #0070f3;
+}
+
+.header-anchor:hover {
+  text-decoration: none;
+}
