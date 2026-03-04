@@ -2,7 +2,6 @@
 title: Goob Station Reforged
 description: Notes on Goob Station Reforged
 type: category
-parent: projects
 ---
 
 Goob Station Reforged is a project to rewrite Goob Station in a much more sustainable, and less error-prone way.
