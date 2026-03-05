@@ -23,11 +23,8 @@ collections:
       summary: "{{title}}"
       subfolders: false
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
-    meta:
-      path:
-        widget: "string"
-        label: "Path"
-        index_file: "index"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "Version: {{version}} - {{title}} - {{dirname}}/{{filename}}.{{extension}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
