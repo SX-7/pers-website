@@ -69,7 +69,12 @@ jobs:
           TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN_PURGE }}"
           echo "Zone ID: ${ZONE:0:3}...${ZONE: -3}"
           echo "Token:   ${TOKEN:0:3}...${TOKEN: -3}"
-
+      
+      - name: Verify Token Identity
+        run: |
+          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN_PURGE }}"
+          
       - name: BundleMon
         uses: lironer/bundlemon-action@v1
         with:
