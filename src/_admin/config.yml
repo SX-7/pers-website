@@ -25,7 +25,6 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{dirname}}/{{filename}}.{{extension}}"
     slug: "{{slug}}"
-    meta: { path: { widget: string, label: 'Path', index_file: 'index', default: "{{path}}/{{slug}}" } }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
