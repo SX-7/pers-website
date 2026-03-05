@@ -21,10 +21,10 @@ collections:
     nested:
       depth: 5
       summary: "{{title}}"
-      subfolders: false
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{dirname}}/{{filename}}.{{extension}}"
+    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
