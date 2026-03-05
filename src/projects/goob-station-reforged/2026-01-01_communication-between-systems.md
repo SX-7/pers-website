@@ -5,13 +5,11 @@ description: For communication outside of goobmod, prefer abstract classes in
 type: page
 ---
 
-# Communication Between Systems
-
 For communication outside of goobmod, prefer abstract classes in common over event bus.
 
 While it might seem prudent to use the tools that are in place, adding things to event bus unnecessarily strains it. It gets way worse once you have a lot of events. So what to use instead?
 
-### **_Abstract systems in Common_**
+## **_Abstract systems in Common_**
 
 The idea is simple. You define an `abstract` system in say, `Goobstation.Common`. Then, you provide an implementation in (for example) `Goobstation.Server`. Now, if you want to use something from a system, instead of sending over an event you just call it.
 

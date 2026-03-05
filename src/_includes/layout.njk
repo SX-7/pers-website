@@ -80,9 +80,11 @@
     {% include "navbar.njk" %}
     <div class="flex grow flex-row">
       {% set children = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-      <main class="p-4 gap-2 flex grow flex-col">
+      <main
+        class="p-4 gap-2 flex max-w-screen grow flex-col place-items-center"
+      >
         <div
-          class="prose lg:prose-xl prose-invert prose-slate place-self-center"
+          class="prose max-sm:max-w-full prose-sm md:prose-lg lg:prose-xl prose-invert prose-slate min-w-0 text-wrap break-words"
         >
           {{ content | safe }}
         </div>
@@ -107,7 +109,7 @@
                 <p
                   class="p-2 text-lg no-underline decoration-dashed group-hover:underline"
                 >
-                  ./{{ child.title }}
+                  {{ child.title }}
                 </p>
               </a>
             {%- endfor -%}
