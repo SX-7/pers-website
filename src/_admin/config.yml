@@ -23,8 +23,8 @@ collections:
     nested:
       depth: 100
       subfolders: false
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
-    summary: "{{title}} - {{dirname}} - {{filename}} - {{extension}} - {{commit_date}} - {{commit_author}}"
+    slug: "t{{year}}-{{month}}-{{day}}_{{slug}}"
+    summary: "{{title}} - {{commit_date}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
