@@ -21,14 +21,16 @@ collections:
     nested:
       depth: 5
       summary: "{{title}}"
-    slug: "{{slug}}"
+      subfolders: false
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     meta:
       path:
         widget: "string"
         label: "Path"
         index_file: "index"
+    summary: "Version: {{version}} - {{title}} - {{dirname}}/{{filename}}.{{extension}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Type", name: "type", widget: "select", options: ["category", "page"], default: "category" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Type", name: "type", widget: "select", options: [{label: "Category", value: "category"}, {label: "Page", value: "page"}], default: "category" }
       - { label: "Body", name: "body", widget: "markdown" }
