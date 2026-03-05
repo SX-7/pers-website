@@ -63,6 +63,13 @@ jobs:
           --data '{"purge_everything":true}' \
           --fail
 
+      - name: Identity Check
+        run: |
+          ZONE="${{ secrets.CLOUDFLARE_ZONE_ID }}"
+          TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN_PURGE }}"
+          echo "Zone ID: ${ZONE:0:3}...${ZONE: -3}"
+          echo "Token:   ${TOKEN:0:3}...${TOKEN: -3}"
+
       - name: BundleMon
         uses: lironer/bundlemon-action@v1
         with:
