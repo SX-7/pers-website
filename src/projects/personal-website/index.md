@@ -4,7 +4,7 @@ description: My website! This one!
 type: page
 ---
 
-This website lol
+This website bruhhh
 
 Checklist of things I need to do I suppose:
 
