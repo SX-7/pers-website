@@ -1,15 +1,61 @@
 <nav
-  class="from-gray-900 to-gray-950 pl-4 top-0 sticky z-50 flex w-full flex-row bg-linear-to-r select-none"
+  class="from-gray-900 to-gray-950 top-0 sticky z-50 flex w-screen flex-row bg-linear-to-r select-none"
 >
   {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
-  {%- for direction_data in nav_pages %}
-    <a href="{% if loop.last %}#{% else %}{{ direction_data.url }}{% endif %}">
-      <div
-        class="py-4 ease-in-out hover:text-blue-300 text-white text-lg no-underline decoration-dashed transition duration-400 hover:underline"
+  <a
+    href="{{ (collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) | first).url }}"
+    class="flex flex-row"
+  >
+    <div class="p-4 self-center no-underline">
+      <div class="hidden">Home</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6 stroke-slate-500 stroke-2"
       >
-        {% if loop.first %}{{ direction_data.title }}{% else %}/{{ direction_data.title }}{% endif %}
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    href="{{ (collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) | last).url }}"
+    class="flex flex-row"
+  >
+    <div class="p-4 self-center no-underline">
+      <div class="hidden">Up</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6 stroke-slate-500 stroke-2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    href="#"
+    class="min-w-0 flex w-full shrink flex-col place-content-center"
+  >
+    <div class="flex shrink flex-row place-content-center">
+      <div
+        class="p-4 ease-in-out hover:text-blue-300 text-white text-xs sm:text-sm md:text-base lg:text-xl min-w-0 grow-0 truncate leading-none no-underline transition duration-400"
+      >
+        {{ title }}
       </div>
-    </a>
-  {%- endfor %}
-  <div class="flex-grow"></div>
+    </div>
+  </a>
 </nav>
