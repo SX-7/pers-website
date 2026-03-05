@@ -27,7 +27,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "Version: {{version}} - {{title}} - {{dirname}}/{{filename}}.{{extension}}"
     meta:
-      path: { label: "Path", widget: "string" }
+      path: { label: "Path", widget: "string", index_file: "" }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
