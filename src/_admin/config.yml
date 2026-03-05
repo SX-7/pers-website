@@ -22,8 +22,7 @@ collections:
     format: "frontmatter"
     nested:
       depth: 100
-    meta:
-      path: { label: "Path", widget: "string", index_file: "index" }
+      subfolders: false
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
