@@ -22,10 +22,12 @@ collections:
       depth: 5
       summary: "{{title}}"
       subfolders: false
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "Version: {{version}} - {{title}} - {{dirname}}/{{filename}}.{{extension}}"
+    meta:
+      path: { label: "Path", widget: "string", index_file: false }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
