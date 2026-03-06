@@ -4,9 +4,9 @@
   {% set nav_pages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
   <a
     href="{{ (collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) | first).url }}"
-    class="flex flex-row"
+    class="group flex flex-row"
   >
-    <div class="p-4 self-center no-underline">
+    <div class="lg:p-4 md:p-3 p-2 self-center no-underline">
       <div class="hidden">Home</div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="size-6 stroke-slate-500 stroke-2"
+        class="size-4 md:size-5 lg:size-6 stroke-slate-500 group-hover:stroke-blue-400 ease-in-out stroke-2 transition duration-400"
       >
         <path
           stroke-linecap="round"
@@ -26,36 +26,34 @@
   </a>
   <a
     href="{{ (collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) | last).url }}"
-    class="flex flex-row"
+    class="group flex flex-row"
   >
-    <div class="p-4 self-center no-underline">
-      <div class="hidden">Up</div>
+    <div class="lg:p-4 md:p-3 p-2 self-center no-underline">
+      <div class="hidden">Back</div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="size-6 stroke-slate-500 stroke-2"
+        class="size-4 md:size-5 lg:size-6 stroke-slate-500 group-hover:stroke-blue-400 ease-in-out stroke-2 transition duration-400"
       >
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+          d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
         />
       </svg>
     </div>
   </a>
   <a
     href="#"
-    class="min-w-0 flex w-full shrink flex-col place-content-center"
+    class="min-w-0 group flex w-full shrink flex-col place-content-center"
   >
-    <div class="flex shrink flex-row place-content-center">
-      <div
-        class="p-4 ease-in-out hover:text-blue-300 text-white text-xs sm:text-sm md:text-base lg:text-xl min-w-0 grow-0 truncate leading-none no-underline transition duration-400"
-      >
-        {{ title }}
-      </div>
+    <div
+      class="md:text-left lg:p-4 md:p-3 p-2 ease-in-out group-hover:text-blue-300 text-white text-xs sm:text-sm md:text-base lg:text-xl min-w-0 grow-0 truncate text-center leading-none no-underline transition duration-400"
+    >
+      {{ title }}
     </div>
   </a>
 </nav>
