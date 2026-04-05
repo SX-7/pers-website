@@ -46,7 +46,7 @@ ffmpeg \
 
 This will leave you with video file, duh. But what about audio?
 
-## The Audio 
+## The Audio
 
 Quite simpler, Opus is just the best.
 
