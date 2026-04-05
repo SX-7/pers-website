@@ -3,12 +3,15 @@ title: ffmpeg commands for jellyfin
 description: Collection of commands that I use to store more with less
 type: page
 ---
+
 In general the workflow is like this:
+
 1. Get movies
 2. Reencode the best ones
 3. Combine them in a container.
 
 The Command:
+
 ```sh
 ffmpeg \
 -loglevel repeat+level+error \
@@ -23,4 +26,3 @@ ffmpeg \
 -svtav1-params film-grain=10:tune=0:keyint=10s:enable-overlays=1 \
 -an -sn output.mkv
 ```
-
