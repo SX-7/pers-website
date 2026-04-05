@@ -30,6 +30,7 @@ ffmpeg \
 ```
 
 ### Line by line explanation:
+
 0. In general we use the default ffmpeg but I haven't researched the alternatives.
 1. Some HQ content has a lot of metadata that will often show up a LOT in logs, this avoids it.
 2. Needed, otherwise no status info (sad).
