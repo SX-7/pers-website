@@ -30,7 +30,6 @@ ffmpeg \
 ```
 
 ### Line by line explanation:
-
 0. In general we use the default ffmpeg but I haven't researched the alternatives.
 1. Some HQ content has a lot of metadata that will often show up a LOT in logs, this avoids it.
 2. Needed, otherwise no status info (sad).
@@ -39,3 +38,7 @@ ffmpeg \
 5. This effectively forces FHD, and if the source is not 16:9, adds black bars.
 6. Use AV1.
 7. Preset 4, tho 3 is usually 10% better, worth it if you have time.
+8. 26 is the best initially but feel free to tweak it.
+9. 10 bit colors for better darks and better compression efficiency.
+10. AV1 args; some grain synthesis, optimize for visual quality, etc.
+11. No audio or subtitles, this is only video for now.
