@@ -76,7 +76,7 @@ ffpmeg -i output.mkv -i out-en.mka -i out-pl.mka -i sub_en.srt -map 0:v -map 1:a
 
 Just combines them all. Always use copy and movflags, but metadata is optional since the source should have it by default 99% of time. MP4 is most compatible and with the movflags it can be streamed - even tho jellyfin will transcode it almost always since AV1 has random support.
 
-*Alternatively*, there's this justfile that does the thing - and is much more convenient to use.
+_Alternatively_, there's this justfile that does the thing - and is much more convenient to use.
 
 ```
 [no-cd]
