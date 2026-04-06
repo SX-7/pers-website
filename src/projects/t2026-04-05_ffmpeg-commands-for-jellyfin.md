@@ -75,3 +75,38 @@ ffpmeg -i output.mkv -i out-en.mka -i out-pl.mka -i sub_en.srt -map 0:v -map 1:a
 ```
 
 Just combines them all. Always use copy and movflags, but metadata is optional since the source should have it by default 99% of time. MP4 is most compatible and with the movflags it can be streamed - even tho jellyfin will transcode it almost always since AV1 has random support.
+
+*Alternatively*, there's this justfile that does the thing - and is much more convenient to use.
+
+```
+[no-cd]
+video INPUT OUTPUT="output.mkv" STREAM="0:v:0":
+  ffmpeg \
+    -loglevel repeat+level+error -stats \
+    -i {{INPUT}} \
+    -map {{STREAM}} \
+    -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black" \
+    -c:v libsvtav1 -preset 4 -crf 26 -pix_fmt yuv420p10le \
+    -svtav1-params film-grain=10:tune=0:keyint=10s:enable-overlays=1 \
+    -an -sn {{OUTPUT}}
+
+[no-cd]
+audio INPUT OUTPUT="output.mka" STREAM="0:a:0":
+  ffmpeg \
+    -i {{INPUT}} -map {{STREAM}} -c:a libopus \
+    -af -b:a 192k -vbr on \
+    -vn -sn {{OUTPUT}}
+
+[no-cd]
+audio_51 INPUT OUTPUT="output.mka" STREAM="0:a:0":
+  ffmpeg \
+    -i {{INPUT}} -map {{STREAM}} -c:a libopus \
+    -af "aformat=channel_layouts=5.1" -b:a 192k -vbr on \
+    -vn -sn {{OUTPUT}}
+
+[no-cd]
+mux VIDEO="output.mkv" AUDIO="output.mka" OUTPUT="final.mp4" *ADDITIONAL_ARGS="":
+  ffpmeg \
+    -i {{VIDEO}} -i {{AUDIO}} {{ADDITIONAL_ARGS}} \
+    -map 0:v -map 1:a -c copy -movflags +faststart {{OUTPUT}}
+```
